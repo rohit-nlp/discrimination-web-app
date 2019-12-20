@@ -1,41 +1,43 @@
-# simple django imageupload(django 2.x)
+# Django File Upload Tutorial
 
-## [demo](https://djangofileupload.herokuapp.com/uploader/)
+[![Python Version](https://img.shields.io/badge/python-3.7-brightgreen.svg)](https://python.org)
+[![Django Version](https://img.shields.io/badge/django-2.1-brightgreen.svg)](https://djangoproject.com)
 
-## usage
+Code example used in the tutorial series on Django File Upload.
 
-### 1. Download the folder `uploader`:
+Watch it on YouTube: [Django 2.1 File Upload](https://www.youtube.com/playlist?list=PLLxk3TkuAYnpm24Ma1XenNeq1oxxRcYFT)
 
-Download the folder `uploader` and save it in your project directory.
+Subscribe to my YouTube channel: [youtube.com/VitorFreitas](https://www.youtube.com/VitorFreitas?sub_confirmation=1)
 
-### 2. Update `setting.py` of your project:
+## Running the Project Locally
 
-On `setting.py` add:
+First, clone the repository to your local machine:
 
-    INSTALLED_APPS = [
-        ...<other apps>...
-        'uploader.apps.UploaderConfig',
-    ]
+```bash
+git clone https://github.com/sibtc/django-upload-example.git
+```
 
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-    MEDIA_URL = '/media/'
+Install the requirements:
 
-### 3. Update `urls.py` of your project:
+```bash
+pip install -r requirements.txt
+```
 
-On `urls.py` add:   
-    
-    ...<other imports>...
-    from django.urls import path,include
-    
-    urlpatterns = [
-        ...<other url patterns>...
-        path('uploader/', include('uploader.urls'))
-    ]
+Apply the migrations:
 
-### 4. Syncronize database
+```bash
+python manage.py migrate
+```
 
-    $ python manage.py makemigrations
-    $ python manage.py migrate
-    $ python manage.py runserver
+Finally, run the development server:
 
-visit <http://localhost.com:8000/uploader>
+```bash
+python manage.py runserver
+```
+
+The project will be available at **127.0.0.1:8000**.
+
+
+## License
+
+The source code is released under the [MIT License](https://github.com/sibtc/django-upload-example/blob/master/LICENSE).
