@@ -1,21 +1,41 @@
-# Simple File Upload Example
+# simple django imageupload(django 2.x)
 
-Example used in the blog post [How to Upload Files With Django](https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html)
+## [demo](https://djangofileupload.herokuapp.com/uploader/)
 
-## Running Locally
+## usage
 
-```bash
-git clone https://github.com/sibtc/simple-file-upload.git
-```
+### 1. Download the folder `uploader`:
 
-```bash
-pip install -r requirements.txt
-```
+Download the folder `uploader` and save it in your project directory.
 
-```bash
-python manage.py migrate
-```
+### 2. Update `setting.py` of your project:
 
-```bash
-python manage.py runserver
-```
+On `setting.py` add:
+
+    INSTALLED_APPS = [
+        ...<other apps>...
+        'uploader.apps.UploaderConfig',
+    ]
+
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_URL = '/media/'
+
+### 3. Update `urls.py` of your project:
+
+On `urls.py` add:   
+    
+    ...<other imports>...
+    from django.urls import path,include
+    
+    urlpatterns = [
+        ...<other url patterns>...
+        path('uploader/', include('uploader.urls'))
+    ]
+
+### 4. Syncronize database
+
+    $ python manage.py makemigrations
+    $ python manage.py migrate
+    $ python manage.py runserver
+
+visit <http://localhost.com:8000/uploader>
