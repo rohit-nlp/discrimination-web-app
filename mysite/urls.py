@@ -7,8 +7,11 @@ from mysite.core import views
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('upload/', views.upload, name='upload'),
+    path('', views.Home.as_view(), name='home'),
+    path('files/', views.file_list, name='file_list'),
+    path('files/upload/', views.upload_file, name='upload_file'),
+    path('files/<int:pk>/', views.delete_file, name='delete_file'),
+
     path('admin/', admin.site.urls),
 ]
 
