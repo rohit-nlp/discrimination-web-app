@@ -12,10 +12,6 @@ from .models import File
 class Home(TemplateView):
     template_name = 'home.html'
 
-def notFound(request, exception, template_name="error404.html"):
-    response = render_to_response(template_name)
-    #response.status_code = 404
-    return response
 
 
 def file_list(request):
