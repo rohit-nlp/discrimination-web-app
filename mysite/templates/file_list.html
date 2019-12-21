@@ -6,25 +6,36 @@
     </p>
 </header>
 <body style=""
-    <p></p>
+    <p>Once you uploaded the Dataset and the Temporal Order Table, you can start the Discrimination Analysis</p>
     <table>
     <thead>
       <tr>
         <th>Title</th>
-          <th></th>
+        <th>Positive Decision column name</th>
+        <th>Negative Decision column name</th>
+        <th>Temporal Order table</th>
         <th>Delete</th>
+        <th>Start Discrimination analysis</th>
       </tr>
     </thead>
     <tbody>
       {% for file in files %}
         <tr>
           <td>{{ file.file }}</td>
-            <td></td>
+          <td>{{ file.posColumn }}</td>
+            <td>{{ file.negColumn }}</td>
+            <td>{{ file.temporalOrder }}</td>
           <td>
             <form method="post" action="{% url 'delete_file' file.pk %}">
               {% csrf_token %}
               <button type="submit">Delete</button>
             </form>
+          </td>
+          <td>
+              <form method="post" action="{% url 'start_disc' file.pk %}">
+                  {% csrf_token %}
+                  <button type="submit">Analyze</button>
+              </form>
           </td>
         </tr>
       {% endfor %}

@@ -6,10 +6,10 @@ def read(pathDF,pathOrder):
         df = pd.read_csv(pathDF, sep=";")
     except FileNotFoundError:
         print("Dataframe file not found!")
-        return None,None,False
+        return None,None
     try:
         temporalOrderDF = pd.read_csv(pathOrder, sep=";")
     except FileNotFoundError:
         print("Temporal Order file not found!")
-        return None,None,False
-    return df,temporalOrderDF,True
+        return None,None
+    return df,temporalOrderDF

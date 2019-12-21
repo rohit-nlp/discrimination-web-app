@@ -1,14 +1,15 @@
 
 
-{% load crispy_forms_tags %}
 
 {% block content %}
   <h2>Upload File</h2>
     <p>Remember, the </p>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form|crispy }}
-      <p></p>
-    <button type="submit" class="btn btn-primary">Upload File</button>
+      <p>DatasetFile: {{ form.file }}</p>
+      <p>Positive decision column name: {{ form.posColumn }}</p>
+      <p>Negative decision column name: {{ form.negColumn }}</p>
+      <p>Temporal Order of the dataset: {{ form.temporalOrder }}</p>
+    <button type="submit">Upload File</button>
   </form>
 {% endblock %}
