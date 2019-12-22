@@ -18,6 +18,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
     #For Returns
     probs=None
     scoreDic = None
+    disconnectedNodes = None
 
     if df is not None:
         #Check for NaN's, Nulls, Columns/Rows > 1
@@ -33,18 +34,18 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
                 adjMatrixReconstucted = fit(df,adjacencyMatrix)
                 nodes, probHappened,probNotHappened,substract = score(df,adjMatrixReconstucted,marginalProbs,jointProbs)
 
-                probs,df = export(df, adjMatrixReconstucted, nodes,substract)
+                probs,df,disconnectedNodes = export(df, adjMatrixReconstucted, nodes,substract)
                 #df = pd.read_csv("datasets/inputDataVector.csv",header=None)
                 if probs is not None:
                     print("SBNC Reconstruction finished with exit")
                     print("Starting discrimination scoring")
-                    scoreDic = performRandomWalk(df,probs,1000,"positive_dec","negative_dec")
+                    scoresDicts = performRandomWalk(df,probs,1000,"positive_dec","negative_dec")
                 else:
-                    reason = "Something went wrong"
+                    reason = "After the reconstruction, the dataset has less than 2 columns"
     else:
         reason ="Error reading the file(s)"
 
-    return reason,df,probs,scoreDic
+    return reason,df,probs,scoresDicts,disconnectedNodes
 
 def doPageRank(df,probs,posColumn,negColumn):
     return pageRank(df, probs, posColumn, negColumn)

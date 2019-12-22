@@ -46,5 +46,5 @@ def delete_file(request, pk):
 def start_disc(request,pk):
     if request.method == 'POST':
         file = File.objects.get(pk=pk)
-        reason,df,probs,scoreDic = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
-    return redirect('home')
+        reason,df,probs,scores,disconnectedNodes = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
+    return render(request,"results.html",{'file':file,'reason':reason,'probs':probs,'scores':scores.to_html()})

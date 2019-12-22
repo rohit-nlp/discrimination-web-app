@@ -32,8 +32,8 @@ def export(df, adjMatrixReconstucted, nodes,substract):
     if (resultDF.shape[0] > 1) and (resultDF.shape[1] > 0):
         #resultDF.to_csv("SBNCResults.csv",sep = ";",index = None)
         #plotGraph(resultDF)
-        return resultDF,df
-    return None,None
+        return resultDF,df,pd.DataFrame({'Disconnected variables':disconnectedNodes})
+    return None,None,None
 
 
 def findInListOfLists(list,element):

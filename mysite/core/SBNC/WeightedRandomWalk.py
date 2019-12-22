@@ -41,30 +41,44 @@ def createGraph(probs):
 def count(graph,nIter,node,posName,negName):
     posCount = 0
     negCount = 0
+    neutralCount = 0
     for i in range(nIter):
         toCount = walk(graph,node,posName)[-1]
         if toCount == posName:
             posCount += 1
-        if toCount == negName:
+        elif toCount == negName:
             negCount += 1
+        else:
+            neutralCount+=1
+    return posCount,negCount,neutralCount
 
-    return posCount,negCount
+
 
 #This method creates our graph, computes the negative discrimination score for each node
 #And returns it as a dict {nodeName:score}
 def performRandomWalk(df,probs,nIter,posName,negName):
-    scores = list()
+    negScores = list()
+    posScores = list()
+    var = list()
+    neutralScores = list()
     #For each Node
     for i in range(df.shape[1]):
         #Get times we arrived in a negative and positive decision
-        posScore,negScore = count(createGraph(probs),nIter,df.columns[i],posName,negName)
+        posScore,negScore,neutralScore = count(createGraph(probs),nIter,df.columns[i],posName,negName)
         #Caution, we cannot divide by zero
         if posScore + negScore ==0:
-            scores.append((df.columns[i],0))
+            negScores.append((df.columns[i],0))
+            posScores.append((df.columns[i], 0))
         else:
             #Negative Score = times we arrived negative decision / sum(negative+positive)
-            scores.append((df.columns[i],negScore/(posScore+negScore)))
+            negScores.append((df.columns[i],negScore/(posScore+negScore)))
+            posScores.append((df.columns[i], posScore / (posScore + negScore)))
+        neutralScores.append((df.columns[i], neutralScore/nIter))
+        var.append(df.columns[i])
     #Scores as dict then this dict sort it by value
-    return {k: v for k, v in sorted(dict(scores).items(), key=lambda item: item[1])}
+
+    return pd.DataFrame({'Var':var,'Pos':posScores,'Neg':negScores,'Neut':neutralScores})
+
+
 
 

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discrimination Analysis</title>
+    <h2 class="card-title">Discrimination Results</h2>
+</head>
+<body>
+    {%  if reason != '' %}
+        <p>Discrimination Analysis could not be performed: {{ reason }}</p>
+    {%  else %}
+        <p> All good! </p>
+        { scores }
+    {% endif %}
+
+</body>
+</html>
