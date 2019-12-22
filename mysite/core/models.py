@@ -13,7 +13,7 @@ class File(models.Model):
 
     def delete(self, *args, **kwargs):
         self.file.delete()
-        self.temporalorder.delete()
+        self.temporalOrder.delete()
         super().delete(*args, **kwargs)
 
 

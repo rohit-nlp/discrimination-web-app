@@ -15,6 +15,9 @@ from .DataframeCheck import probCheck
 def SBNC(pathDF,pathOrder,posColumn,negColumn):
 
     df, temporalOrder = read(pathDF,pathOrder)
+    #For Returns
+    probs=None
+    scoreDic = None
 
     if df is not None:
         #Check for NaN's, Nulls, Columns/Rows > 1
@@ -36,18 +39,12 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
                     print("SBNC Reconstruction finished with exit")
                     print("Starting discrimination scoring")
                     scoreDic = performRandomWalk(df,probs,1000,"positive_dec","negative_dec")
-                    print(scoreDic)
-                    pageRankScores = pageRank(df,probs,posColumn,negColumn)
-
-                    if pageRankScores is not None:
-                        print("Discrimination computed successfully")
-                    else:
-                        print("Something went wrong evaluating the discrimination score")
                 else:
-                    print("Something went wrong")
-            else:
-                print(reason)
-        else:
-            print(reason)
+                    reason = "Something went wrong"
     else:
-        print("Error reading the file(s)")
+        reason ="Error reading the file(s)"
+
+    return reason,df,probs,scoreDic
+
+def doPageRank(df,probs,posColumn,negColumn):
+    return pageRank(df, probs, posColumn, negColumn)

@@ -48,5 +48,5 @@ def plotGraph(probs):
     tuples = [tuple(x) for x in probs.round({'edgeprob': 2}).values]
     gPlot = p.Graph.TupleList(tuples, directed=True, edge_attrs=['edgeprob'])
     layout = gPlot.layout("large")
-    p.plot(gPlot, "/media/graph/DAG Reconstructed.pdf", layout=layout, bbox=(2480, 3508), vertex_size=100, label_size=50,
+    p.plot(gPlot, "media/DAG Reconstructed.pdf", layout=layout, bbox=(2480, 3508), vertex_size=100, label_size=50,
            margin=[100, 100, 100, 100])

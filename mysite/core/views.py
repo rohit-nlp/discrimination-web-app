@@ -12,7 +12,10 @@ from .models import File
 class Home(TemplateView):
     template_name = 'home.html'
 
-
+def notFound(request,exception):
+    response = render_to_response("error404.html")
+    response.status_code = 404
+    return response
 
 def file_list(request):
     files = File.objects.all()
@@ -43,5 +46,5 @@ def delete_file(request, pk):
 def start_disc(request,pk):
     if request.method == 'POST':
         file = File.objects.get(pk=pk)
-        SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
+        reason,df,probs,scoreDic = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
     return redirect('home')
