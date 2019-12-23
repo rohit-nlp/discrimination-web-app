@@ -52,7 +52,6 @@ def temporalOrderCheck(df,temporalOrder,pos,neg):
         temporalOrder.columns = ["attribute","order"]
         if temporalOrder.shape[0] == df.shape[1]:
             notGood = [i for i in temporalOrder['attribute'] if i not in df.columns]
-            print("ASDASDSA",df.columns,temporalOrder["attribute"],notGood)
             if len(notGood) > 0:
                 reason = "Temporal Order contains attributes that aren't on the dataset"
             else:
@@ -64,8 +63,6 @@ def temporalOrderCheck(df,temporalOrder,pos,neg):
     else:
         reason = "Temporal Order columns must be 2"
     return temporalOrder,reason
-
-
 
 
 def marginalAndJointProbs(df):
