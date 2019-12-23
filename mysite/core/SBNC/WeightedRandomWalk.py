@@ -43,13 +43,16 @@ def count(graph,nIter,node,posName,negName):
     negCount = 0
     neutralCount = 0
     for i in range(nIter):
-        toCount = walk(graph,node,posName)[-1]
-        if toCount == posName:
+        countPos = walk(graph,node,posName)[-1]
+        countNeg = walk(graph,node,negName)[-1]
+        if countPos == posName:
+            #print("pos")
             posCount += 1
-        elif toCount == negName:
+        elif countNeg == negName:
+            #print("neg")
             negCount += 1
         else:
-            neutralCount+=1
+            neutralCount += 1
     return posCount,negCount,neutralCount
 
 
@@ -67,16 +70,15 @@ def performRandomWalk(df,probs,nIter,posName,negName):
         posScore,negScore,neutralScore = count(createGraph(probs),nIter,df.columns[i],posName,negName)
         #Caution, we cannot divide by zero
         if posScore + negScore ==0:
-            negScores.append((df.columns[i],0))
-            posScores.append((df.columns[i], 0))
+            negScores.append(0)
+            posScores.append(0)
         else:
             #Negative Score = times we arrived negative decision / sum(negative+positive)
-            negScores.append((df.columns[i],negScore/(posScore+negScore)))
-            posScores.append((df.columns[i], posScore / (posScore + negScore)))
-        neutralScores.append((df.columns[i], neutralScore/nIter))
+            negScores.append(negScore/(posScore+negScore))
+            posScores.append(posScore / (posScore + negScore))
+        neutralScores.append(neutralScore/nIter)
         var.append(df.columns[i])
     #Scores as dict then this dict sort it by value
-
     return pd.DataFrame({'Var':var,'Pos':posScores,'Neg':negScores,'Neut':neutralScores})
 
 

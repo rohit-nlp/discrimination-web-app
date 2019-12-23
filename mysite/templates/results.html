@@ -6,11 +6,11 @@
     <h2 class="card-title">Discrimination Results</h2>
 </head>
 <body>
+    <a class="btn btn-primary" href="/files/">Back</a>
     {%  if reason != '' %}
         <p>Discrimination Analysis could not be performed: {{ reason }}</p>
     {%  else %}
-        <p> All good! </p>
-        { scores }
+        {{ scores|safe }}
     {% endif %}
 
 </body>

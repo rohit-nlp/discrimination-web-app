@@ -10,38 +10,41 @@ from .ComputeScores import score
 from .ExportSBNC import export
 from .ComputeDiscrimination import pageRank
 from .WeightedRandomWalk import performRandomWalk
-from .DataframeCheck import probCheck
+from .DataframeCheck import probCheck, temporalOrderCheck
 
 def SBNC(pathDF,pathOrder,posColumn,negColumn):
 
     df, temporalOrder = read(pathDF,pathOrder)
     #For Returns
     probs=None
-    scoreDic = None
+    scoresDicts = None
     disconnectedNodes = None
 
     if df is not None:
-        #Check for NaN's, Nulls, Columns/Rows > 1
-        reason = dataframeCheck(df,temporalOrder)
+        temporalOrder,reason = temporalOrderCheck(df, temporalOrder, posColumn, negColumn)
         if reason == "":
+            # Check for NaN's, Nulls, Columns/Rows > 1
+            reason = dataframeCheck(df, temporalOrder)
             print("Dataframe is correct, starting probability computation")
-
-            df, temporalOrder, marginalProbs, jointProbs, reason = probCheck(df,temporalOrder)
-
-            #Prob checkight delete columns, so we have to check
             if reason == "":
-                adjacencyMatrix = getPrimaFacieParents(df,temporalOrder,jointProbs,marginalProbs)
-                adjMatrixReconstucted = fit(df,adjacencyMatrix)
-                nodes, probHappened,probNotHappened,substract = score(df,adjMatrixReconstucted,marginalProbs,jointProbs)
-
-                probs,df,disconnectedNodes = export(df, adjMatrixReconstucted, nodes,substract)
-                #df = pd.read_csv("datasets/inputDataVector.csv",header=None)
-                if probs is not None:
-                    print("SBNC Reconstruction finished with exit")
-                    print("Starting discrimination scoring")
-                    scoresDicts = performRandomWalk(df,probs,1000,"positive_dec","negative_dec")
-                else:
-                    reason = "After the reconstruction, the dataset has less than 2 columns"
+                df, temporalOrder, marginalProbs, jointProbs, reason = probCheck(df,temporalOrder)
+                #Prob checkight delete columns, so we have to check
+                if reason == "":
+                    adjacencyMatrix = getPrimaFacieParents(df,temporalOrder,jointProbs,marginalProbs)
+                    print("adjacencyMatrix done")
+                    adjMatrixReconstucted = fit(df,adjacencyMatrix)
+                    print("Fit done")
+                    nodes, probHappened,probNotHappened,substract = score(df,adjMatrixReconstucted,marginalProbs,jointProbs)
+                    print("score done")
+                    probs,df,disconnectedNodes = export(df, adjMatrixReconstucted, nodes,substract)
+                    print("Export done")
+                    #df = pd.read_csv("datasets/inputDataVector.csv",header=None)
+                    if probs is not None:
+                        print("SBNC Reconstruction finished with exit")
+                        print("Starting discrimination scoring")
+                        scoresDicts = performRandomWalk(df,probs,1000,posColumn,negColumn)
+                    else:
+                        reason = "After the reconstruction, the dataset has less than 2 columns"
     else:
         reason ="Error reading the file(s)"
 

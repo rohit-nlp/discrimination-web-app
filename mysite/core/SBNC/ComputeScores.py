@@ -9,7 +9,6 @@ def score(df,adjMatrixReconstucted,marginalProbs,jointProbs):
     probNotHappened = [[i] for i in [-1 for j in range(df.shape[1])]]
     substract = [[i] for i in [-1 for j in range(df.shape[1])]]
 
-
     for i in range(df.shape[1]):
         count = 0
         for j in range(df.shape[1]):

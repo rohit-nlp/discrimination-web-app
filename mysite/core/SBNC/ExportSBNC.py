@@ -27,11 +27,11 @@ def export(df, adjMatrixReconstucted, nodes,substract):
 
     df = df.drop(disconnectedNodes,axis=1)
 
-    resultDF = pd.DataFrame({'Source':source,'Target':target,"P(e|c)-P(e|not c)":probHappenedMinusNotHappened})
+    resultDF = pd.DataFrame({'Source':source,'Target':target,"edgeprob":probHappenedMinusNotHappened})
 
     if (resultDF.shape[0] > 1) and (resultDF.shape[1] > 0):
         #resultDF.to_csv("SBNCResults.csv",sep = ";",index = None)
-        #plotGraph(resultDF)
+        plotGraph(resultDF)
         return resultDF,df,pd.DataFrame({'Disconnected variables':disconnectedNodes})
     return None,None,None
 
@@ -47,6 +47,8 @@ def plotGraph(probs):
 
     tuples = [tuple(x) for x in probs.round({'edgeprob': 2}).values]
     gPlot = p.Graph.TupleList(tuples, directed=True, edge_attrs=['edgeprob'])
-    layout = gPlot.layout("large")
-    p.plot(gPlot, "media/DAG Reconstructed.pdf", layout=layout, bbox=(2480, 3508), vertex_size=100, label_size=50,
+    #layout = gPlot.layout("large")
+    gPlot.vs["label"] = gPlot.vs["name"]
+    gPlot.es["label"] = gPlot.es['edgeprob']
+    p.plot(gPlot, "media/DAG Reconstructed.png", bbox=(2480, 3508), vertex_size=100, label_size=50,
            margin=[100, 100, 100, 100])

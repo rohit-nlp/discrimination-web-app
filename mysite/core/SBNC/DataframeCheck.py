@@ -46,6 +46,27 @@ def dataframeCheck(df,temporalOrder):
             return "Dataframe has less than 1 row/column or contains cells with values different than '0' or '1'"
     return "Dataframe contains 'NULL' or 'NA'"
 
+def temporalOrderCheck(df,temporalOrder,pos,neg):
+    reason = ""
+    if temporalOrder.shape[1] == 2:
+        temporalOrder.columns = ["attribute","order"]
+        if temporalOrder.shape[0] == df.shape[1]:
+            notGood = [i for i in temporalOrder['attribute'] if i not in df.columns]
+            print("ASDASDSA",df.columns,temporalOrder["attribute"],notGood)
+            if len(notGood) > 0:
+                reason = "Temporal Order contains attributes that aren't on the dataset"
+            else:
+                if temporalOrder[temporalOrder["attribute"]==pos]["order"].iloc[0] != max(temporalOrder['order']) or\
+                        temporalOrder[temporalOrder["attribute"]==neg]["order"].iloc[0] != max(temporalOrder['order']):
+                    reason = "Positive and negative decision columns should always have the maximum order value"
+        else:
+            reason = "Temporal Order must have as many rows as variables in the dataset"
+    else:
+        reason = "Temporal Order columns must be 2"
+    return temporalOrder,reason
+
+
+
 
 def marginalAndJointProbs(df):
     matrix = df.values

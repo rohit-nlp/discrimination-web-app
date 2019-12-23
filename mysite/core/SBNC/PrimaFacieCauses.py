@@ -19,8 +19,8 @@ def getPrimaFacieCauses(df, marginalProbs, primaFacieModel, primaFacieModelNotHa
                 atributeNameJ = adjMatrixWithColNames.columns[j]
 
 
-                levelI = temporalOrder[temporalOrder['atribute'] == atributeNameI].iloc[0]['order']
-                levelJ = temporalOrder[temporalOrder['atribute'] == atributeNameJ].iloc[0]['order']
+                levelI = temporalOrder[temporalOrder['attribute'] == atributeNameI].iloc[0]['order']
+                levelJ = temporalOrder[temporalOrder['attribute'] == atributeNameJ].iloc[0]['order']
 
                 if levelI > 0 and levelJ > 0:
                     if levelI > levelJ: adjacencyMatrix[i,j] = 0

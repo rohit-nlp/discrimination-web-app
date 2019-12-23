@@ -12,7 +12,7 @@ def pageRank(df,probs,posName,negName):
 
     #Change the P(e|c)-P(e|not c) colum to an easy name: edgeprob
     #The probs df will always have 3 columns where the last one is P(e|c)-P(e|not c).
-    probs.columns = [probs.columns[0],probs.columns[1],"edgeprob"]
+    #probs.columns = [probs.columns[0],probs.columns[1],"edgeprob"]
 
     ###R interface
     import rpy2.robjects.packages as rpackages
