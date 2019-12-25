@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,7 @@
       <workItem from="1577118028463" duration="1062000" />
       <workItem from="1577119935959" duration="7194000" />
       <workItem from="1577184354814" duration="14429000" />
-      <workItem from="1577268277494" duration="3869000" />
+      <workItem from="1577268277494" duration="7225000" />
     </task>
     <servers />
   </component>

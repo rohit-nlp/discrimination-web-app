@@ -49,7 +49,7 @@ def start_disc(request,pk):
         reason,df,probs,scores,disconnectedNodes = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
         if scores is not None:
             return render(request,"results.html",{'file':file,'reason':reason,'probs':probs,'scores':scores.to_html(
-                classes="table table-striped table-bordered table-sm",
+                classes="table table-striped table-bordered table-sm w-auto",
                 table_id="scoreTable",
                 index=False,
                 justify='left')})
