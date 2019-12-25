@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Error 404</title>
-</head>
-<body>
-		<div class="center">
-  			<img alt="404_error" width=632 height=339 src="https://www.thecodecampus.de/blog/wp-content/uploads/2018/02/404.png">
-		</div>
-	</body>
-    <style>
-        .center {
-            text-align: center;
-        }
-    </style>
-</html>
+
+{% extends 'base.html' %}
+{%  load static %}
+
+{% block content %}
+  <!-- Start your project here-->
+  <div style="height: 100vh">
+    <div class="flex-center flex-column">
+
+      <h1 class="text-hide animated fadeIn mb-4" style="background-image: url('https://www.thecodecampus.de/blog/wp-content/uploads/2018/02/404.png'); width: 339px; height: 222px;"></h1>
+      <p class="animated fadeIn text-muted">Back to<a href="">files</a></p>
+    </div>
+  </div>
+  <!-- End your project here-->
+{% endblock %}

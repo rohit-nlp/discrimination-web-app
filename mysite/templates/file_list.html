@@ -1,10 +1,10 @@
-<html>
-<header>
-  <h2 class="card-title">Dataset List</h2>
-</header>
-<body style=""
-    <p>Choose between the current datasets to start the discrimination Analysis or <a href="{% url 'upload_file' %}" class="btn btn-primary">upload one</a></p>
-    <table>
+{% extends 'base.html' %}
+{% block content %}
+    <header>
+    <h1>Dataset List</h1>
+    </header>
+    <h5>Choose between the current datasets to start the discrimination Analysis or <a href="{% url 'upload_file' %}">upload one</a></h5>
+    <table class="table">
     <thead>
       <tr>
         <th>Title</th>
@@ -38,5 +38,4 @@
       {% endfor %}
     </tbody>
   </table>
-</body>
-</html>
+{% endblock %}

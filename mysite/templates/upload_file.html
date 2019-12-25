@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 
 {% block content %}
   <h2>Upload File</h2>
@@ -10,6 +11,6 @@
       <p>Positive decision column name: {{ form.posColumn }}</p>
       <p>Negative decision column name: {{ form.negColumn }}</p>
       <p>Temporal Order of the dataset: {{ form.temporalOrder }}</p>
-    <button type="submit">Upload File</button>
+    <button type="submit" class="btn btn-primary">Upload File</button>
   </form>
 {% endblock %}
