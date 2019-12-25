@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/error404.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/error404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/file_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/upload_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/upload_file.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +114,7 @@
       <workItem from="1577118028463" duration="1062000" />
       <workItem from="1577119935959" duration="7194000" />
       <workItem from="1577184354814" duration="14429000" />
+      <workItem from="1577268277494" duration="3869000" />
     </task>
     <servers />
   </component>
@@ -145,9 +144,13 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1577120183628" />
-    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1577184363404">
+    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1577268277325">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1577184363404" />
+    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1577268277325" />
+    <state x="2575" y="236" key="search.everywhere.popup" timestamp="1577269862749">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2575" y="236" key="search.everywhere.popup/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1577269862749" />
   </component>
 </project>

@@ -80,13 +80,13 @@ def performRandomWalk(df,probs,nIter,posName,negName):
         neutralScores.append(neutralScore/nIter)
         var.append(df.columns[i])
     #Scores as dict then this dict sort it by value
-    scores = pd.DataFrame({'Var':var,'Pos':posScores,'Neg':negScores,'Neut':neutralScores})
+    scores = pd.DataFrame({'Name':var,'Positive Score':posScores,'Negative Score':negScores,'Neutral Score':neutralScores})
     makePie(scores)
     return scores
 
 def makePie(scores):
 
-    scores = scores.drop(["Var"],axis=1)
+    scores = scores.drop(["Name"],axis=1)
     scores['max_value'] = scores.idxmax(axis=1)
 
     colors = ["#ffb39c", "#E3D4AD", "#6183A6"]

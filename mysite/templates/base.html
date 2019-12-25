@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design for Bootstrap</title>
+  <title>Dicrimination Detection - Blai Ras</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -15,6 +15,10 @@
   <link rel="stylesheet" href={% static 'css/mdb.min.css' %}>
   <!-- Your custom styles (optional) -->
   <link rel="stylesheet" href={%  static 'css/style.css' %}>
+    <!-- MDBootstrap Datatables  -->
+  <link rel="stylesheet" href={% static 'css/addons/datatables.min.css' %}>
+  <link rel="stylesheet" href={% static 'css/addons/showResults.css' %}>
+<!--
 </head>
 <body>
 
@@ -33,6 +37,15 @@
   <script type="text/javascript" src={%  static 'js/mdb.min.js' %}></script>
   <!-- Your custom scripts (optional) -->
   <script type="text/javascript"></script>
+
+ <script type="text/javascript" src={% static 'js/addons/datatables.min.js' %}></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#scoreTable').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
 
 </body>
 </html>
