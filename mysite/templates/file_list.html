@@ -29,7 +29,7 @@
             </form>
           </td>
           <td>
-              <form method="post" action="{% url 'start_disc' file.pk %}">
+              <form method="get" action="{% url 'start_disc' file.pk %}">
                   {% csrf_token %}
                   <button type="submit">Analyze</button>
               </form>

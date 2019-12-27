@@ -42,13 +42,13 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
                     if probs is not None:
                         print("SBNC Reconstruction finished with exit")
                         print("Starting discrimination scoring")
-                        scoresDicts = performRandomWalk(df,probs,1000,posColumn,negColumn)
+                        scoresDicts,pos,neg,neut = performRandomWalk(df,probs,1000,posColumn,negColumn)
                     else:
                         reason = "After the reconstruction, the dataset has less than 2 columns"
     else:
         reason ="Error reading the file(s)"
 
-    return reason,df,probs,scoresDicts,disconnectedNodes
+    return reason,df,probs,scoresDicts,disconnectedNodes,pos,neg,neut
 
 def doPageRank(df,probs,posColumn,negColumn):
     return pageRank(df, probs, posColumn, negColumn)

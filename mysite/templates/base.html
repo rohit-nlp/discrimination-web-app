@@ -22,6 +22,8 @@
 </head>
 <body>
 
+
+
   <!-- Start your project here-->
     {% block content %}
     {% endblock %}
@@ -45,6 +47,69 @@
             $('#scoreTable').DataTable();
             $('.dataTables_length').addClass('bs-select');
         });
+    </script>
+
+    <script type="text/javascript" id="dataPie" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}>
+
+        var script_tag = document.getElementById('dataPie')
+      var pos = script_tag.getAttribute("data-pos");
+        var neg = script_tag.getAttribute("data-neg");
+        var neut = script_tag.getAttribute("data-neut");
+
+            // Data
+    const positive = pos;
+    const negative = neg;
+    const neutral = neut;
+
+    //pie
+    var ctxP = document.getElementById("pieChart").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+      type: 'pie',
+      data: {
+        labels: ["Positive", "Negative", "Neutral"],
+        datasets: [{
+          data: [positive, negative, neutral],
+          backgroundColor: ["#ffb39c", "#E3D4AD", "#6183A6"],
+          hoverBackgroundColor: ["#ffb39c", "#E3D4AD", "#6183A6"],
+          borderWidth: 4,
+          borderColor: '#111'
+        }]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          position: 'bottom',
+          labels: {
+            padding: 25,
+            boxWidth: 20
+          }
+        },
+        plugins: {
+          datalabels: {
+            formatter: (value, ctx) => {
+              let sum = 0;
+              let dataArr = ctx.chart.data.datasets[0].data;
+              dataArr.map(data => {
+                sum += data;
+              });
+              let percentage = (value * 100 / sum).toFixed(2) + "%";
+              return percentage;
+            },
+            color: 'white',
+            labels: {
+              title: {
+                font: {
+                  size: '10'
+                }
+              }
+            }
+          }
+        },
+
+      }
+    });
+
+
     </script>
 
 </body>

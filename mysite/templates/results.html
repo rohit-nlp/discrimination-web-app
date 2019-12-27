@@ -1,12 +1,69 @@
 {% extends 'base.html' %}
+{%  load static %}
 
+body {
+  background-color: #eee;
+}
 
 {% block content %}
 <header>
     <h1>Discrimination Analysis</h1>
 </header>
-    {{ scores|safe }}
+
+
+ <div class="container mx-auto my-auto">
+
+    <!--Section: Block Content-->
+    <section>
+
+      <div class="card">
+        <div class="card-body">
+
+          <h5 class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
+
+          <hr>
+
+          <!--Grid row-->
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-6">
+
+              <canvas id="pieChart" class="mt-4"></canvas>
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-6">
+
+                {{ scores|safe }}
+
+
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+      </div>
+
+
+    </section>
+    <!--Section: Block Content-->
+
+
+  </div>
+
+
+
+
 {% endblock %}
+
+
+
+
 
 
 

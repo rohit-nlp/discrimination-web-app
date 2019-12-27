@@ -1,7 +1,6 @@
 import igraph as p
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 
 def walk(graph, start, end):
@@ -47,6 +46,7 @@ def count(graph,nIter,node,posName,negName):
     neutralCount = 0
     for i in range(nIter):
         countPos = walk(graph,node,posName)[-1]
+
         countNeg = walk(graph,node,negName)[-1]
         if countPos[0] == posName:
             posCount.append(countPos[1])
@@ -94,47 +94,63 @@ def performRandomWalk(df, probs, nIter, posName, negName):
         {'Name': var, 'Positive Score': posScores, 'Avg. Positive': avgPos, 'Negative Score': negScores,
          'Avg. Negative': avgNeg, 'Neutral Score': neutralScores},
         columns=['Name', 'Positive Score', 'Avg. Positive', 'Negative Score', 'Avg. Negative', 'Neutral Score'])
-    makePie(scores)
-    return scores
+    pos,neg,neut = makePie(scores)
+    return scores,pos,neg,neut
 
 def makePie(scores):
 
     scores = scores.drop(["Name","Avg. Positive","Avg. Negative"],axis=1)
-
     scores['max_value'] = scores.idxmax(axis=1)
+    scoresCount = scores['max_value'].value_counts()
 
-    colors = ["#ffb39c", "#E3D4AD", "#6183A6"]
-    labels = ["Positive", "Negative", "Neutral"]
-    # Create a pie chart
-    fig1, ax1 = plt.subplots(figsize=(10, 10))
-    patches, texts, autotexts = ax1.pie(
-        # using data total)arrests
-        scores.groupby('max_value').size(),
-        # with the labels being officer names
-        labels=labels,
-        # with no shadows
-        shadow=False,
-        # with colors
-        colors=colors,
-        # with one slide exploded out
-        explode=(0.2, 0.1, 0.1),
-        # with the start angle at 90%
-        startangle=90,
-        # with the percent listed as a fraction
-        autopct='%1.1f%%',
-    )
+    pos = 0
+    neg = 0
+    neut = 0
 
-    for i in texts:
-        i.set_fontsize(25)
-        i.set_fontname("Laksaman")
-    for i in autotexts:
-        i.set_fontsize(23)
+    if len(scoresCount) == 3:
+        return scoresCount[0],scoresCount[1],scoresCount[2]
+    else:
+        for i in scoresCount.keys():
+            if i == "Negative Score":
+                neg = scoresCount[i]
+            elif i == "Positive Score":
+                pos = scoresCount[i]
+            else:
+                neut = scoresCount[i]
 
-    # View the plot drop above
-    ax1.axis('equal')
-    fig1.suptitle('Discrimination Classification', fontsize=30, fontname="Laksaman")
-
-    fig1.savefig('media/pie.png', dpi=100)
+    # colors = ["#ffb39c", "#E3D4AD", "#6183A6"]
+    # labels = ["Positive", "Negative", "Neutral"]
+    # # Create a pie chart
+    # fig1, ax1 = plt.subplots(figsize=(10, 10))
+    # patches, texts, autotexts = ax1.pie(
+    #
+    #     scoresCount,
+    #
+    #     labels=list(labels),
+    #     # with no shadows
+    #     shadow=False,
+    #     # with colors
+    #     colors=colors,
+    #     # with one slide exploded out
+    #     explode=(0.2, 0.1, 0.1),
+    #     # with the start angle at 90%
+    #     # with the percent listed as a fraction
+    #     autopct='%1.1f%%',
+    #     startangle=90
+    # )
+    #
+    # for i in texts:
+    #     i.set_fontsize(25)
+    #     i.set_fontname("Laksaman")
+    # for i in autotexts:
+    #     i.set_fontsize(23)
+    #
+    # # View the plot drop above
+    # ax1.axis('equal')
+    # fig1.suptitle('Discrimination Classification', fontsize=30, fontname="Laksaman")
+    #
+    # fig1.savefig('media/pie.png', dpi=100)
+    return pos,neg,neut
 
 
 
