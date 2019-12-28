@@ -44,7 +44,9 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#scoreTable').DataTable();
+            $('#scoreTable').DataTable({
+                "order":[[3,"desc"]]
+            });
             $('.dataTables_length').addClass('bs-select');
         });
     </script>
@@ -72,7 +74,7 @@
           backgroundColor: ["#ffb39c", "#E3D4AD", "#6183A6"],
           hoverBackgroundColor: ["#ffb39c", "#E3D4AD", "#6183A6"],
           borderWidth: 4,
-          borderColor: '#111'
+          borderColor: '#eee'
         }]
       },
       options: {
@@ -99,7 +101,7 @@
             labels: {
               title: {
                 font: {
-                  size: '10'
+                  size: '14'
                 }
               }
             }

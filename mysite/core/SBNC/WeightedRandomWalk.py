@@ -31,7 +31,7 @@ def walk(graph, start, end):
         if len(names) == 0:
             return visited
         # Get the next random visited node
-        visited.append((np.random.choice(names, p=probs), i))
+        visited.append((np.random.choice(names, p=probs), i+1))
     return visited
 
 def createGraph(probs):
@@ -46,12 +46,11 @@ def count(graph,nIter,node,posName,negName):
     neutralCount = 0
     for i in range(nIter):
         countPos = walk(graph,node,posName)[-1]
-
         countNeg = walk(graph,node,negName)[-1]
         if countPos[0] == posName:
             posCount.append(countPos[1])
         elif countNeg[0] == negName:
-            #print("neg")
+            #if node == "occupation_Other_service":
             negCount.append(countNeg[1])
         else:
             neutralCount += 1
@@ -67,9 +66,11 @@ def performRandomWalk(df, probs, nIter, posName, negName):
     neutralScores = list()
     # For each Node
     columns = [i for i in df.columns if i != posName and i != negName]
+    print(columns)
+    graph = createGraph(probs)
     for i in columns:
         # Get times we arrived in a negative and positive decision
-        posScore, negScore, neutralScore = count(createGraph(probs), nIter, i, posName, negName)
+        posScore, negScore, neutralScore = count(graph, nIter, i, posName, negName)
         # Caution, we cannot divide by zero
         sizePos = len(posScore)
         sizeNeg = len(negScore)
@@ -78,7 +79,8 @@ def performRandomWalk(df, probs, nIter, posName, negName):
             avgNeg.append(0)
         else:
             negScores.append(len(negScore) / nIter)
-            # print(sum(negScore[1]))
+            if (len(negScore) / nIter) > 1:
+                print("Score ",len(negScore)," Var: ",i)
             avgNeg.append(sum(negScore) / len(negScore))
 
             if sizePos == 0:
