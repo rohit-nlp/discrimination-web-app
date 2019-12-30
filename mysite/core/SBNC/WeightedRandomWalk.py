@@ -9,6 +9,7 @@ def walk(graph, start, end):
     for i in range(graph.diameter()):
         names = list()
         probs = list()
+
         # Find the node we visited on each iteration
         node = graph.vs.find(name=visited[-1][0])
 
@@ -46,11 +47,10 @@ def count(graph,nIter,node,posName,negName):
     neutralCount = 0
     for i in range(nIter):
         countPos = walk(graph,node,posName)[-1]
-        countNeg = walk(graph,node,negName)[-1]
+        countNeg = walk(graph, node, negName)[-1]
         if countPos[0] == posName:
             posCount.append(countPos[1])
         elif countNeg[0] == negName:
-            #if node == "occupation_Other_service":
             negCount.append(countNeg[1])
         else:
             neutralCount += 1
@@ -66,32 +66,38 @@ def performRandomWalk(df, probs, nIter, posName, negName):
     neutralScores = list()
     # For each Node
     columns = [i for i in df.columns if i != posName and i != negName]
-    print(columns)
     graph = createGraph(probs)
-    for i in columns:
+    for i in range(len(columns)):
         # Get times we arrived in a negative and positive decision
-        posScore, negScore, neutralScore = count(graph, nIter, i, posName, negName)
+        posScore, negScore, neutralScore = count(graph, nIter, columns[i], posName, negName)
+        print(posScore,negScore,neutralScore)
         # Caution, we cannot divide by zero
-        sizePos = len(posScore)
-        sizeNeg = len(negScore)
+        sizePos = len(posScore)-1
+        sizeNeg = len(negScore)-1
+        print("pos",sizePos)
+        print("neg",sizeNeg)
         if sizeNeg == 0:
+            print("in")
             negScores.append(0)
             avgNeg.append(0)
-        else:
-            negScores.append(len(negScore) / nIter)
-            if (len(negScore) / nIter) > 1:
-                print("Score ",len(negScore)," Var: ",i)
-            avgNeg.append(sum(negScore) / len(negScore))
+        if sizePos == 0:
+            print("in")
+            posScores.append(0)
+            avgPos.append(0)
+        if sizePos != 0:
+            avgPos.append(sum(posScore) / sizePos)
+            posScores.append(sizePos / nIter)
+        if sizeNeg != 0:
+            print("in")
+            negScores.append(sizeNeg / nIter)
+            avgNeg.append(sum(negScore) / sizeNeg)
 
-            if sizePos == 0:
-                posScores.append(0)
-                avgPos.append(0)
-            else:
-                avgPos.append(sum(posScore) / len(posScore))
-                posScores.append(len(posScore) / nIter)
         neutralScores.append(neutralScore / nIter)
-        var.append(i)
+        var.append(columns[i])
+        print(len(var), len(posScore), len(avgPos), len(negScores), len(avgNeg), len(neutralScores))
+        print(i)
     # Scores as dict then this dict sort it by value
+    print(len(var),len(posScore),len(avgPos),len(negScores),len(avgNeg),len(neutralScores))
     scores = pd.DataFrame(
         {'Name': var, 'Positive Score': posScores, 'Avg. Positive': avgPos, 'Negative Score': negScores,
          'Avg. Negative': avgNeg, 'Neutral Score': neutralScores},

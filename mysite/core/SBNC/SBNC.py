@@ -42,7 +42,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
                     if probs is not None:
                         print("SBNC Reconstruction finished with exit")
                         print("Starting discrimination scoring")
-                        scoresDicts,pos,neg,neut = performRandomWalk(df,probs,1000,posColumn,negColumn)
+                        scoresDicts,pos,neg,neut = performRandomWalk(df,probs,5,posColumn,negColumn)
                     else:
                         reason = "After the reconstruction, the dataset has less than 2 columns"
     else:
