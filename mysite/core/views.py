@@ -47,7 +47,6 @@ def start_disc(request,pk):
     if request.method == 'GET':
         file = File.objects.get(pk=pk)
         reason,df,probs,scores,disconnectedNodes,pos,neg,neut = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
-        scores.to_csv("scores.csv",sep=";")
         if scores is not None:
             return render(request,"results.html",{'file':file,'reason':reason,'probs':probs,'scores':scores.to_html(
                 classes="table table-striped table-bordered table-sm w-auto",

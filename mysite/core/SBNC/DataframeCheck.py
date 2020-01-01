@@ -21,14 +21,14 @@ def probCheck(df,temporalOrder):
             if (i != j) and (i not in notValid) and (j not in notValid):
                 if (jointProbs[i, j] / marginalProbs[i] == 1) and (jointProbs[i, j] / marginalProbs[j] == 1):
                     # The 2 events are not distinguishable
-                    notValid.add(df.columns[j])
+                    notValid.append(df.columns[j])
                     df = df.rename({df.columns[i]: df.columns[i] + "_and_" + df.columns[j]})
                     # df = df.rename({df.columns[j]:df.columns[i]})
-                    print("Event ", i, " and ", j, " will be merged because they re not distinguishable")
+                    print("Event ", df.columns[i], " and ", df.columns[j], " will be merged because they re not distinguishable")
     if notValid:
         df = df.drop(notValid, axis=1)
         rowIndex = list()
-        for i, j in enumerate(temporalOrder['atribute']):
+        for i, j in enumerate(temporalOrder['attribute']):
             if j in notValid:
                 rowIndex.append(i)
         temporalOrder = temporalOrder.drop(rowIndex, axis=0)
@@ -37,7 +37,7 @@ def probCheck(df,temporalOrder):
     return None,None,None,None,"After deleting events the dataframe has less than 1 column. Aborting."
 
 
-def dataframeCheck(df,temporalOrder):
+def dataframeCheck(df):
     if df.isna().values.any() == False and df.isnull().values.any() == False:
         if (df.shape[0] > 1) and (df.shape[1] > 0) and df[df == 0].count().sum() + df[df == 1].count().sum() == df.shape[
             0] * df.shape[1]:

@@ -6,7 +6,7 @@ import numpy as np
 def walk(graph, start, end):
     visited = list()
     visited.append((start, 0))
-    for i in range(graph.diameter()):
+    for i in range(3):
         names = list()
         probs = list()
 

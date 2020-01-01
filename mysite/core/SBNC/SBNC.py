@@ -18,13 +18,16 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
     #For Returns
     probs=None
     scoresDicts = None
+    pos = None
+    neg =None
+    neut = None
     disconnectedNodes = None
 
     if df is not None:
         temporalOrder,reason = temporalOrderCheck(df, temporalOrder, posColumn, negColumn)
         if reason == "":
             # Check for NaN's, Nulls, Columns/Rows > 1
-            reason = dataframeCheck(df, temporalOrder)
+            reason = dataframeCheck(df)
             print("Dataframe is correct, starting probability computation")
             if reason == "":
                 df, temporalOrder, marginalProbs, jointProbs, reason = probCheck(df,temporalOrder)

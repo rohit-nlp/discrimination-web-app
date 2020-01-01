@@ -10,51 +10,58 @@ body {
     <h1>Discrimination Analysis</h1>
 </header>
 
+    {% if reason != "" %}
 
- <div class="container-md-10">
+        <p>Discrimination Analysis could not be performed: {{ reason }}</p>
 
-    <!--Section: Block Content-->
-    <section>
+    {%  else %}
 
-      <div class="card">
-        <div class="card-body">
+     <div class="container-md-10">
 
-          <h5 class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
+        <!--Section: Block Content-->
+        <section>
 
-          <hr>
+          <div class="card">
+            <div class="card-body">
 
-          <!--Grid row-->
-          <div class="row">
+              <h5 class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
 
-            <!--Grid column-->
-            <div class="col-md-5">
+              <hr>
 
-              <canvas id="pieChart" class="mt-7"></canvas>
+              <!--Grid row-->
+              <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-5">
+
+                  <canvas id="pieChart" class="mt-7"></canvas>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-7">
+
+                    {{ scores|safe }}
+
+
+                </div>
+                <!--Grid column-->
+
+              </div>
+              <!--Grid row-->
 
             </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-md-7">
-
-                {{ scores|safe }}
-
-
-            </div>
-            <!--Grid column-->
-
           </div>
-          <!--Grid row-->
 
-        </div>
+
+        </section>
+        <!--Section: Block Content-->
+
+
       </div>
 
-
-    </section>
-    <!--Section: Block Content-->
-
-
-  </div>
+    {% endif %}
 
 
 
