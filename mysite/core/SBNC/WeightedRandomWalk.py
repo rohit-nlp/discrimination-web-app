@@ -42,8 +42,8 @@ def createGraph(probs):
 
 #Method counts how many times we end up in a negative or positive decision for a given node
 def count(graph,nIter,node,posName,negName):
-    posCount = [0]
-    negCount = [0]
+    posCount = []
+    negCount = []
     neutralCount = 0
     for i in range(nIter):
         countPos = walk(graph,node,posName)[-1]
@@ -67,37 +67,30 @@ def performRandomWalk(df, probs, nIter, posName, negName):
     # For each Node
     columns = [i for i in df.columns if i != posName and i != negName]
     graph = createGraph(probs)
-    for i in range(len(columns)):
+    for i in columns:
         # Get times we arrived in a negative and positive decision
-        posScore, negScore, neutralScore = count(graph, nIter, columns[i], posName, negName)
-        print(posScore,negScore,neutralScore)
+        posScore, negScore, neutralScore = count(graph, nIter, i, posName, negName)
         # Caution, we cannot divide by zero
-        sizePos = len(posScore)-1
-        sizeNeg = len(negScore)-1
-        print("pos",sizePos)
-        print("neg",sizeNeg)
+        sizePos = len(posScore)
+        sizeNeg = len(negScore)
+
         if sizeNeg == 0:
-            print("in")
             negScores.append(0)
             avgNeg.append(0)
         if sizePos == 0:
-            print("in")
             posScores.append(0)
             avgPos.append(0)
         if sizePos != 0:
             avgPos.append(sum(posScore) / sizePos)
             posScores.append(sizePos / nIter)
         if sizeNeg != 0:
-            print("in")
             negScores.append(sizeNeg / nIter)
             avgNeg.append(sum(negScore) / sizeNeg)
 
         neutralScores.append(neutralScore / nIter)
-        var.append(columns[i])
-        print(len(var), len(posScore), len(avgPos), len(negScores), len(avgNeg), len(neutralScores))
-        print(i)
+        var.append(i)
+
     # Scores as dict then this dict sort it by value
-    print(len(var),len(posScore),len(avgPos),len(negScores),len(avgNeg),len(neutralScores))
     scores = pd.DataFrame(
         {'Name': var, 'Positive Score': posScores, 'Avg. Positive': avgPos, 'Negative Score': negScores,
          'Avg. Negative': avgNeg, 'Neutral Score': neutralScores},
@@ -114,17 +107,14 @@ def makePie(scores):
     pos = 0
     neg = 0
     neut = 0
-
-    if len(scoresCount) == 3:
-        return scoresCount[0],scoresCount[1],scoresCount[2]
-    else:
-        for i in scoresCount.keys():
-            if i == "Negative Score":
-                neg = scoresCount[i]
-            elif i == "Positive Score":
-                pos = scoresCount[i]
-            else:
-                neut = scoresCount[i]
+    #We don't know the possible order (The resulting object will be in descending order so that the first element is the most frequently-occurring element. But what var?)
+    for i in scoresCount.keys():
+        if i == "Negative Score":
+            neg = scoresCount[i]
+        elif i == "Positive Score":
+            pos = scoresCount[i]
+        else:
+            neut = scoresCount[i]
 
     # colors = ["#ffb39c", "#E3D4AD", "#6183A6"]
     # labels = ["Positive", "Negative", "Neutral"]
