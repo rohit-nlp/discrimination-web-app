@@ -50,5 +50,5 @@ def plotGraph(probs):
     #layout = gPlot.layout("large")
     gPlot.vs["label"] = gPlot.vs["name"]
     gPlot.es["label"] = gPlot.es['edgeprob']
-    p.plot(gPlot, "media/DAG Reconstructed.png", bbox=(2480, 3508), vertex_size=100, label_size=50,
-           margin=[100, 100, 100, 100])
+    #p.plot(gPlot, "media/DAG Reconstructed.png", bbox=(2480, 3508), vertex_size=100, label_size=50, margin=[100, 100, 100, 100])
+    p.plot(gPlot, "media/DAG Reconstructed.png")

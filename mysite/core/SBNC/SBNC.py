@@ -42,6 +42,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
                     probs,df,disconnectedNodes = export(df, adjMatrixReconstucted, nodes,substract)
                     print("Export done")
                     #df = pd.read_csv("datasets/inputDataVector.csv",header=None)
+                    probs.to_csv("Probs.csv",sep=";",index=False)
                     if probs is not None:
                         print("SBNC Reconstruction finished with exit")
                         print("Starting discrimination scoring")

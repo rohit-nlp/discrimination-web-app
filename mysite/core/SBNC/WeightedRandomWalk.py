@@ -6,7 +6,7 @@ import numpy as np
 def walk(graph, start, end):
     visited = list()
     visited.append((start, 0))
-    for i in range(3):
+    for i in range(graph.diameter()):
         names = list()
         probs = list()
 
@@ -115,39 +115,6 @@ def makePie(scores):
             pos = scoresCount[i]
         else:
             neut = scoresCount[i]
-
-    # colors = ["#ffb39c", "#E3D4AD", "#6183A6"]
-    # labels = ["Positive", "Negative", "Neutral"]
-    # # Create a pie chart
-    # fig1, ax1 = plt.subplots(figsize=(10, 10))
-    # patches, texts, autotexts = ax1.pie(
-    #
-    #     scoresCount,
-    #
-    #     labels=list(labels),
-    #     # with no shadows
-    #     shadow=False,
-    #     # with colors
-    #     colors=colors,
-    #     # with one slide exploded out
-    #     explode=(0.2, 0.1, 0.1),
-    #     # with the start angle at 90%
-    #     # with the percent listed as a fraction
-    #     autopct='%1.1f%%',
-    #     startangle=90
-    # )
-    #
-    # for i in texts:
-    #     i.set_fontsize(25)
-    #     i.set_fontname("Laksaman")
-    # for i in autotexts:
-    #     i.set_fontsize(23)
-    #
-    # # View the plot drop above
-    # ax1.axis('equal')
-    # fig1.suptitle('Discrimination Classification', fontsize=30, fontname="Laksaman")
-    #
-    # fig1.savefig('media/pie.png', dpi=100)
     return pos,neg,neut
 
 
