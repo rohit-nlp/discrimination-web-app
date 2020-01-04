@@ -46,13 +46,17 @@ def delete_file(request, pk):
 def start_disc(request,pk):
     if request.method == 'GET':
         file = File.objects.get(pk=pk)
-        reason,df,probs,scores,disconnectedNodes,pos,neg,neut = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
+        reason,df,probs,scores,disconnectedNodes,pos,neg,neut,elapsed = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
         if scores is not None:
-            return render(request,"results.html",{'file':file,'reason':reason,'probs':probs,'scores':scores.to_html(
-                classes="table table-striped table-bordered table-sm w-auto",
+            return render(request,"results.html",{'reason':reason,'scores':scores.to_html(
+                classes="table table-striped table-bordered table-hover table-sm w-auto",
                 table_id="scoreTable",
                 index=False,
-                justify='left'),'pos':pos,'neg':neg,'neut':neut})
+                justify='left'),'pos':pos,'neg':neg,'neut':neut,
+              'disconnected':disconnectedNodes.to_html(
+                  classes="table table-borderless table-hover table-striped table-sm",
+                  index=False,
+                  justify="center"
+              ),'elapsed':elapsed})
     return render(request, "results.html", {'file': file, 'reason': reason, 'probs': probs, 'scores': scores})
     #return render(request, "results.html")
-

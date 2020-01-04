@@ -49,8 +49,8 @@ def fit(df,adjacencyMatrix):
     pandas2ri.activate()
 
     #Conversion to R datasets
-    blacklist.to_csv("blacklist",sep=";",index=False)
-    categoricalMatrixDF.to_csv("matrix",sep=";",index=False)
+    #blacklist.to_csv("blacklist",sep=";",index=False)
+    #categoricalMatrixDF.to_csv("matrix",sep=";",index=False)
     blacklist_to_R = pandas2ri.py2ri(blacklist)
     df_to_R = pandas2ri.py2ri(categoricalMatrixDF)
 

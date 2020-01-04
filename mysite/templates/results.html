@@ -61,6 +61,32 @@ body {
 
       </div>
 
+    <div class="container my-5 z-depth-1">
+    <!--Section: Content-->
+    <section class="dark-grey-text align-items-center">
+        <h5 class="text-center font-weight-bold mb-4">Analysis and scoring lasted {{ elapsed }} "</h5>
+        <hr>
+    <div class="row pr-lg-5">
+
+      <div class="col-md-7 mb-4">
+
+        <div class="view">
+          <img src="./../.././media/DAG%20Reconstructed.png" alt="dag">
+        </div>
+
+      </div>
+      <div class="col-md-5 d-flex align-items-center">
+        <div>
+          <h4 class="font mb-4">Following variables are irrelevant for discrimation scoring:</h4>
+            {{ disconnected|safe }}
+        </div>
+      </div>
+    </div>
+
+    </section>
+    <!--Section: Content-->
+</div>
+
     {% endif %}
 
 
