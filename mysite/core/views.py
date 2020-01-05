@@ -1,6 +1,6 @@
 
 import pandas as pd
-import json
+import seaborn as sns
 
 from django.shortcuts import render, redirect, render_to_response
 from django.views.generic import TemplateView
@@ -9,6 +9,7 @@ from django.core import serializers
 from .SBNC.SBNC import SBNC
 from .forms import FileForm
 from .models import File
+from .SBNC.ComputeDiscrimination import pageRank
 
 
 class Home(TemplateView):
@@ -50,7 +51,8 @@ def start_disc(request,pk):
         file = File.objects.get(pk=pk)
         reason,df,probs,scores,disconnectedNodes,pos,neg,neut,elapsed = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
         if scores is not None:
-            request.session['df'] = df.to_json()
+
+            request.session['df'] = df.to_json(orient='split')
             request.session['probs'] = probs.to_json()
             request.session['columns'] = pd.DataFrame({'pos':file.posColumn,'neg':file.negColumn},index=[0]).to_json()
 
@@ -72,11 +74,32 @@ def start_disc(request,pk):
 
 def pageRankExam(request,name):
 
-    df = pd.read_json(request.session.get('df'))
+    df = pd.read_json(request.session.get('df'),orient='split')
     probs = pd.read_json(request.session.get('probs'))
     columns = pd.read_json(request.session.get('columns'))
+    print("start pr")
+    PRScores = pageRank(df,probs,columns['pos'][0],columns['neg'][0])
+    PRScores.to_csv("PRinWeb.csv",index=None,sep=";")
+    print("done Pr")
+    if PRScores is not None:
+        # sns.set_context("talk")
+        sns.set()
+        sns.despine()
+        # Create an array with the colors you want to use
+        colors = ["#E3D4AD", "#ffb39c"]
+        #sns.set_palette(sns.color_palette(colors))
+        sns_plot = sns.lmplot(height=6,
+                              y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
+                              hue=name, fit_reg=False)
+        print("start p1")
+        sns_plot.savefig("media/smallPlot.png", dpi=200)
+        print("start p2")
+        sns_plot = sns.lmplot(height=10,
+                              y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
+                              hue=name, fit_reg=False)
+        sns_plot.savefig("media/bigPlot.png", dpi=200)
+        print("end p2")
 
-    print(columns)
+        return render(request,"pageRankShow.html",{'reason':"",'name':name})
+    return render(request, "pageRankShow.html", {'reason': "PageRank Scores could not be computed"})
 
-
-    return render(request,"pageRankShow.html")

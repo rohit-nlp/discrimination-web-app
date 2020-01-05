@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hey</title>
-</head>
+
+{% extends 'base.html' %}
+{% block content %}
+<header>
+    <title>PageRank</title>
+    <h1>Page Rank Score</h1>
+</header>
+
+    {% if reason != "" %}
+        <p>{{ reason }}</p>
+    {% else %}
+        <div class="container mt-5">
+          <!--Section: Content-->
+          <section class="dark-grey-text text-center">
+            <!-- Section heading -->
+            <h3 class="font-weight-bold mb-4 pb-2">{{ name }}</h3>
+            <!-- Section description -->
+            <!-- Grid row -->
+            <div class="row">
+                  <div class="view zoom">
+                    <a href="./../.././media/bigPlot.png" data-size="2388x1955">
+                      <img src="./../.././media/smallPlot.png" class="img-fluid">
+                    </a>
+                  </div>
+                  <!-- Card image -->
+              <!-- Fourth column -->
+            </div>
+          </section>
+          <!--Section: Content-->
+        </div>
+    {% endif %}
 <body>
 
 </body>
-</html>
+
+{% endblock %}
