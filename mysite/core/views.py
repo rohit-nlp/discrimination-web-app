@@ -1,6 +1,7 @@
 
 import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 from django.shortcuts import render, redirect, render_to_response
 from django.views.generic import TemplateView
@@ -53,13 +54,13 @@ def start_disc(request,pk):
         if scores is not None:
 
             request.session['df'] = df.to_json(orient='split')
-            request.session['probs'] = probs.to_json()
-            request.session['columns'] = pd.DataFrame({'pos':file.posColumn,'neg':file.negColumn},index=[0]).to_json()
+            request.session['probs'] = probs.to_json(orient='split')
+            request.session['columns'] = pd.DataFrame({'pos':file.posColumn,'neg':file.negColumn},index=[0]).to_json(orient='split')
 
             pd.set_option('display.max_colwidth', -1)
             scores['Name'] = scores['Name'].apply(lambda x: '<a href="http://127.0.0.1:8000/PageRankScore/{0}">{0}</a>'.format(x))
             return render(request,"results.html",{'reason':reason,'scores':scores.to_html(
-                classes="table table-striped table-bordered table-sm",
+                classes="table table-striped table-bordered table-sm w-auto",
                 table_id="scoreTable",
                 index=False,
                 escape=False,
@@ -75,31 +76,39 @@ def start_disc(request,pk):
 def pageRankExam(request,name):
 
     df = pd.read_json(request.session.get('df'),orient='split')
-    probs = pd.read_json(request.session.get('probs'))
-    columns = pd.read_json(request.session.get('columns'))
+    probs = pd.read_json(request.session.get('probs'),orient='split')
+    columns = pd.read_json(request.session.get('columns'),orient='split')
     print("start pr")
-    PRScores = pageRank(df,probs,columns['pos'][0],columns['neg'][0])
-    PRScores.to_csv("PRinWeb.csv",index=None,sep=";")
+    PRScores,elapsed = pageRank(df,probs,columns['pos'][0],columns['neg'][0],name)
     print("done Pr")
     if PRScores is not None:
-        # sns.set_context("talk")
-        sns.set()
-        sns.despine()
-        # Create an array with the colors you want to use
-        colors = ["#E3D4AD", "#ffb39c"]
-        #sns.set_palette(sns.color_palette(colors))
-        sns_plot = sns.lmplot(height=6,
-                              y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
-                              hue=name, fit_reg=False)
-        print("start p1")
-        sns_plot.savefig("media/smallPlot.png", dpi=200)
-        print("start p2")
-        sns_plot = sns.lmplot(height=10,
-                              y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
-                              hue=name, fit_reg=False)
-        sns_plot.savefig("media/bigPlot.png", dpi=200)
-        print("end p2")
-
-        return render(request,"pageRankShow.html",{'reason':"",'name':name})
+        createGraphs(PRScores,name)
+        return render(request,"pageRankShow.html",{'reason':"",'name':name,'elapsed':elapsed})
     return render(request, "pageRankShow.html", {'reason': "PageRank Scores could not be computed"})
 
+def createGraphs(PRScores,name):
+    sns.set()
+    sns.despine()
+    # Create an array with the colors you want to use
+    colors = ["#E3D4AD", "#ffb39c"]
+    # sns.set_palette(sns.color_palette(colors))
+    sns_plot = sns.lmplot(height=6,
+                          y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
+                          hue=name, fit_reg=False)
+    print("start p1")
+    sns_plot.savefig("media/smallPoints.png", dpi=300)
+    print("start p2")
+    sns_plot = sns.lmplot(height=10,
+                          y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
+                          hue=name, fit_reg=False)
+    sns_plot.savefig("media/bigPoints.png", dpi=300)
+    print("end p2")
+
+    fig, axs = plt.subplots(figsize=(10, 10))
+    ax = sns.boxplot(x=name, y="Positive Discrimination", data=PRScores,
+                     boxprops={'facecolor': 'Green'}, showcaps=False, showfliers=False)
+    ax = sns.boxplot(x=name, y="Negative Discrimination", data=PRScores,
+                     showcaps=False, boxprops={'facecolor': 'Red'},
+                     showfliers=False)
+    plt.ylabel('Discrimination Score')
+    plt.savefig('media/BoxPlot.png', dpi=300)

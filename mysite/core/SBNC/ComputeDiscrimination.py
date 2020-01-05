@@ -1,11 +1,12 @@
 
 import pandas as pd
-import numpy as np
 import rpy2.robjects as robjects
 from rpy2.robjects import pandas2ri
 from rpy2.rinterface import RRuntimeError
+import time
 
-def pageRank(df,probs,posName,negName):
+def pageRank(df,probs,posName,negName,varName):
+    elapsed = time.time()
     posValues = list()
     negValues = list()
     datasetValues = df.values
@@ -51,15 +52,17 @@ def pageRank(df,probs,posName,negName):
 
     scores = pd.DataFrame({"Positive Discrimination":posValues,"Negative Discrimination":negValues})
 
-    scores[df.columns] = df
+    #scores[df.columns] = df
+    #scores.to_csv("scores.csv",sep=";",index=None)
+    scores[varName] = df[varName]
     #Compute Generalized Discrimination Score
 
 
     gdsScore = gds(scores,"Positive Discrimination","Negative Discrimination")
     scores[gdsScore.columns] = gdsScore
-
+    elapsed = time.strftime('%H:%M:%S', time.gmtime((time.time() - elapsed)))
     if (scores.shape[0] > 1) and (scores.shape[1] > 0):
-        return scores
+        return scores,elapsed
     return None
 
 def gds(results,pos,neg):

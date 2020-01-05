@@ -2,8 +2,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <header>
-    <title>PageRank</title>
-    <h1>Page Rank Score</h1>
+    <h1 class="font-weight-bold mb-4">Page Rank Score</h1>
+    <h5 class="font-weight mb-3">Scoring lasted {{ elapsed }} "</h5>
 </header>
 
     {% if reason != "" %}
@@ -18,8 +18,17 @@
             <!-- Grid row -->
             <div class="row">
                   <div class="view zoom">
-                    <a href="./../.././media/bigPlot.png" data-size="2388x1955">
-                      <img src="./../.././media/smallPlot.png" class="img-fluid">
+                    <a href="./../.././media/bigPoints.png" data-size="2388x1955">
+                      <img src="./../.././media/smallPoints.png" class="img-fluid">
+                    </a>
+                  </div>
+                  <!-- Card image -->
+              <!-- Fourth column -->
+            </div>
+              <div class="row">
+                  <div class="view zoom">
+                    <a href="./../.././media/BoxPlot.png" data-size="2388x1955">
+                      <img src="./../.././media/BoxPlot.png" class="img-fluid">
                     </a>
                   </div>
                   <!-- Card image -->
