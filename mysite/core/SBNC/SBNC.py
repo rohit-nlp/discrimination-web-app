@@ -48,6 +48,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
                         print("SBNC Reconstruction finished with exit")
                         print("Starting discrimination scoring")
                         scoresDicts,pos,neg,neut = performRandomWalk(df,probs,1000,posColumn,negColumn)
+                        #pageRank(df,probs,posColumn,negColumn)
                         elapsed = time.strftime('%H:%M:%S', time.gmtime((time.time() - elapsed)))
                     else:
                         reason = "After the reconstruction, the dataset has less than 2 columns"

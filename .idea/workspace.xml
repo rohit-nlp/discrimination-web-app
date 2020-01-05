@@ -2,24 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores" beforeDir="false" afterPath="$PROJECT_DIR$/Datasets/COMPASS Scores" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/Compas Analysis.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/Cox with interaction term and independent variables.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/README" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/compas-scores-raw.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/compas.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/truth_tables.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Dataset Setup.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Datasets/Dataset Setup.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Probs.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blacklist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/matrix" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ExportSBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ExportSBNC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/LikelihoodFit.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/LikelihoodFit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/Medical Costs/.~lock.insurance_filtered.csv#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ComputeDiscrimination.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ComputeDiscrimination.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +45,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -69,18 +67,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mysite/core/static/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mysite/core/static/js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mysite/core/static/img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\blair\Desktop\discrimination-web-app\mysite\core\SBNC" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mysite/core/static/js" />
+      <recent name="$PROJECT_DIR$/mysite/core/static/img" />
     </key>
   </component>
   <component name="RunManager">
@@ -153,7 +152,8 @@
       <workItem from="1577536395231" duration="20027000" />
       <workItem from="1577909586995" duration="4680000" />
       <workItem from="1577964429144" duration="4690000" />
-      <workItem from="1578074392612" duration="7759000" />
+      <workItem from="1578074392612" duration="8345000" />
+      <workItem from="1578136599135" duration="15059000" />
     </task>
     <servers />
   </component>
@@ -174,6 +174,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="2650" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578162649011">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2650" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578162649011" />
     <state x="798" y="427" key="FileChooserDialogImpl" timestamp="1577199028765">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
@@ -183,10 +187,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1577120183628" />
-    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1578074392175">
+    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1578136598845">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578074392175" />
+    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578136598845" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1577536395487" />
     <state x="698" y="255" width="672" height="678" key="search.everywhere.popup" timestamp="1577556110651">
       <screen x="65" y="24" width="1855" height="1056" />

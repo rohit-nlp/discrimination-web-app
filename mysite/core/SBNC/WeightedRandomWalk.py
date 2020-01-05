@@ -27,7 +27,7 @@ def walk(graph, start, end):
             probs.append(graph.es[graph.get_eid(node["name"], graph.vs[neighbor]["name"])]["edgeprob"])
 
         # Make probs sum up to 1 (needed for choice method)
-        probs = [probs[i] / sum(probs) for i in range(len(probs))]
+        probs = [i / sum(probs) for i in probs]
         # Node had no childs
         if len(names) == 0:
             return visited

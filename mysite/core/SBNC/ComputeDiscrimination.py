@@ -59,7 +59,6 @@ def pageRank(df,probs,posName,negName):
     scores[gdsScore.columns] = gdsScore
 
     if (scores.shape[0] > 1) and (scores.shape[1] > 0):
-        #scores.to_csv("Discrimination Results.csv",sep = ";",index = None)
         return scores
     return None
 

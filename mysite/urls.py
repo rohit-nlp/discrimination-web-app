@@ -12,6 +12,7 @@ urlpatterns = [
     path('files/upload/', views.upload_file, name='upload_file'),
     path('files/<int:pk>/', views.delete_file, name='delete_file'),
     path('files/<int:pk>',views.start_disc,name='start_disc'),
+    path('PageRankScore/<slug:name>',views.pageRankExam,name='pageRankShow'),
 
     path('admin/', admin.site.urls),
 ]
