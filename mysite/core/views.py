@@ -60,7 +60,7 @@ def start_disc(request,pk):
 
             pd.set_option('display.max_colwidth', -1)
             #scores['Name'] = scores['Name'].apply(lambda x: '<button type="button" class="btn btn-light waves-effect btn-sm">{0}</button>'.format(x))
-            scores['Name'] = scores['Name'].apply(lambda x: '<u><a href="http://127.0.0.1:8000/PageRankScore/{0}">{0}</a></u>'.format(x))
+            scores['Name'] = scores['Name'].apply(lambda x: '<u><a style="color:#0000EE;" href="http://127.0.0.1:8000/PageRankScore/{0}">{0}</a></u>'.format(x))
             return render(request,"results.html",{'reason':reason,'scores':scores.to_html(
                 classes="table table-striped table-bordered table-sm",
                 table_id="scoreTable",

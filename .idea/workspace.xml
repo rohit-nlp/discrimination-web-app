@@ -11,8 +11,6 @@
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/compas.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/truth_tables.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/pageRankShow.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/pageRankShow.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,6 +152,7 @@
       <workItem from="1578230289821" duration="6072000" />
       <workItem from="1578250709291" duration="7847000" />
       <workItem from="1578263628971" duration="5590000" />
+      <workItem from="1578317055514" duration="2588000" />
     </task>
     <servers />
   </component>
@@ -187,20 +186,20 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1577120183628" />
-    <state x="655" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1578263629031">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1578317056253">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="655" y="383" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578263629031" />
-    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578250710396" />
+    <state x="2575" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578317056253" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1577536395487" />
     <state x="733" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578268531497">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="733" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578268531497" />
-    <state x="698" y="255" width="672" height="678" key="search.everywhere.popup" timestamp="1577556110651">
-      <screen x="65" y="24" width="1855" height="1056" />
+    <state x="2575" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1578318137328">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2575" y="236" key="search.everywhere.popup/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1577269862749" />
+    <state x="2575" y="236" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578318137328" />
     <state x="698" y="255" width="672" height="678" key="search.everywhere.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1577556110651" />
   </component>
 </project>
