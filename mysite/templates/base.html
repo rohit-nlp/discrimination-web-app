@@ -18,6 +18,11 @@
     <!-- MDBootstrap Datatables  -->
   <link rel="stylesheet" href={% static 'css/addons/datatables.min.css' %}>
   <link rel="stylesheet" href={% static 'css/addons/showResults.css' %}>
+    <style>
+        table#disconnectedTable
+        {text-align: center;}
+    </style>
+
 <!--
 </head>
 <body>
@@ -52,7 +57,6 @@
     </script>
 
     <script type="text/javascript" id="dataPie" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}>
-
         var script_tag = document.getElementById('dataPie')
       var pos = script_tag.getAttribute("data-pos");
         var neg = script_tag.getAttribute("data-neg");
@@ -66,15 +70,16 @@
     //pie
     var ctxP = document.getElementById("pieChart").getContext('2d');
     var myPieChart = new Chart(ctxP, {
+      plugins: [ChartDataLabels],
       type: 'pie',
       data: {
         labels: ["Positive", "Negative", "Neutral"],
         datasets: [{
           data: [positive, negative, neutral],
-          backgroundColor: ["#ffb39c", "#E3D4AD", "#6183A6"],
-          hoverBackgroundColor: ["#ffb39c", "#E3D4AD", "#6183A6"],
+          backgroundColor: ["#5bc0de", "#d9534f", "#f9f9f9"],
+          hoverBackgroundColor: ["#bae1ff", "#ff6f69", "#f9f1f1"],
           borderWidth: 4,
-          borderColor: '#eee'
+          borderColor: '#414a4c'
         }]
       },
       options: {
@@ -83,7 +88,7 @@
           position: 'bottom',
           labels: {
             padding: 25,
-            boxWidth: 20
+            boxWidth: 25,
           }
         },
         plugins: {
@@ -94,14 +99,14 @@
               dataArr.map(data => {
                 sum += data;
               });
-              let percentage = (value * 100 / sum).toFixed(2) + "%";
+              let percentage = (value * 10000 / sum).toFixed(2) + "%";
               return percentage;
             },
-            color: 'white',
+            color: 'black',
             labels: {
               title: {
                 font: {
-                  size: '14'
+                  size: '20'
                 }
               }
             }

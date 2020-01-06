@@ -2,6 +2,7 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import re
 
 from django.shortcuts import render, redirect, render_to_response
 from django.views.generic import TemplateView
@@ -58,15 +59,17 @@ def start_disc(request,pk):
             request.session['columns'] = pd.DataFrame({'pos':file.posColumn,'neg':file.negColumn},index=[0]).to_json(orient='split')
 
             pd.set_option('display.max_colwidth', -1)
-            scores['Name'] = scores['Name'].apply(lambda x: '<a href="http://127.0.0.1:8000/PageRankScore/{0}">{0}</a>'.format(x))
+            #scores['Name'] = scores['Name'].apply(lambda x: '<button type="button" class="btn btn-light waves-effect btn-sm">{0}</button>'.format(x))
+            scores['Name'] = scores['Name'].apply(lambda x: '<u><a href="http://127.0.0.1:8000/PageRankScore/{0}">{0}</a></u>'.format(x))
             return render(request,"results.html",{'reason':reason,'scores':scores.to_html(
-                classes="table table-striped table-bordered table-sm w-auto",
+                classes="table table-striped table-bordered table-sm",
                 table_id="scoreTable",
                 index=False,
                 escape=False,
-                justify='initial'),'pos':pos,'neg':neg,'neut':neut,
+                justify='left'),'pos':pos,'neg':neg,'neut':neut,
               'disconnected':disconnectedNodes.to_html(
                   classes="table table-borderless table-hover table-striped table-sm",
+                  table_id="disconnectedTable",
                   index=False,
                   justify="center"
               ),'elapsed':elapsed})
@@ -81,6 +84,7 @@ def pageRankExam(request,name):
     print("start pr")
     PRScores,elapsed = pageRank(df,probs,columns['pos'][0],columns['neg'][0],name)
     print("done Pr")
+    PRScores.to_csv("health.csv",index=None,sep=";")
     if PRScores is not None:
         createGraphs(PRScores,name)
         return render(request,"pageRankShow.html",{'reason':"",'name':name,'elapsed':elapsed})
@@ -90,25 +94,25 @@ def createGraphs(PRScores,name):
     sns.set()
     sns.despine()
     # Create an array with the colors you want to use
-    colors = ["#E3D4AD", "#ffb39c"]
-    # sns.set_palette(sns.color_palette(colors))
+    colors = ["#5bc0de", "#d9534f"]
+    sns.set_palette(sns.color_palette(colors))
     sns_plot = sns.lmplot(height=6,
                           y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
-                          hue=name, fit_reg=False)
+                          hue=name, fit_reg=True)
     print("start p1")
     sns_plot.savefig("media/smallPoints.png", dpi=300)
     print("start p2")
     sns_plot = sns.lmplot(height=10,
                           y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
-                          hue=name, fit_reg=False)
+                          hue=name, fit_reg=True)
     sns_plot.savefig("media/bigPoints.png", dpi=300)
     print("end p2")
 
     fig, axs = plt.subplots(figsize=(10, 10))
     ax = sns.boxplot(x=name, y="Positive Discrimination", data=PRScores,
-                     boxprops={'facecolor': 'Green'}, showcaps=False, showfliers=False)
+                     boxprops={'facecolor': '#5bc0de'}, showcaps=False, showfliers=False)
     ax = sns.boxplot(x=name, y="Negative Discrimination", data=PRScores,
-                     showcaps=False, boxprops={'facecolor': 'Red'},
+                     showcaps=False, boxprops={'facecolor': '#d9534f'},
                      showfliers=False)
     plt.ylabel('Discrimination Score')
     plt.savefig('media/BoxPlot.png', dpi=300)
