@@ -4,7 +4,7 @@ import igraph as p
 import time
 
 def pageRank(df,probs,posName,negName,varName):
-    elapsed = time.time()
+
     datasetValues = df.values
 
 
@@ -43,9 +43,9 @@ def pageRank(df,probs,posName,negName,varName):
 
     gdsScore = gds(scores,"Positive Discrimination","Negative Discrimination")
     scores[gdsScore.columns] = gdsScore
-    elapsed = time.strftime('%H:%M:%S', time.gmtime((time.time() - elapsed)))
+
     if (scores.shape[0] > 1) and (scores.shape[1] > 0):
-        return scores,elapsed
+        return scores
     return None
 
 def gds(results,pos,neg):

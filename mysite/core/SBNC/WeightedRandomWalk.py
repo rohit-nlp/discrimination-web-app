@@ -66,18 +66,20 @@ def count(graph,nIter,node,posName,negName):
     return posCount,negCount,neutralCount,intermediate
 
 
-def performRandomWalk(df, probs, nIter, posName, negName):
+def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
     negScores = list()
     posScores = list()
     avgPos = list()
     avgNeg = list()
     inter =list()
     var = list()
+    veredicts = list()
     neutralScores = list()
     # For each Node
     columns = [i for i in df.columns if i != posName and i != negName]
     graph = createGraph(probs)
     for i in columns:
+        var.append(i)
         # Get times we arrived in a negative and positive decision
         posScore, negScore, neutralScore, intermediate = count(graph, nIter, i, posName, negName)
         # Caution, we cannot divide by zero
@@ -93,32 +95,51 @@ def performRandomWalk(df, probs, nIter, posName, negName):
         if sizePos != 0:
             avgPos.append(sum(posScore) / sizePos)
             posScores.append(sizePos / nIter)
+            veredict = "Favoritism"
         if sizeNeg != 0:
             negScores.append(sizeNeg / nIter)
             avgNeg.append(sum(negScore) / sizeNeg)
+            veredict = "Negative Discrimination"
+        indScore = neutralScore / nIter
+        neutralScores.append(indScore)
+        if indScore >= indThr:
+            veredict = "Too many inconclusive outputs"
+        else:
+            substract = abs(posScores[-1] - negScores[-1])
+            if substract < diff:
+                veredict= "No apparent discrimination"
+            else:
+                if ((posScores[-1] - indScore < diff) and (negScores[-1] < indScore)) or ((negScores[-1] - indScore < diff) and posScores[-1] < indScore):
+                    veredict = "Apparent "+veredict
 
-        neutralScores.append(neutralScore / nIter)
-        inter.append(max(set(intermediate), key=intermediate.count))
-        var.append(i)
+        interName = max(set(intermediate), key=intermediate.count)
+        inter.append(interName)
+        if interName != "-" and interName != "None":
+            if veredict == "Favoritism":
+                veredict = "Explainable/Conditional favoritism because of ", interName
+            elif veredict == "Negative Discrimination":
+                veredict = "Explainable/Conditional discrimination because of ", interName
+        veredicts.append(veredict)
 
     # Scores as dict then this dict sort it by value
     scores = pd.DataFrame(
         {'Name': var, 'Positive Score': posScores, 'Avg. Positive': avgPos, 'Negative Score': negScores,
-         'Avg. Negative': avgNeg, 'Intermediate Node':inter, 'Neutral Score': neutralScores},
-        columns=['Name', 'Positive Score', 'Avg. Positive', 'Negative Score', 'Avg. Negative','Intermediate Node','Neutral Score'])
+         'Avg. Negative': avgNeg, 'Intermediate Node':inter, 'Inconclusive Score': neutralScores, 'Veredict':veredicts},
+        columns=['Name', 'Positive Score', 'Avg. Positive', 'Negative Score', 'Avg. Negative','Intermediate Node','Inconclusive Score','Veredict'])
     pos,neg,neut = makePie(scores)
     return scores,pos,neg,neut
 
 def makePie(scores):
 
-    scores = scores.drop(["Name","Avg. Positive","Avg. Negative",'Intermediate Node'],axis=1)
+    scores = scores.drop(["Name","Avg. Positive","Avg. Negative",'Intermediate Node','Veredict'],axis=1)
     scores['max_value'] = scores.idxmax(axis=1)
     scoresCount = scores['max_value'].value_counts()
+
 
     pos = 0
     neg = 0
     neut = 0
-    #We don't know the possible order (The resulting object will be in descending order so that the first element is the most frequently-occurring element. But what var?)
+    #We don't know the possible order (The resulting object will be in descending order so that the first element is the most frequently-occurring element). But what var?)
     for i in scoresCount.keys():
         if i == "Negative Score":
             neg = scoresCount[i]

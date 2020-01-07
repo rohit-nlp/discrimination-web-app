@@ -1,14 +1,8 @@
 {% extends 'base.html' %}
 {%  load static %}
 
-body {
-  background-color: #eee;
-}
 
 {% block content %}
-<header>
-    <h1>Discrimination Analysis</h1>
-</header>
 
     {% if reason != "" %}
 
@@ -21,74 +15,58 @@ body {
         <!--Section: Block Content-->
         <section>
 
-          <div class="card">
-            <div class="card-body">
+        <div class="card-body">
+          <h5 class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
+          <hr>
+          <!--Grid row-->
+          <div class="row align-content-center">
 
-              <h5 class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
-              <hr>
+            <!--Grid column-->
+            <div class="col-md-5 align-content-center">
 
-              <!--Grid row-->
-              <div class="row">
-
-                <!--Grid column-->
-                <div class="col-md-5">
-
-                  <canvas id="pieChart" class="mt-7"></canvas>
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-md-7">
-                    {{ scores|safe }}
-                </div>
-                <!--Grid column-->
-
-              </div>
-              <!--Grid row-->
+              <canvas style="margin-top: 10vh" id="pieChart"></canvas>
 
             </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-7">
+                {{ scores|safe }}
+            </div>
+            <!--Grid column-->
+
           </div>
-
-
+          <!--Grid row-->
+        </div>
         </section>
+
+        <div class="container-md-10">
+
         <!--Section: Block Content-->
-        <div class="container my-5 z-depth-1">
-    <!--Section: Content-->
-    <section class="dark-grey-text align-items-center">
-        <h5 class="text-center font-weight-bold mb-4">Analysis and scoring lasted {{ elapsed }} "</h5>
-        <hr>
-    <div class="row pr-lg-5">
+        <section>
 
-      <div class="col-md-7 mb-4">
-        <div class="view zoom">
-            <a href="./../.././media/Big%20DAG%20Reconstructed.png" data-size="2480, 3508">
-              <img src="./../.././media/DAG%20Reconstructed.png" class="img-fluid">
-                <figcaption class="figure-caption font-weight-bold" >Click to expand the graph</figcaption>
-            </a>
+        <div class="card-body">
+          <h5 class="text-left mb-4">Analysis and scoring lasted {{ elapsed }} "</h5>
+          <hr>
+          <!--Grid row-->
+          <div class="row align-content-center">
+            <!--Grid column-->
+            <div class="col-md-7 align-content-center view zoom">
+                <a href="./../.././media/Big%20DAG%20Reconstructed.png" data-size="2480, 3508">
+                    <figcaption class="figure-caption font-weight-bold" >Click to expand the graph</figcaption>
+                  <img src="./../.././media/DAG%20Reconstructed.png" class="img-fluid">
+                </a>
+            </div>
+          <!--Grid column-->
+            <div class="col-md-5 align-items-center">
+                <h4 class="font mb-4">Following variables are irrelevant for discrimination scoring:</h4>
+                {{ disconnected|safe }}
+            </div>
+          </div>
         </div>
-
-
-      </div>
-      <div class="col-md-5 d-flex align-items-center">
-        <div>
-          <h4 class="font mb-4">Following variables are irrelevant for discrimation scoring:</h4>
-            {{ disconnected|safe }}
-        </div>
-      </div>
-    </div>
-
-    </section>
-    <!--Section: Content-->
-
-      </div>
-
+        </section>
 
     {% endif %}
-
-
-
-
 {% endblock %}
 
 

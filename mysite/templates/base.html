@@ -21,19 +21,61 @@
     <style>
         table#disconnectedTable
         {text-align: center;}
+        footer#peu
+        {background-color: #5bc0de;}
+        nav#nav
+        {background-color: #5bc0de;}
     </style>
-
-<!--
 </head>
 <body>
 
-
+<!--Navbar -->
+<nav id="nav" class="mb-1 navbar navbar-expand-lg navbar-dark" style="height: 6vh">
+  <a style="font-weight: bold; color: #0d0d0d" class="navbar-brand" href="/">Discrimination Detection</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+    aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a style="font-size: 20px; color: #0d0d0d;" class="nav-link" href="/files/">File List</a>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a style="font-size: 20px; color: #0d0d0d" class="nav-link" href="/files/upload">Upload</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light" href="https://es.linkedin.com/in/blai-ras-590381192" target="_blank">
+            <i style="color: black" class="fab fa-linkedin-in fa-2x"> </i>
+          </a>
+      </li>
+      <li class="nav-item">
+        <!--Github-->
+        <a class="nav-link waves-effect waves-light" href="https://github.com/Blaieet/" target="_blank">
+            <i style="color: black" class="fab fa-github fa-2x"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
 
   <!-- Start your project here-->
     {% block content %}
     {% endblock %}
-  <!-- End your project here-->
 
+<!-- Footer -->
+<!--<footer class="page-footer font-small cyan darken-3">-->
+<footer id="peu" class="page-footer font-small" style="height: 6.5vh">
+    <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://eurecat.org/" target="_blank">Eurecat.org</a>
+  </div>
+  <!-- Copyright -->
+</footer>
   <!-- jQuery -->
   <script type="text/javascript" src={%  static 'js/jquery.min.js' %}></script>
   <!-- Bootstrap tooltips -->
@@ -77,7 +119,7 @@
         datasets: [{
           data: [positive, negative, neutral],
           backgroundColor: ["#5bc0de", "#d9534f", "#f9f9f9"],
-          hoverBackgroundColor: ["#bae1ff", "#ff6f69", "#f9f1f1"],
+          hoverBackgroundColor: ["#7CC0DE", "#ff6f69", "#f9f1f1"],
           borderWidth: 4,
           borderColor: '#414a4c'
         }]
@@ -109,7 +151,9 @@
                   size: '20'
                 }
               }
-            }
+            },
+            clamp: true
+
           }
         },
 

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DF After SBNC.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DF After SBNC.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores" beforeDir="false" afterPath="$PROJECT_DIR$/Datasets/COMPASS Scores" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/Compas Analysis.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/Cox with interaction term and independent variables.ipynb" beforeDir="false" />
@@ -10,15 +11,19 @@
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/compas-scores-raw.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/compas.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/truth_tables.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/UCBerkeley/CategoricalUCBAdmissions.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/UCBerkeley/ProbsUCBAdmissions.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/UCBerkeley/UCBAdmissionsComplete.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/health.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRscores.csv" beforeDir="false" afterPath="$PROJECT_DIR$/PRscores.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ComputeDiscrimination.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ComputeDiscrimination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ExportSBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ExportSBNC.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/file_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/upload_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/upload_file.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/probs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/probs.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scores.csv" beforeDir="false" afterPath="$PROJECT_DIR$/scores.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +167,7 @@
       <workItem from="1578317055514" duration="2588000" />
       <workItem from="1578386239228" duration="866000" />
       <workItem from="1578387118379" duration="8283000" />
+      <workItem from="1578408846871" duration="24391000" />
     </task>
     <servers />
   </component>
@@ -195,16 +201,17 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1577120183628" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1578387118231">
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1578408847714">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="655" y="383" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578263629031" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578387118231" />
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578408847714" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1577536395487" />
-    <state x="733" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578268531497">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state x="2653" y="445" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578419290311">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="733" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578268531497" />
+    <state x="2653" y="445" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578419290311" />
     <state x="2575" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1578318137328">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
