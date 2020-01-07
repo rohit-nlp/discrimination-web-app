@@ -41,13 +41,16 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
                     nodes, probHappened,probNotHappened,substract = score(df,adjMatrixReconstucted,marginalProbs,jointProbs)
                     print("score done")
                     probs,df,disconnectedNodes = export(df, adjMatrixReconstucted, nodes,substract)
+                    df.to_csv("DF After SBNC.csv",sep=";",index=None)
                     print("Export done")
                     #df = pd.read_csv("datasets/inputDataVector.csv",header=None)
                     #probs.to_csv("Probs.csv",sep=";",index=False)
                     if probs is not None:
                         print("SBNC Reconstruction finished with exit")
                         print("Starting discrimination scoring")
+                        probs.to_csv("probs.csv",sep=";",index=None)
                         scoresDicts,pos,neg,neut = performRandomWalk(df,probs,1000,posColumn,negColumn)
+                        scoresDicts.to_csv("scores.csv",sep=";",index=None)
                         #pageRank(df,probs,posColumn,negColumn)
                         elapsed = time.strftime('%H:%M:%S', time.gmtime((time.time() - elapsed)))
                     else:

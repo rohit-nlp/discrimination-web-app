@@ -63,9 +63,9 @@
         var neut = script_tag.getAttribute("data-neut");
 
             // Data
-    const positive = pos;
-    const negative = neg;
-    const neutral = neut;
+    const positive = parseInt(pos, 10);
+    const negative = parseInt(neg, 10);
+    const neutral = parseInt(neut, 10);
 
     //pie
     var ctxP = document.getElementById("pieChart").getContext('2d');
@@ -97,9 +97,9 @@
               let sum = 0;
               let dataArr = ctx.chart.data.datasets[0].data;
               dataArr.map(data => {
-                sum += data;
+                  sum = sum+ data;
               });
-              let percentage = (value * 10000 / sum).toFixed(2) + "%";
+              let percentage = (value * 100 / sum).toFixed(2) + "%";
               return percentage;
             },
             color: 'black',

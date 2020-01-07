@@ -45,16 +45,25 @@ def count(graph,nIter,node,posName,negName):
     posCount = []
     negCount = []
     neutralCount = 0
+    intermediate = ["-"]
     for i in range(nIter):
-        countPos = walk(graph,node,posName)[-1]
-        countNeg = walk(graph, node, negName)[-1]
-        if countPos[0] == posName:
-            posCount.append(countPos[1])
-        elif countNeg[0] == negName:
-            negCount.append(countNeg[1])
+        countPos = walk(graph,node,posName)
+        countNeg = walk(graph, node, negName)
+        if countPos[-1][0] == posName:
+            posCount.append(countPos[-1][1])
+            if len(countPos) == 2:
+                intermediate.append("None")
+            else:
+                intermediate.append(countPos[-2][0])
+        elif countNeg[-1][0] == negName:
+            negCount.append(countNeg[-1][1])
+            if len(countPos) == 2:
+                intermediate.append("None")
+            else:
+                intermediate.append(countNeg[-2][0])
         else:
             neutralCount += 1
-    return posCount,negCount,neutralCount
+    return posCount,negCount,neutralCount,intermediate
 
 
 def performRandomWalk(df, probs, nIter, posName, negName):
@@ -62,6 +71,7 @@ def performRandomWalk(df, probs, nIter, posName, negName):
     posScores = list()
     avgPos = list()
     avgNeg = list()
+    inter =list()
     var = list()
     neutralScores = list()
     # For each Node
@@ -69,7 +79,7 @@ def performRandomWalk(df, probs, nIter, posName, negName):
     graph = createGraph(probs)
     for i in columns:
         # Get times we arrived in a negative and positive decision
-        posScore, negScore, neutralScore = count(graph, nIter, i, posName, negName)
+        posScore, negScore, neutralScore, intermediate = count(graph, nIter, i, posName, negName)
         # Caution, we cannot divide by zero
         sizePos = len(posScore)
         sizeNeg = len(negScore)
@@ -88,19 +98,20 @@ def performRandomWalk(df, probs, nIter, posName, negName):
             avgNeg.append(sum(negScore) / sizeNeg)
 
         neutralScores.append(neutralScore / nIter)
+        inter.append(max(set(intermediate), key=intermediate.count))
         var.append(i)
 
     # Scores as dict then this dict sort it by value
     scores = pd.DataFrame(
         {'Name': var, 'Positive Score': posScores, 'Avg. Positive': avgPos, 'Negative Score': negScores,
-         'Avg. Negative': avgNeg, 'Neutral Score': neutralScores},
-        columns=['Name', 'Positive Score', 'Avg. Positive', 'Negative Score', 'Avg. Negative', 'Neutral Score'])
+         'Avg. Negative': avgNeg, 'Intermediate Node':inter, 'Neutral Score': neutralScores},
+        columns=['Name', 'Positive Score', 'Avg. Positive', 'Negative Score', 'Avg. Negative','Intermediate Node','Neutral Score'])
     pos,neg,neut = makePie(scores)
     return scores,pos,neg,neut
 
 def makePie(scores):
 
-    scores = scores.drop(["Name","Avg. Positive","Avg. Negative"],axis=1)
+    scores = scores.drop(["Name","Avg. Positive","Avg. Negative",'Intermediate Node'],axis=1)
     scores['max_value'] = scores.idxmax(axis=1)
     scoresCount = scores['max_value'].value_counts()
 

@@ -84,7 +84,7 @@ def pageRankExam(request,name):
     print("start pr")
     PRScores,elapsed = pageRank(df,probs,columns['pos'][0],columns['neg'][0],name)
     print("done Pr")
-    PRScores.to_csv("health.csv",index=None,sep=";")
+    PRScores.to_csv("PRscores.csv",index=None,sep=";")
     if PRScores is not None:
         createGraphs(PRScores,name)
         return render(request,"pageRankShow.html",{'reason':"",'name':name,'elapsed':elapsed})
@@ -98,13 +98,13 @@ def createGraphs(PRScores,name):
     sns.set_palette(sns.color_palette(colors))
     sns_plot = sns.lmplot(height=6,
                           y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
-                          hue=name, fit_reg=True)
+                          hue=name, fit_reg=False)
     print("start p1")
     sns_plot.savefig("media/smallPoints.png", dpi=300)
     print("start p2")
     sns_plot = sns.lmplot(height=10,
                           y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
-                          hue=name, fit_reg=True)
+                          hue=name, fit_reg=False)
     sns_plot.savefig("media/bigPoints.png", dpi=300)
     print("end p2")
 

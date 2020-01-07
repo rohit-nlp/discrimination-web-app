@@ -1,56 +1,39 @@
 
 import pandas as pd
-import rpy2.robjects as robjects
-from rpy2.robjects import pandas2ri
-from rpy2.rinterface import RRuntimeError
+import igraph as p
 import time
 
 def pageRank(df,probs,posName,negName,varName):
     elapsed = time.time()
-    posValues = list()
-    negValues = list()
     datasetValues = df.values
 
-    #Change the P(e|c)-P(e|not c) colum to an easy name: edgeprob
-    #The probs df will always have 3 columns where the last one is P(e|c)-P(e|not c).
-    #probs.columns = [probs.columns[0],probs.columns[1],"edgeprob"]
 
-    ###R interface
-    import rpy2.robjects.packages as rpackages
+    #Create the graph
+    tuples = [tuple(x) for x in probs.values]
+    graph = p.Graph.TupleList(tuples, directed=True, edge_attrs=['edgeprob'])
 
-    # import R's utility package
-    utils = rpackages.importr('utils')
+    #Pos and neg lists to store the score
+    pos = list()
+    neg = list()
+    #Index of pos and neg nodes
+    indexPos = -1
+    indexNeg = -1
 
-    #Sees if you have already this packages installed or not
-    try:
-        igraph = robjects.packages.importr('igraph')
-    except RRuntimeError:
-        utils.chooseCRANmirror(ind=1)  # select the first mirror in the list
-        utils.install_packages("igraph")
-        igraph = robjects.packages.importr('igraph')
+    #Get index of pos and neg nodes
+    for i, j in enumerate(graph.vs):
+        if j["name"] == posName:
+            indexPos = i
+        elif j["name"] == negName:
+            indexNeg = i
 
-    #To convert pandas to R
-    pandas2ri.activate()
-    probs_to_R = pandas2ri.py2ri(probs)
-
-
-    #Create the positive and negative discrimination column names to R workspace
-    robjects.globalenv['pos'] = posName
-    robjects.globalenv['neg'] = negName
-
-    #Create igraph
-    graph = igraph.graph_from_data_frame(probs_to_R, directed=True)
-    probs4Score = probs["edgeprob"]
 
     for i in range(df.shape[0]):
-        #PageRank method, personalized for each individual in the dataset
-        score = igraph.page_rank(graph, weights=probs4Score, personalized=datasetValues[i] / 10, directed=True, algo="prpack")
-        #To R workspace so we can extract by name
-        robjects.globalenv['score'] = score[0] #[0] is where the vector is stored
-        posValues.append(robjects.r("score[pos]")[0]) #The [0] its because its contained in an array size 1
-        negValues.append(robjects.r("score[neg]")[0])
+        scores = graph.personalized_pagerank(directed=True,weights='edgeprob',reset=datasetValues[i]/10,implementation = "prpack")
+        pos.append(scores[indexPos])
+        neg.append(scores[indexNeg])
 
-    scores = pd.DataFrame({"Positive Discrimination":posValues,"Negative Discrimination":negValues})
+
+    scores = pd.DataFrame({"Positive Discrimination":pos,"Negative Discrimination":neg})
 
     #scores[df.columns] = df
     #scores.to_csv("scores.csv",sep=";",index=None)
