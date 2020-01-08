@@ -31,7 +31,7 @@
                   <td>
                       <form method="get" action="{% url 'start_disc' file.pk %}">
                           {% csrf_token %}
-                          <button type="submit" class="btn btn-outline-primary waves-effect">Analyze</button>
+                          <button type="submit" onclick="funcLoad(this)" class="btn btn-outline-primary waves-effect">Analyze</button>
                       </form>
                   </td>
                 </tr>
@@ -41,3 +41,6 @@
         </div>
     </div>
 {% endblock %}
+
+
+

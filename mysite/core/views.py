@@ -61,6 +61,7 @@ def start_disc(request,pk):
             pd.set_option('display.max_colwidth', -1)
             #scores['Name'] = scores['Name'].apply(lambda x: '<button type="button" class="btn btn-light waves-effect btn-sm">{0}</button>'.format(x))
             scores['Name'] = scores['Name'].apply(lambda x: '<u><a style="color:#0000EE;" href="http://127.0.0.1:8000/PageRankScore/{0}">{0}</a></u>'.format(x))
+
             return render(request,"results.html",{'reason':reason,'scores':scores.to_html(
                 classes="table table-striped table-bordered table-sm w-auto",
                 table_id="scoreTable",
@@ -81,15 +82,20 @@ def pageRankExam(request,name):
     df = pd.read_json(request.session.get('df'),orient='split')
     probs = pd.read_json(request.session.get('probs'),orient='split')
     columns = pd.read_json(request.session.get('columns'),orient='split')
-    print("start pr")
-    PRScores = pageRank(df,probs,columns['pos'][0],columns['neg'][0],name)
-    print("done Pr")
-    PRScores.to_csv("PRscores.csv",index=None,sep=";")
-    if PRScores is not None:
-        createGraphs(PRScores,name)
-        elapsed = time.strftime('%H:%M:%S', time.gmtime((time.time() - elapsed)))
-        return render(request,"pageRankShow.html",{'reason':"",'name':name,'elapsed':elapsed})
-    return render(request, "pageRankShow.html", {'reason': "PageRank Scores could not be computed"})
+    reason = "PageRank Scores could not be computed"
+    if probs is not None and df is not None and columns is not None:
+        if columns['pos'][0] in pd.Series(df.columns) and columns['neg'][0] in pd.Series(df.columns):
+            print("start pr")
+            PRScores = pageRank(df,probs,columns['pos'][0],columns['neg'][0],name)
+            print("done Pr")
+            PRScores.to_csv("PRscores.csv",index=None,sep=";")
+            if PRScores is not None:
+                createGraphs(PRScores,name)
+                elapsed = time.strftime('%H:%M:%S', time.gmtime((time.time() - elapsed)))
+                return render(request,"pageRankShow.html",{'reason':"",'name':name,'elapsed':elapsed})
+        else:
+            reason = "This variable is not present in the dataset"
+    return render(request, "pageRankShow.html", {'reason': reason})
 
 def createGraphs(PRScores,name):
     sns.set()

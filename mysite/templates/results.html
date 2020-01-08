@@ -11,12 +11,17 @@
     {%  else %}
 
      <div class="container-md-10">
+        <div class="fixed-action-btn smooth-scroll d-none" style="">
+            <a href="#top-section" id="scrollButton" class="btn">
+                <i class="fa fa-arrow-up"></i>
+            </a>
+        </div>
 
         <!--Section: Block Content-->
         <section>
 
         <div class="card-body">
-          <h5 class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
+          <h5 id="top-section" class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
           <hr>
           <!--Grid row-->
           <div class="row align-content-center">
@@ -24,13 +29,13 @@
             <!--Grid column-->
             <div class="col-md-5 align-content-center">
 
-              <canvas style="margin-top: 10vh" id="pieChart"></canvas>
+              <canvas style="margin-top: 13vh;" id="pieChart"></canvas>
 
             </div>
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-md-7">
+            <div class="col-md-7  animated fadeIn">
                 {{ scores|safe }}
             </div>
             <!--Grid column-->
@@ -45,7 +50,7 @@
         <!--Section: Block Content-->
         <section>
 
-        <div class="card-body">
+        <div class="card-body  animated fadeIn">
           <h5 class="text-left mb-4">Analysis and scoring lasted {{ elapsed }} "</h5>
           <hr>
           <!--Grid row-->
@@ -66,11 +71,9 @@
         </div>
         </section>
 
+
     {% endif %}
 {% endblock %}
-
-
-
 
 
 

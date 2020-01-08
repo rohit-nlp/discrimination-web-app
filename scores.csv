@@ -1,13 +1,9 @@
 Name;Positive Score;Avg. Positive;Negative Score;Avg. Negative;Intermediate Node;Inconclusive Score;Veredict
-prior_number_Low;1.0;1.0;0.0;0.0;None;0.0;Favoritism
-prior_number_Medium;0.14;1.0;0.0;0.0;None;0.86;Too many inconclusive outputs
-prior_number_High;0.0;0.0;0.719;1.0;None;0.281;Negative Discrimination
-c_charge_degree_F;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-c_charge_degree_M;1.0;2.0;0.0;0.0;prior_number_Low;0.0;('Explainable/Conditional favoritism because of ', 'prior_number_Low')
-race_African_American;0.062;3.0;0.742;1.6266846361185985;None;0.196;Negative Discrimination
-race_Caucasian;0.921;1.9229098805646037;0.002;3.0;prior_number_Low;0.077;('Explainable/Conditional discrimination because of ', 'prior_number_Low')
-Age_25_45;0.0;0.0;0.725;1.906206896551724;prior_number_High;0.275;('Explainable/Conditional discrimination because of ', 'prior_number_High')
-age_Greater_45;0.933;1.5616291532690247;0.007;2.0;None;0.06;Negative Discrimination
-age_Less_25;0.421;2.0;0.231;1.0;prior_number_Low;0.348;No apparent discrimination
-sex_Female;1.0;2.0;0.0;0.0;prior_number_Low;0.0;('Explainable/Conditional favoritism because of ', 'prior_number_Low')
-sex_Male;0.0;0.0;0.717;2.0;prior_number_High;0.283;('Explainable/Conditional discrimination because of ', 'prior_number_High')
+Gender_Female;0.0;0.0;1.0;2.0;Dept_C;0.0;('Explainable/Conditional discrimination because of ', 'Dept_C')
+Gender_Male;1.0;2.0;0.0;0.0;Dept_A;0.0;('Explainable/Conditional favoritism because of ', 'Dept_A')
+Dept_A;1.0;1.0;0.0;0.0;None;0.0;Favoritism
+Dept_B;1.0;1.0;0.0;0.0;None;0.0;Favoritism
+Dept_C;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination
+Dept_D;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination
+Dept_E;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination
+Dept_F;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination

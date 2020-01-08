@@ -2,12 +2,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <header>
-    <h1 class="font-weight mb-4">Page Rank Score</h1>
-    <h5 class="font mb-4">Scoring lasted {{ elapsed }} "</h5>
+    <h1 class="font-weight mb-4 p-2">Page Rank Score</h1>
+    <h5 class="font mb-4 p-2">Scoring lasted {{ elapsed }} "</h5>
+    <!--<input class="btn btn-outline-primary waves-effect" action="action" onclick="; return false;" type="submit" value="" /-->
+    <a class="waves-effect p-2" onclick="window.history.go(-1)">
+        <i style="color: black" class="fas fa-arrow-circle-left fa-2x"></i>
+    </a>
 </header>
-
     {% if reason != "" %}
-        <p>{{ reason }}</p>
+        <p class="text-center alert-danger font-weight-bold">{{ reason }}</p>
     {% else %}
         <div class="container mt-5">
           <!--Section: Content-->
