@@ -45,7 +45,7 @@ def count(graph,nIter,node,posName,negName):
     posCount = []
     negCount = []
     neutralCount = 0
-    intermediate = ["-"]
+    intermediate = list()
     for i in range(nIter):
         countPos = walk(graph,node,posName)
         countNeg = walk(graph, node, negName)
@@ -63,6 +63,7 @@ def count(graph,nIter,node,posName,negName):
                 intermediate.append(countNeg[-2][0])
         else:
             neutralCount += 1
+    if len(intermediate) == 0: intermediate = ["-"]
     return posCount,negCount,neutralCount,intermediate
 
 
@@ -74,6 +75,8 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
     inter =list()
     var = list()
     veredicts = list()
+    veredictsPie = list()
+    veredictPie = ""
     neutralScores = list()
     # For each Node
     columns = [i for i in df.columns if i != posName and i != negName]
@@ -105,49 +108,71 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
         if indScore >= indThr:
             veredict = "Too many inconclusive outputs"
         else:
-            substract = abs(posScores[-1] - negScores[-1])
-            if substract < diff:
-                veredict= "No apparent discrimination"
+            if abs(posScores[-1] - negScores[-1]) < 0.06:
+                veredict= "Neutral variable"
             else:
+                veredictPie = "Apparent discrimination"
                 if ((posScores[-1] - indScore < diff) and (negScores[-1] < indScore)) or ((negScores[-1] - indScore < diff) and posScores[-1] < indScore):
                     veredict = "Apparent "+veredict
 
         interName = max(set(intermediate), key=intermediate.count)
-        inter.append(interName)
+
+        if interName != "None" and interName != "-":
+            probInter = (intermediate.count(interName)/len(intermediate)) * 100
+            #If not, shows as 100.0% and i dont want the coma
+            if probInter != 100:
+                probInter = "%.3f" % probInter
+            else:
+                #or int or %.0... etc
+                probInter = 100
+            inter.append(interName+": "+str(probInter)+"% of times")
+        else: inter.append(interName)
+
         if interName != "-" and interName != "None":
+            veredictPie = "Explainable/Conditional Discrimination"
             if veredict == "Favoritism":
-                veredict = "Explainable/Conditional favoritism because of ", interName
+                veredict = "Explainable/Conditional favoritism because of "+ interName
             elif veredict == "Negative Discrimination":
-                veredict = "Explainable/Conditional discrimination because of ", interName
+                veredict = "Explainable/Conditional discrimination because of "+ interName
         veredicts.append(veredict)
+        if veredictPie == "":
+            veredictsPie.append(veredict)
+        else: veredictsPie.append(veredictPie)
 
     # Scores as dict then this dict sort it by value
     scores = pd.DataFrame(
         {'Name': var, 'Positive Score': posScores, 'Avg. Positive': avgPos, 'Negative Score': negScores,
          'Avg. Negative': avgNeg, 'Intermediate Node':inter, 'Inconclusive Score': neutralScores, 'Veredict':veredicts},
         columns=['Name', 'Positive Score', 'Avg. Positive', 'Negative Score', 'Avg. Negative','Intermediate Node','Inconclusive Score','Veredict'])
-    pos,neg,neut = makePie(scores)
-    return scores,pos,neg,neut
+    pos,neg,neut,inco,apparent,explainable = makePie(pd.DataFrame({'veredict':veredictsPie}))
+    return scores,pos,neg,neut,explainable,inco,apparent
 
-def makePie(scores):
-
-    scores = scores.drop(["Name","Avg. Positive","Avg. Negative",'Intermediate Node','Veredict'],axis=1)
-    scores['max_value'] = scores.idxmax(axis=1)
-    scoresCount = scores['max_value'].value_counts()
-
+def makePie(veredict):
 
     pos = 0
     neg = 0
     neut = 0
+    inco = 0
+    apparent = 0
+    explainable = 0
+
+    scoresCount = veredict['veredict'].value_counts()
+
     #We don't know the possible order (The resulting object will be in descending order so that the first element is the most frequently-occurring element). But what var?)
     for i in scoresCount.keys():
-        if i == "Negative Score":
-            neg = scoresCount[i]
-        elif i == "Positive Score":
+        if i == "Explainable/Conditional Discrimination":
+            explainable = scoresCount[i]
+        elif i == "Favoritism":
             pos = scoresCount[i]
-        else:
+        elif i == "Negative Discrimination":
+            neg = scoresCount[i]
+        elif i == "Neutral variable":
             neut = scoresCount[i]
-    return pos,neg,neut
+        elif i == "Too many inconclusive outputs":
+            inco = scoresCount[i]
+        else: #Apparent discrimination
+            apparent = scoresCount[i]
+    return pos,neg,neut,explainable,inco,apparent
 
 
 

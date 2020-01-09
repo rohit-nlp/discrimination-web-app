@@ -98,28 +98,38 @@
         });
     </script>
 
-    <script type="text/javascript" id="dataPie" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}>
+    <script type="text/javascript" id="dataPie" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}
+        data-app={{ apparent }} data-inco = {{ inco }} data-expl={{ explainable }}>
         var script_tag = document.getElementById('dataPie')
-      var pos = script_tag.getAttribute("data-pos");
+        var pos = script_tag.getAttribute("data-pos");
         var neg = script_tag.getAttribute("data-neg");
         var neut = script_tag.getAttribute("data-neut");
+        var app = script_tag.getAttribute("data-app");
+        var inco = script_tag.getAttribute("data-inco");
+        var expl = script_tag.getAttribute("data-expl");
+
 
             // Data
-    const positive = parseInt(pos, 10);
-    const negative = parseInt(neg, 10);
-    const neutral = parseInt(neut, 10);
+        const positive = parseInt(pos, 10);
+        const negative = parseInt(neg, 10);
+        const neutral = parseInt(neut, 10);
+        const apparent = parseInt(app, 10);
+        const inconclusive = parseInt(inco, 10);
+        const explainable = parseInt(expl, 10);
 
-    //pie
-    var ctxP = document.getElementById("pieChart").getContext('2d');
-    var myPieChart = new Chart(ctxP, {
+        //pie
+        var ctxP = document.getElementById("pieChart").getContext('2d');
+        var myPieChart = new Chart(ctxP, {
       plugins: [ChartDataLabels],
       type: 'pie',
       data: {
-        labels: ["Positive", "Negative", "Neutral"],
+        labels: ["Favoritism", "Negative", "Neutral","Apparent","Inconcuslive","Explainable"],
         datasets: [{
-          data: [positive, negative, neutral],
-          backgroundColor: ["#5bc0de", "#d9534f", "#f9f9f9"],
-          hoverBackgroundColor: ["#7CC0DE", "#ff6f69", "#f9f1f1"],
+          data: [positive, negative, neutral,apparent,inconclusive,explainable],
+          backgroundColor: ["#5bc0de", "#d9534f","#f9f9f9","#f0ad4e",
+              "#292b2c", "#5cb85c"],
+          hoverBackgroundColor: ["#7CC0DE", "#ff6f69", "#f9f1f1","#f0ad4e",
+              "#292b2c", "#5cb85c"],
           borderWidth: 4,
           borderColor: '#414a4c'
         }]
@@ -148,7 +158,7 @@
             labels: {
               title: {
                 font: {
-                  size: '20'
+                  size: '15'
                 }
               }
             },

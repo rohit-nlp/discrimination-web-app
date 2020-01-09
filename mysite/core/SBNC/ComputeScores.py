@@ -4,6 +4,9 @@ import numpy as np
 
 def score(df,adjMatrixReconstucted,marginalProbs,jointProbs):
 
+
+
+
     nodes= [[i] for i in [-1 for j in range(df.shape[1])]]
     probHappened =[[i] for i in [-1 for j in range(df.shape[1])]]
     probNotHappened = [[i] for i in [-1 for j in range(df.shape[1])]]
@@ -29,6 +32,5 @@ def score(df,adjMatrixReconstucted,marginalProbs,jointProbs):
             for k in range(len(probHappened[i])):
                 toInsert.append(probHappened[i][k]-probNotHappened[i][k])
             substract[i] = toInsert
-
 
     return nodes, probHappened,probNotHappened,substract

@@ -22,6 +22,9 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
     pos = None
     neg =None
     neut = None
+    explainable = None
+    inco = None
+    apparent = None
     disconnectedNodes = None
 
     if df is not None:
@@ -49,7 +52,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
                         print("SBNC Reconstruction finished with exit")
                         print("Starting discrimination scoring")
                         probs.to_csv("probs.csv",sep=";",index=None)
-                        scoresDicts,pos,neg,neut = performRandomWalk(df,probs,1000,posColumn,negColumn,0.55,0.25)
+                        scores,pos,neg,neut,explainable,inco,apparent = performRandomWalk(df,probs,1000,posColumn,negColumn,0.55,0.25)
                         scoresDicts.to_csv("scores.csv",sep=";",index=None)
                         #pageRank(df,probs,posColumn,negColumn)
                         elapsed = time.strftime('%H:%M:%S', time.gmtime((time.time() - elapsed)))
@@ -58,7 +61,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
     else:
         reason ="Error reading the file(s)"
 
-    return reason,df,probs,scoresDicts,disconnectedNodes,pos,neg,neut,elapsed
+    return reason,df,probs,scoresDicts,disconnectedNodes,pos,neg,neut,explainable,inco,apparent,elapsed
 
 def doPageRank(df,probs,posColumn,negColumn):
     return pageRank(df, probs, posColumn, negColumn)

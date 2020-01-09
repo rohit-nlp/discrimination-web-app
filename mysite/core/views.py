@@ -51,7 +51,7 @@ def delete_file(request, pk):
 def start_disc(request,pk):
     if request.method == 'GET':
         file = File.objects.get(pk=pk)
-        reason,df,probs,scores,disconnectedNodes,pos,neg,neut,elapsed = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
+        reason,df,probs,scores,disconnectedNodes,pos,neg,neut,explainable,inco,apparent,elapsed = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
         if scores is not None:
 
             request.session['df'] = df.to_json(orient='split')
@@ -67,7 +67,7 @@ def start_disc(request,pk):
                 table_id="scoreTable",
                 index=False,
                 escape=False,
-                justify='left'),'pos':pos,'neg':neg,'neut':neut,
+                justify='left'),'pos':pos,'neg':neg,'neut':neut,'explainable':explainable,'inco':inco,'apparent':apparent,
               'disconnected':disconnectedNodes.to_html(
                   classes="table table-borderless table-striped table-sm",
                   table_id="disconnectedTable",
