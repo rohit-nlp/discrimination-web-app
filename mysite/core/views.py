@@ -84,7 +84,7 @@ def pageRankExam(request,name):
     columns = pd.read_json(request.session.get('columns'),orient='split')
     reason = "PageRank Scores could not be computed"
     if probs is not None and df is not None and columns is not None:
-        if columns['pos'][0] in pd.Series(df.columns) and columns['neg'][0] in pd.Series(df.columns):
+        if name in df.columns:
             print("start pr")
             PRScores = pageRank(df,probs,columns['pos'][0],columns['neg'][0],name)
             print("done Pr")
