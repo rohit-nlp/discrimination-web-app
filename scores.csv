@@ -1,13 +1,24 @@
 Name;Positive Score;Avg. Positive;Negative Score;Avg. Negative;Intermediate Node;Inconclusive Score;Veredict
-age_under_27;0.532;1.0;0.0;0.0;None;0.468;Apparent Favoritism
-age_under_39;0.568;1.0;0.0;0.0;None;0.432;Apparent Favoritism
-age_under_51;0.225;1.0;0.0;0.0;None;0.775;Too many inconclusive outputs
-age_51_more;0.0;0.0;0.778;1.0;None;0.222;Negative Discrimination
-children_covered_0;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-children_covered_1;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-children_covered_2;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-children_covered_3_more;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-sex_female;1.0;2.0;0.0;0.0;smoker_no: 100% of times;0.0;Explainable/Conditional favoritism because of smoker_no
-sex_male;0.0;0.0;1.0;2.0;smoker_yes: 100% of times;0.0;Explainable/Conditional discrimination because of smoker_yes
-smoker_no;1.0;1.0;0.0;0.0;None;0.0;Favoritism
-smoker_yes;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination
+PublicationRate_Low;0.828;2.0;0.0;0.0;Dept_Surgery: 60.99% of times;0.172;Explainable/Conditional favoritism because of Dept_Surgery
+PublicationRate_Medium;0.743;2.0;0.0;0.0;Dept_Medicine: 63.66% of times;0.257;Explainable/Conditional favoritism because of Dept_Medicine
+PublicationRate_High;0.0;0.0;0.7;1.4657142857142857;None;0.3;Negative Discrimination
+PublicationRate_Very_High;0.0;0.0;0.577;2.0;Research_emphasis: 48.53% of times;0.423;Apparent Negative Discrimination
+years_since_MD_Low;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+years_since_MD_Medium;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+years_since_MD_High;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+years_since_MD_Very_High;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Dept_Biochemistry;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Dept_Physiology;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Dept_Genetics;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Dept_Pediatrics;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Dept_Medicine;1.0;1.0;0.0;0.0;None;0.0;Favoritism
+Dept_Surgery;1.0;1.0;0.0;0.0;None;0.0;Favoritism
+Gender_Female;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Gender_Male;0.357;3.0;0.0;0.0;Dept_Surgery: 61.90% of times;0.643;Too many inconclusive outputs
+Research_emphasis;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination
+Clinical_emphasis;0.657;1.0;0.0;0.0;None;0.343;Favoritism
+Board_certified_no;0.0;0.0;0.792;1.0;None;0.208;Negative Discrimination
+Board_certified_yes;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Rank_Assistant;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Rank_Associate;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Rank_FullProfessor;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs

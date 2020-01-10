@@ -76,12 +76,12 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
     var = list()
     veredicts = list()
     veredictsPie = list()
-    veredictPie = ""
     neutralScores = list()
     # For each Node
     columns = [i for i in df.columns if i != posName and i != negName]
     graph = createGraph(probs)
     for i in columns:
+        veredictPie = ""
         var.append(i)
         # Get times we arrived in a negative and positive decision
         posScore, negScore, neutralScore, intermediate = count(graph, nIter, i, posName, negName)
@@ -111,9 +111,9 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
             if abs(posScores[-1] - negScores[-1]) < 0.06:
                 veredict= "Neutral variable"
             else:
-                veredictPie = "Apparent discrimination"
                 if ((posScores[-1] - indScore < diff) and (negScores[-1] < indScore)) or ((negScores[-1] - indScore < diff) and posScores[-1] < indScore):
                     veredict = "Apparent "+veredict
+                    veredictPie = "Apparent discrimination"
 
         interName = max(set(intermediate), key=intermediate.count)
 
@@ -121,30 +121,30 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
             probInter = (intermediate.count(interName)/len(intermediate)) * 100
             #If not, shows as 100.0% and i dont want the coma
             if probInter != 100:
-                probInter = "%.3f" % probInter
+                probInter = "%.2f" % probInter
             else:
                 #or int or %.0... etc
                 probInter = 100
             inter.append(interName+": "+str(probInter)+"% of times")
-        else: inter.append(interName)
-
-        if interName != "-" and interName != "None":
-            veredictPie = "Explainable/Conditional Discrimination"
             if veredict == "Favoritism":
                 veredict = "Explainable/Conditional favoritism because of "+ interName
+                veredictPie = "Explainable/Conditional Discrimination"
             elif veredict == "Negative Discrimination":
                 veredict = "Explainable/Conditional discrimination because of "+ interName
+                veredictPie = "Explainable/Conditional Discrimination"
+        else: inter.append(interName)
         veredicts.append(veredict)
         if veredictPie == "":
             veredictsPie.append(veredict)
-        else: veredictsPie.append(veredictPie)
+        else:
+            veredictsPie.append(veredictPie)
 
     # Scores as dict then this dict sort it by value
     scores = pd.DataFrame(
         {'Name': var, 'Positive Score': posScores, 'Avg. Positive': avgPos, 'Negative Score': negScores,
          'Avg. Negative': avgNeg, 'Intermediate Node':inter, 'Inconclusive Score': neutralScores, 'Veredict':veredicts},
         columns=['Name', 'Positive Score', 'Avg. Positive', 'Negative Score', 'Avg. Negative','Intermediate Node','Inconclusive Score','Veredict'])
-    pos,neg,neut,inco,apparent,explainable = makePie(pd.DataFrame({'veredict':veredictsPie}))
+    pos,neg,neut,explainable,inco,apparent = makePie(pd.DataFrame({'veredict':veredictsPie}))
     return scores,pos,neg,neut,explainable,inco,apparent
 
 def makePie(veredict):
@@ -157,7 +157,6 @@ def makePie(veredict):
     explainable = 0
 
     scoresCount = veredict['veredict'].value_counts()
-
     #We don't know the possible order (The resulting object will be in descending order so that the first element is the most frequently-occurring element). But what var?)
     for i in scoresCount.keys():
         if i == "Explainable/Conditional Discrimination":

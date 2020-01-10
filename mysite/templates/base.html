@@ -95,19 +95,20 @@
                 "order":[[3,"desc"]]
             });
             $('.dataTables_length').addClass('bs-select');
+            $('#file_list').DataTable({
+            });
+            $('.dataTables_length').addClass('bs-select');
         });
     </script>
-
     <script type="text/javascript" id="dataPie" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}
-        data-app={{ apparent }} data-inco = {{ inco }} data-expl={{ explainable }}>
+            data-explainable={{ explainable }} data-inco = {{ inco }} data-apparent={{ apparent }}>
         var script_tag = document.getElementById('dataPie')
         var pos = script_tag.getAttribute("data-pos");
         var neg = script_tag.getAttribute("data-neg");
         var neut = script_tag.getAttribute("data-neut");
-        var app = script_tag.getAttribute("data-app");
+        var app = script_tag.getAttribute("data-apparent");
         var inco = script_tag.getAttribute("data-inco");
-        var expl = script_tag.getAttribute("data-expl");
-
+        var expl = script_tag.getAttribute("data-explainable");
 
             // Data
         const positive = parseInt(pos, 10);
@@ -126,10 +127,10 @@
         labels: ["Favoritism", "Negative", "Neutral","Apparent","Inconcuslive","Explainable"],
         datasets: [{
           data: [positive, negative, neutral,apparent,inconclusive,explainable],
-          backgroundColor: ["#5bc0de", "#d9534f","#f9f9f9","#f0ad4e",
-              "#292b2c", "#5cb85c"],
-          hoverBackgroundColor: ["#7CC0DE", "#ff6f69", "#f9f1f1","#f0ad4e",
-              "#292b2c", "#5cb85c"],
+          backgroundColor: ["#5bc0de", "#d9534f","#292b2c","#f0ad4e",
+              "#f9f9f9", "#5cb85c"],
+          hoverBackgroundColor: ["#7CC0DE", "#ff6f69", "#414a4c","#f0ad4e",
+              "#f9f1f1", "#5cb85c"],
           borderWidth: 4,
           borderColor: '#414a4c'
         }]
@@ -152,17 +153,21 @@
                   sum = sum+ data;
               });
               let percentage = (value * 100 / sum).toFixed(2) + "%";
-              return percentage;
+              if (percentage != '0.00%') {
+                  return percentage
+              } else {
+                  return null
+              }
             },
             color: 'black',
             labels: {
               title: {
                 font: {
-                  size: '15'
+                  size: '20'
                 }
-              }
+              },
             },
-            display: 'auto'
+            align: 'end'
           }
         },
 
@@ -173,19 +178,6 @@
         function funcLoad(elem) {
             $(elem).html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
         };
-    </script>
-
-    <script type="text/javascript">
-        $(window).scroll(function(){
-             let shouldBeVisible = $(window).scrollTop()>100;
-                console.log(shouldBeVisible)
-             if (shouldBeVisible) {
-                   $('#scrollButton').parent().removeClass('d-none');
-                                   console.log("Here")
-             } else {
-                  $('#scrollButton').parent().addClass('d-none');
-            }
-        });
     </script>
 </body>
 </html>

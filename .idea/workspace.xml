@@ -11,11 +11,12 @@
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/compas-scores-raw.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/compas.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Datasets/COMPASS Scores/truth_tables.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ComputeScores.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ComputeScores.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PRscores.csv" beforeDir="false" afterPath="$PROJECT_DIR$/PRscores.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blacklist.csv" beforeDir="false" afterPath="$PROJECT_DIR$/blacklist.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/file_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/probs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/probs.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scores.csv" beforeDir="false" afterPath="$PROJECT_DIR$/scores.csv" afterDir="false" />
@@ -167,6 +168,7 @@
       <workItem from="1578492630912" duration="7420000" />
       <workItem from="1578512173605" duration="1578000" />
       <workItem from="1578564375500" duration="11156000" />
+      <workItem from="1578645865336" duration="8541000" />
     </task>
     <servers />
   </component>
@@ -200,11 +202,11 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1577120183628" />
-    <state x="655" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1578564397828">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1578645867709">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="655" y="383" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578564397828" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578470928571" />
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578645867709" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1578492633642" />
     <state x="2653" y="445" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578419290311">
       <screen x="1920" y="0" width="1920" height="1080" />
