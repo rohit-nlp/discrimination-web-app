@@ -4,9 +4,6 @@ import numpy as np
 
 def score(df,adjMatrixReconstucted,marginalProbs,jointProbs):
 
-
-
-
     nodes= [[i] for i in [-1 for j in range(df.shape[1])]]
     probHappened =[[i] for i in [-1 for j in range(df.shape[1])]]
     probNotHappened = [[i] for i in [-1 for j in range(df.shape[1])]]

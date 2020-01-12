@@ -5,13 +5,13 @@ import numpy as np
 
 def walk(graph, start, end):
     visited = list()
-    visited.append((start, 0))
+    visited.append(start)
     for i in range(graph.diameter()):
         names = list()
         probs = list()
 
         # Find the node we visited on each iteration
-        node = graph.vs.find(name=visited[-1][0])
+        node = graph.vs.find(name=visited[-1])
 
         # If that's the end node, stop
         if node == end:
@@ -32,7 +32,7 @@ def walk(graph, start, end):
         if len(names) == 0:
             return visited
         # Get the next random visited node
-        visited.append((np.random.choice(names, p=probs), i+1))
+        visited.append(np.random.choice(names, p=probs))
     return visited
 
 def createGraph(probs):
@@ -47,20 +47,24 @@ def count(graph,nIter,node,posName,negName):
     neutralCount = 0
     intermediate = list()
     for i in range(nIter):
+        sizeP = 0
+        sizeN = 0
         countPos = walk(graph,node,posName)
         countNeg = walk(graph, node, negName)
-        if countPos[-1][0] == posName:
-            posCount.append(countPos[-1][1])
-            if len(countPos) == 2:
+        if countPos[-1] == posName:
+            size = len(countPos)
+            posCount.append(size-1)
+            if size == 2:
                 intermediate.append("None")
             else:
-                intermediate.append(countPos[-2][0])
-        elif countNeg[-1][0] == negName:
-            negCount.append(countNeg[-1][1])
-            if len(countPos) == 2:
+                intermediate.append(countPos[-2])
+        elif countNeg[-1] == negName:
+            size = len(countNeg)
+            negCount.append(size-1)
+            if size == 2:
                 intermediate.append("None")
             else:
-                intermediate.append(countNeg[-2][0])
+                intermediate.append(countNeg[-2])
         else:
             neutralCount += 1
     if len(intermediate) == 0: intermediate = ["-"]
@@ -96,12 +100,12 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
             posScores.append(0)
             avgPos.append(0)
         if sizePos != 0:
-            avgPos.append(sum(posScore) / sizePos)
+            avgPos.append(round(sum(posScore) / sizePos,2))
             posScores.append(sizePos / nIter)
             veredict = "Favoritism"
         if sizeNeg != 0:
             negScores.append(sizeNeg / nIter)
-            avgNeg.append(sum(negScore) / sizeNeg)
+            avgNeg.append(round(sum(negScore) / sizeNeg,2))
             veredict = "Negative Discrimination"
         indScore = neutralScore / nIter
         neutralScores.append(indScore)
@@ -141,9 +145,9 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
 
     # Scores as dict then this dict sort it by value
     scores = pd.DataFrame(
-        {'Name': var, 'Positive Score': posScores, 'Avg. Positive': avgPos, 'Negative Score': negScores,
-         'Avg. Negative': avgNeg, 'Intermediate Node':inter, 'Inconclusive Score': neutralScores, 'Veredict':veredicts},
-        columns=['Name', 'Positive Score', 'Avg. Positive', 'Negative Score', 'Avg. Negative','Intermediate Node','Inconclusive Score','Veredict'])
+        {'Name': var, 'Positive Score': posScores, 'Avg. Positive Steps': avgPos, 'Negative Score': negScores,
+         'Avg. Negative Steps': avgNeg, 'Intermediate Node':inter, 'Inconclusive Score': neutralScores, 'Veredict':veredicts},
+        columns=['Name', 'Positive Score', 'Avg. Positive Steps', 'Negative Score', 'Avg. Negative Steps','Intermediate Node','Inconclusive Score','Veredict'])
     pos,neg,neut,explainable,inco,apparent = makePie(pd.DataFrame({'veredict':veredictsPie}))
     return scores,pos,neg,neut,explainable,inco,apparent
 

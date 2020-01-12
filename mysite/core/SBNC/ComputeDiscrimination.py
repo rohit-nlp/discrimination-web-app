@@ -6,6 +6,7 @@ import time
 def pageRank(df,probs,posName,negName,varName):
 
     datasetValues = df.values
+    N = df.shape[0]
 
 
     #Create the graph
@@ -28,7 +29,7 @@ def pageRank(df,probs,posName,negName,varName):
 
 
     for i in range(df.shape[0]):
-        scores = graph.personalized_pagerank(directed=True,weights='edgeprob',reset=datasetValues[i]/10,implementation = "prpack")
+        scores = graph.personalized_pagerank(directed=True,weights='edgeprob',reset=datasetValues[i]/N,implementation = "prpack")
         pos.append(scores[indexPos])
         neg.append(scores[indexNeg])
 

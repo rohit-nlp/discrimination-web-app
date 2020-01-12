@@ -26,6 +26,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
     inco = None
     apparent = None
     disconnectedNodes = None
+    scores = None
 
     if df is not None:
         temporalOrder,reason = temporalOrderCheck(df, temporalOrder, posColumn, negColumn)

@@ -10,10 +10,8 @@ def probCheck(df,temporalOrder):
     notValid = [df.columns[i] for i in marginalProbs if i not in validEvents]
     if notValid:
         for i in notValid:
-            if i == 0:
-                print("Event ", df.columns[i], " will be discarded because it has a Marginal Probability of 0")
-            else:
-                print("Event ", df.columns[i], " will be discarded because it has a Marginal Probability of 1")
+            print("Event ", i, " will be discarded because it has an invalid Marginal Probability")
+
     # Merge group of events not distinguishable
     for i in range(np.shape(marginalProbs)[0]):
         for j in range(np.shape(marginalProbs)[0]):
