@@ -85,6 +85,8 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
     columns = [i for i in df.columns if i != posName and i != negName]
     graph = createGraph(probs)
     for i in columns:
+        if i == "race_Caucasian":
+            print("hey")
         veredictPie = ""
         var.append(i)
         # Get times we arrived in a negative and positive decision
@@ -102,11 +104,11 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
         if sizePos != 0:
             avgPos.append(round(sum(posScore) / sizePos,2))
             posScores.append(sizePos / nIter)
-            veredict = "Favoritism"
+
         if sizeNeg != 0:
             negScores.append(sizeNeg / nIter)
             avgNeg.append(round(sum(negScore) / sizeNeg,2))
-            veredict = "Negative Discrimination"
+
         indScore = neutralScore / nIter
         neutralScores.append(indScore)
         if indScore >= indThr:
@@ -115,6 +117,10 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
             if abs(posScores[-1] - negScores[-1]) < 0.06:
                 veredict= "Neutral variable"
             else:
+                if posScores[-1] > negScores[-1]:
+                    veredict = "Favoritism"
+                else: veredict = "Negative Discrimination"
+
                 if ((posScores[-1] - indScore < diff) and (negScores[-1] < indScore)) or ((negScores[-1] - indScore < diff) and posScores[-1] < indScore):
                     veredict = "Apparent "+veredict
                     veredictPie = "Apparent discrimination"
@@ -125,17 +131,20 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
             probInter = (intermediate.count(interName)/len(intermediate)) * 100
             #If not, shows as 100.0% and i dont want the coma
             if probInter != 100:
-                probInter = "%.2f" % probInter
+                strProbInter = "%.2f" % probInter
             else:
                 #or int or %.0... etc
-                probInter = 100
-            inter.append(interName+": "+str(probInter)+"% of times")
-            if veredict == "Favoritism":
-                veredict = "Explainable/Conditional favoritism because of "+ interName
-                veredictPie = "Explainable/Conditional Discrimination"
-            elif veredict == "Negative Discrimination":
-                veredict = "Explainable/Conditional discrimination because of "+ interName
-                veredictPie = "Explainable/Conditional Discrimination"
+                strProbInter = 100
+            inter.append(interName+": "+str(strProbInter)+"% of times")
+
+            if probInter >= 50:
+                if veredict == "Favoritism":
+                    veredict = "Explainable/Conditional favoritism because of "+ interName
+                    veredictPie = "Explainable/Conditional Discrimination"
+                elif veredict == "Negative Discrimination":
+                    veredict = "Explainable/Conditional discrimination because of "+ interName
+                    veredictPie = "Explainable/Conditional Discrimination"
+
         else: inter.append(interName)
         veredicts.append(veredict)
         if veredictPie == "":

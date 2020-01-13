@@ -1,7 +1,9 @@
 
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
+from matplotlib import pyplot as plt
 import time
 
 from django.shortcuts import render, redirect, render_to_response
@@ -111,23 +113,42 @@ def createGraphs(PRScores,name):
     # Create an array with the colors you want to use
     colors = ["#5bc0de", "#d9534f"]
     sns.set_palette(sns.color_palette(colors))
-    sns_plot = sns.lmplot(height=6,
-                          y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
-                          hue=name, fit_reg=False)
-    print("start p1")
-    sns_plot.savefig("media/smallPoints.png", dpi=300)
-    print("start p2")
-    sns_plot = sns.lmplot(height=10,
-                          y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
-                          hue=name, fit_reg=False)
-    sns_plot.savefig("media/bigPoints.png", dpi=300)
-    print("end p2")
 
-    fig, axs = plt.subplots(figsize=(10, 10))
-    ax = sns.boxplot(x=name, y="Positive Discrimination", data=PRScores,
-                     boxprops={'facecolor': '#5bc0de'}, showcaps=False, showfliers=False)
-    ax = sns.boxplot(x=name, y="Negative Discrimination", data=PRScores,
-                     showcaps=False, boxprops={'facecolor': '#d9534f'},
-                     showfliers=False)
-    plt.ylabel('Discrimination Score')
-    plt.savefig('media/BoxPlot.png', dpi=300)
+    fig, axs = plt.subplots(figsize=(15, 15))
+    sns_plot = sns.lmplot(y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
+                          hue=name, fit_reg=False)
+    plt.savefig("media/smallPoints.png", dpi=200)
+    plt.close()
+
+
+
+    fig, axs = plt.subplots(ncols=2, figsize=(20, 10))
+    sns.distplot(PRScores[PRScores[name] == 1]['Positive Discrimination'], label = name + ": 1",color = "#d9534f",hist=False, ax=axs[0])
+    sns.distplot(PRScores[PRScores[name] == 0]['Positive Discrimination'], label = name + ": 0",color = "#5bc0de",hist=False, ax=axs[0])
+    sns.distplot(PRScores[PRScores[name] == 1]['Negative Discrimination'], label = name + ": 1",color = "#d9534f",hist=False,
+                 ax=axs[1])
+    sns.distplot(PRScores[PRScores[name] == 0]['Negative Discrimination'], label = name + ": 0",color = "#5bc0de",hist=False,
+                 ax=axs[1])
+
+    plt.savefig('media/distplot.png',dpi=200)
+
+    # fig, axs = plt.subplots(figsize=(20, 10))
+    #
+    # sns.distplot(PRScores[PRScores[name] == 1]['Negative Discrimination'], label=name + ": 1", color="#d9534f",
+    #              hist=False,
+    #              )
+    # sns.distplot(PRScores[PRScores[name] == 0]['Negative Discrimination'], label=name + ": 0", color="#5bc0de",
+    #              hist=False,
+    #              )
+    # plt.savefig('media/temp.png')
+
+    fig, axs = plt.subplots(ncols=2, figsize=(20, 15), sharey=True)
+    sns.boxplot(x=name, y="Positive Discrimination", data=PRScores,
+                boxprops={'facecolor': '#5bc0de'}, showcaps=False, showfliers=False, ax=axs[0])
+    sns.boxplot(x=name, y="Negative Discrimination", data=PRScores,
+                showcaps=False, boxprops={'facecolor': '#d9534f'},
+                showfliers=False, ax=axs[1])
+
+    plt.savefig('media/BoxPlot.png', dpi=200)
+
+

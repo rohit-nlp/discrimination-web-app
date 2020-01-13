@@ -5,14 +5,12 @@ prior_number_Medium;c_charge_degree_F;0.03072783913905397
 prior_number_High;score_high;0.42121714734096716
 prior_number_High;c_charge_degree_F;0.15632660326356007
 c_charge_degree_M;prior_number_Low;0.14920578269811968
-c_charge_degree_M;prior_number_Test;0.14920578269811968
 race_African_American;prior_number_High;0.1689393330338213
 race_African_American;score_high;0.25310948744019623
 race_African_American;Age_25_45;0.05258339704533921
 race_African_American;age_Less_25;0.07529030342678641
 race_African_American;sex_Male;0.035962156382104093
 race_Caucasian;prior_number_Low;0.0980109282260932
-race_Caucasian;prior_number_Test;0.0980109282260932
 race_Caucasian;score_low;0.17530399000503316
 race_Caucasian;c_charge_degree_M;0.07840757396162046
 race_Caucasian;age_Greater_45;0.1351901992110184
@@ -23,9 +21,7 @@ age_Greater_45;prior_number_High;0.018603649937140865
 age_Greater_45;score_low;0.23029851406353952
 age_Greater_45;c_charge_degree_M;0.08481667807182858
 age_Less_25;prior_number_Low;0.22655173076997048
-age_Less_25;prior_number_Test;0.22655173076997048
 age_Less_25;score_high;0.21046916771486052
 age_Less_25;c_charge_degree_F;0.0964578356816721
 sex_Female;prior_number_Low;0.14309964702225592
-sex_Female;prior_number_Test;0.14309964702225592
 sex_Male;prior_number_High;0.11817575651774037

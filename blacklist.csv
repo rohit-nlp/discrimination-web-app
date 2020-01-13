@@ -1,5 +1,4 @@
 From,To
-prior_number_Low,prior_number_Test
 prior_number_Low,prior_number_Medium
 prior_number_Low,prior_number_High
 prior_number_Low,score_high
@@ -15,24 +14,7 @@ prior_number_Low,age_Greater_45
 prior_number_Low,age_Less_25
 prior_number_Low,sex_Female
 prior_number_Low,sex_Male
-prior_number_Test,prior_number_Low
-prior_number_Test,prior_number_Medium
-prior_number_Test,prior_number_High
-prior_number_Test,score_high
-prior_number_Test,c_charge_degree_F
-prior_number_Test,race_African_American
-prior_number_Test,race_Asian
-prior_number_Test,race_Caucasian
-prior_number_Test,race_Hispanic
-prior_number_Test,race_Native_American
-prior_number_Test,race_Other
-prior_number_Test,Age_25_45
-prior_number_Test,age_Greater_45
-prior_number_Test,age_Less_25
-prior_number_Test,sex_Female
-prior_number_Test,sex_Male
 prior_number_Medium,prior_number_Low
-prior_number_Medium,prior_number_Test
 prior_number_Medium,prior_number_High
 prior_number_Medium,score_high
 prior_number_Medium,c_charge_degree_M
@@ -48,7 +30,6 @@ prior_number_Medium,age_Less_25
 prior_number_Medium,sex_Female
 prior_number_Medium,sex_Male
 prior_number_High,prior_number_Low
-prior_number_High,prior_number_Test
 prior_number_High,prior_number_Medium
 prior_number_High,score_low
 prior_number_High,c_charge_degree_M
@@ -64,7 +45,6 @@ prior_number_High,age_Less_25
 prior_number_High,sex_Female
 prior_number_High,sex_Male
 score_low,prior_number_Low
-score_low,prior_number_Test
 score_low,prior_number_Medium
 score_low,prior_number_High
 score_low,score_high
@@ -82,7 +62,6 @@ score_low,age_Less_25
 score_low,sex_Female
 score_low,sex_Male
 score_high,prior_number_Low
-score_high,prior_number_Test
 score_high,prior_number_Medium
 score_high,prior_number_High
 score_high,score_low
@@ -100,7 +79,6 @@ score_high,age_Less_25
 score_high,sex_Female
 score_high,sex_Male
 c_charge_degree_F,prior_number_Low
-c_charge_degree_F,prior_number_Test
 c_charge_degree_F,score_low
 c_charge_degree_F,c_charge_degree_M
 c_charge_degree_F,race_African_American
@@ -130,7 +108,6 @@ c_charge_degree_M,age_Less_25
 c_charge_degree_M,sex_Female
 c_charge_degree_M,sex_Male
 race_African_American,prior_number_Low
-race_African_American,prior_number_Test
 race_African_American,score_low
 race_African_American,c_charge_degree_M
 race_African_American,race_Asian
@@ -176,7 +153,6 @@ race_Hispanic,Age_25_45
 race_Hispanic,age_Less_25
 race_Hispanic,sex_Female
 race_Native_American,prior_number_Low
-race_Native_American,prior_number_Test
 race_Native_American,score_low
 race_Native_American,c_charge_degree_F
 race_Native_American,race_African_American
@@ -200,7 +176,6 @@ race_Other,Age_25_45
 race_Other,age_Less_25
 race_Other,sex_Female
 Age_25_45,prior_number_Low
-Age_25_45,prior_number_Test
 Age_25_45,score_low
 Age_25_45,c_charge_degree_F
 Age_25_45,race_Asian
@@ -243,7 +218,6 @@ sex_Female,age_Greater_45
 sex_Female,age_Less_25
 sex_Female,sex_Male
 sex_Male,prior_number_Low
-sex_Male,prior_number_Test
 sex_Male,score_low
 sex_Male,c_charge_degree_M
 sex_Male,race_Caucasian
