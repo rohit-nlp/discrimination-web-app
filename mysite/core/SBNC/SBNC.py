@@ -27,6 +27,8 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
     apparent = None
     disconnectedNodes = None
     scores = None
+    invalidMarginal = None
+    notDistinguish = None
 
     if df is not None:
         temporalOrder,reason = temporalOrderCheck(df, temporalOrder, posColumn, negColumn)
@@ -35,7 +37,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
             reason = dataframeCheck(df)
             print("Dataframe is correct, starting probability computation")
             if reason == "":
-                df, temporalOrder, marginalProbs, jointProbs, reason = probCheck(df,temporalOrder)
+                df, temporalOrder, invalidMarginal, notDistinguish, marginalProbs, jointProbs, reason = probCheck(df,temporalOrder)
                 #Prob checkight delete columns, so we have to check
                 if reason == "":
                     adjacencyMatrix = getPrimaFacieParents(df,temporalOrder,jointProbs,marginalProbs)
@@ -62,7 +64,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
     else:
         reason ="Error reading the file(s)"
 
-    return reason,df,probs,scores,disconnectedNodes,pos,neg,neut,explainable,inco,apparent,elapsed
+    return reason,df, invalidMarginal, notDistinguish,probs,scores,disconnectedNodes,pos,neg,neut,explainable,inco,apparent,elapsed
 
 def doPageRank(df,probs,posColumn,negColumn):
     return pageRank(df, probs, posColumn, negColumn)

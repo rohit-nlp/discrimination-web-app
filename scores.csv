@@ -1,24 +1,14 @@
-Name;Positive Score;Avg. Positive;Negative Score;Avg. Negative;Intermediate Node;Inconclusive Score;Veredict
-PublicationRate_Low;0.828;2.0;0.0;0.0;Dept_Surgery: 60.99% of times;0.172;Explainable/Conditional favoritism because of Dept_Surgery
-PublicationRate_Medium;0.743;2.0;0.0;0.0;Dept_Medicine: 63.66% of times;0.257;Explainable/Conditional favoritism because of Dept_Medicine
-PublicationRate_High;0.0;0.0;0.7;1.4657142857142857;None;0.3;Negative Discrimination
-PublicationRate_Very_High;0.0;0.0;0.577;2.0;Research_emphasis: 48.53% of times;0.423;Apparent Negative Discrimination
-years_since_MD_Low;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-years_since_MD_Medium;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-years_since_MD_High;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-years_since_MD_Very_High;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-Dept_Biochemistry;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-Dept_Physiology;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-Dept_Genetics;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-Dept_Pediatrics;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-Dept_Medicine;1.0;1.0;0.0;0.0;None;0.0;Favoritism
-Dept_Surgery;1.0;1.0;0.0;0.0;None;0.0;Favoritism
-Gender_Female;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-Gender_Male;0.357;3.0;0.0;0.0;Dept_Surgery: 61.90% of times;0.643;Too many inconclusive outputs
-Research_emphasis;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination
-Clinical_emphasis;0.657;1.0;0.0;0.0;None;0.343;Favoritism
-Board_certified_no;0.0;0.0;0.792;1.0;None;0.208;Negative Discrimination
-Board_certified_yes;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-Rank_Assistant;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-Rank_Associate;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-Rank_FullProfessor;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+Name;Positive Score;Avg. Positive Steps;Negative Score;Avg. Negative Steps;Intermediate Node;Inconclusive Score;Veredict
+prior_number_Low;1.0;1.0;0.0;0.0;None;0.0;Favoritism
+prior_number_Test;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+prior_number_Medium;0.145;1.0;0.0;0.0;None;0.855;Too many inconclusive outputs
+prior_number_High;0.0;0.0;0.71;1.0;None;0.29;Negative Discrimination
+c_charge_degree_F;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+c_charge_degree_M;0.5;2.0;0.0;0.0;prior_number_Low: 100% of times;0.5;Apparent Favoritism
+race_African_American;0.041;3.0;0.762;1.62;None;0.197;Negative Discrimination
+race_Caucasian;0.652;1.77;0.002;3.0;None;0.346;Negative Discrimination
+Age_25_45;0.0;0.0;0.739;1.92;prior_number_High: 91.61% of times;0.261;Explainable/Conditional discrimination because of prior_number_High
+age_Greater_45;0.808;1.34;0.005;2.0;None;0.187;Negative Discrimination
+age_Less_25;0.294;2.0;0.192;1.0;prior_number_Low: 60.49% of times;0.514;Apparent Negative Discrimination
+sex_Female;0.472;2.0;0.0;0.0;prior_number_Low: 100% of times;0.528;Apparent Favoritism
+sex_Male;0.0;0.0;0.73;2.0;prior_number_High: 100% of times;0.27;Explainable/Conditional discrimination because of prior_number_High

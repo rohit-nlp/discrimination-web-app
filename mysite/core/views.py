@@ -51,8 +51,16 @@ def delete_file(request, pk):
 def start_disc(request,pk):
     if request.method == 'GET':
         file = File.objects.get(pk=pk)
-        reason,df,probs,scores,disconnectedNodes,pos,neg,neut,explainable,inco,apparent,elapsed = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
+        reason,df,invalidMarginal, notDistinguish,probs,scores,disconnectedNodes,pos,neg,neut,explainable,inco,apparent,elapsed = SBNC(file.file,file.temporalOrder.file,file.posColumn,file.negColumn)
         if scores is not None:
+            eventInfo = ""
+            if invalidMarginal:
+                eventInfo = "Following events were deleted because an invalid marginal probability: " + ', '.join(invalidMarginal) + " ."
+            print(notDistinguish)
+            if notDistinguish and invalidMarginal:
+                eventInfo = eventInfo + "  And "+ ', '.join(notDistinguish)
+            elif notDistinguish:
+                eventInfo = "  And "+ ', '.join(notDistinguish)
 
             request.session['df'] = df.to_json(orient='split')
             request.session['probs'] = probs.to_json(orient='split')
@@ -73,7 +81,7 @@ def start_disc(request,pk):
                   table_id="disconnectedTable",
                   index=False,
                   justify="center"
-              ),'elapsed':elapsed})
+              ),'elapsed':elapsed, 'eventInfo':eventInfo})
     return render(request, "results.html", {'file': file, 'reason': reason, 'probs': probs, 'scores': scores})
     #return render(request, "results.html")
 

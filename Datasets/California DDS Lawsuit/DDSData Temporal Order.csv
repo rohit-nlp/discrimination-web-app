@@ -1,0 +1,15 @@
+attribute;order
+Age_Young;1
+Age_Older;1
+Expenditures_Low;2
+Expenditures_High;2
+Gender_Female;1
+Gender_Male;1
+Ethnicity_American_Indian;1
+Ethnicity_Asian;1
+Ethnicity_Black;1
+Ethnicity_Hispanic;1
+Ethnicity_Multi_Race;1
+Ethnicity_Native_Hawaiian;1
+Ethnicity_Other;1
+Ethnicity_White_not_Hispanic;1
