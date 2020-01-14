@@ -31,7 +31,7 @@ def fit(df,adjacencyMatrix):
     categoricalMatrixDF = categoricalMatrixDF.astype('category')
 
     blacklist = pd.DataFrame({'From': parent, 'To': child})
-    blacklist.to_csv("blacklist.csv",index=None)
+    #   blacklist.to_csv("blacklist.csv",index=None)
 
 
     ###R interface
