@@ -1,13 +1,72 @@
 Name;Positive Score;Avg. Positive Steps;Negative Score;Avg. Negative Steps;Intermediate Node;Inconclusive Score;Veredict
-prior_number_Low;1.0;1.0;0.0;0.0;None;0.0;Favoritism
-prior_number_Medium;0.142;1.0;0.0;0.0;None;0.858;Too many inconclusive outputs
-prior_number_High;0.0;0.0;0.737;1.0;None;0.263;Negative Discrimination
-c_charge_degree_F;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
-c_charge_degree_M;1.0;2.0;0.0;0.0;prior_number_Low: 100% of times;0.0;Explainable/Conditional favoritism because of prior_number_Low
-race_African_American;0.049;3.0;0.75;1.63;None;0.201;Negative Discrimination
-race_Caucasian;0.92;1.92;0.0;0.0;prior_number_Low: 46.52% of times;0.08;Favoritism
-Age_25_45;0.0;0.0;0.718;1.93;prior_number_High: 92.62% of times;0.282;Explainable/Conditional discrimination because of prior_number_High
-age_Greater_45;0.939;1.5;0.0;0.0;None;0.061;Favoritism
-age_Less_25;0.443;2.0;0.232;1.0;prior_number_Low: 65.63% of times;0.325;Apparent Favoritism
-sex_Female;1.0;2.0;0.0;0.0;prior_number_Low: 100% of times;0.0;Explainable/Conditional favoritism because of prior_number_Low
-sex_Male;0.0;0.0;0.73;2.0;prior_number_High: 100% of times;0.27;Explainable/Conditional discrimination because of prior_number_High
+checking_status_lt_0;0.0;0.0;0.405;1.0;None;0.595;Too many inconclusive outputs
+checking_status_from_0_lt_200;0.0;0.0;0.49;1.0;None;0.51;Apparent Negative Discrimination
+checking_status_no_checking;0.647;1.0;0.0;0.0;None;0.353;Favoritism
+checking_status_ge_200;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+duration_le_17d6;0.328;1.0;0.0;0.0;None;0.672;Too many inconclusive outputs
+duration_gt_31d2;0.0;0.0;0.051;3.0;checking_status_from_0_lt_200: 100% of times;0.949;Too many inconclusive outputs
+duration_from_17d6_le_31d2;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+credit_history_critical_or_other_existing_credit;0.143;2.0;0.0;0.0;checking_status_no_checking: 100% of times;0.857;Too many inconclusive outputs
+credit_history_existing_paid;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+credit_history_delayed_previously;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+credit_history_no_credits_or_all_paid;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+credit_history_all_paid;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+purpose_radio_or_tv;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+purpose_education;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+purpose_furniture_or_equipment;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+purpose_new_car;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+purpose_used_car;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+purpose_business;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+purpose_other;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+purpose_retraining;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+credit_amount_le_38848d8;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+credit_amount_from_38848d8_le_7519d6;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+credit_amount_from_7519d6_le_11154d4;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+credit_amount_from_11154d4_le_14789d2;0.0;0.0;0.484;2.0;checking_status_from_0_lt_200: 100% of times;0.516;Apparent Negative Discrimination
+credit_amount_gt_14789d2;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+savings_status_no_known_savings;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+savings_status_lt_100;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+savings_status_from_500_lt_1000;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+savings_status_from_100_lt_500;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+employment_ge_7;0.031;3.0;0.049;3.8;checking_status_lt_0: 42.50% of times;0.92;Too many inconclusive outputs
+employment_from_1_lt_4;0.0;0.0;0.012;7.0;checking_status_from_0_lt_200: 100% of times;0.988;Too many inconclusive outputs
+employment_from_4_lt_7;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+employment_unemployed;0.0;0.0;0.018;4.22;checking_status_from_0_lt_200: 100% of times;0.982;Too many inconclusive outputs
+employment_lt_1;0.0;0.0;0.009;7.0;checking_status_from_0_lt_200: 100% of times;0.991;Too many inconclusive outputs
+installment_commitment_gt_2d8;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+installment_commitment_le_1d6;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+personal_status_male_single;0.008;5.0;0.014;5.36;checking_status_lt_0: 50.00% of times;0.978;Too many inconclusive outputs
+personal_status_female_div_or_dep_or_mar;0.018;4.44;0.003;7.33;duration_le_17d6: 85.71% of times;0.979;Too many inconclusive outputs
+personal_status_male_mar_or_wid;0.028;4.32;0.005;7.0;duration_le_17d6: 84.85% of times;0.967;Too many inconclusive outputs
+other_parties_none;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+other_parties_guarantor;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+other_parties_co_applicant;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+residence_since_gt_2d8;0.0;0.0;0.122;2.16;checking_status_lt_0: 95.90% of times;0.878;Too many inconclusive outputs
+residence_since_from_1d6_le_2d2;0.0;0.0;0.014;6.0;checking_status_from_0_lt_200: 100% of times;0.986;Too many inconclusive outputs
+residence_since_le_1d6;0.0;0.0;0.007;6.0;checking_status_from_0_lt_200: 100% of times;0.993;Too many inconclusive outputs
+property_magnitude_real_estate;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+property_magnitude_life_insurance;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+property_magnitude_no_known_property;0.0;0.0;0.022;4.0;checking_status_from_0_lt_200: 100% of times;0.978;Too many inconclusive outputs
+property_magnitude_car;0.0;0.0;0.028;4.0;checking_status_from_0_lt_200: 100% of times;0.972;Too many inconclusive outputs
+age_gt_52d6;0.013;4.0;0.098;3.56;checking_status_lt_0: 78.38% of times;0.889;Too many inconclusive outputs
+age_le_30d2;0.043;3.49;0.013;6.62;duration_le_17d6: 76.79% of times;0.944;Too many inconclusive outputs
+age_from_41d4_le_52d6;0.02;4.0;0.042;4.67;checking_status_lt_0: 51.61% of times;0.938;Too many inconclusive outputs
+age_from_30d2_le_41d4;0.01;4.0;0.022;4.55;checking_status_lt_0: 56.25% of times;0.968;Too many inconclusive outputs
+other_payment_plans_none;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+other_payment_plans_bank;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+other_payment_plans_stores;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+housing_own;0.0;0.0;0.009;5.0;checking_status_from_0_lt_200: 100% of times;0.991;Too many inconclusive outputs
+housing_for_free;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+housing_rent;0.0;0.0;0.022;5.0;checking_status_from_0_lt_200: 100% of times;0.978;Too many inconclusive outputs
+existing_credits_from_1d6_le_2d2;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+existing_credits_le_1d6;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+existing_credits_gt_2d2;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+job_skilled;0.158;3.0;0.0;0.0;duration_le_17d6: 100% of times;0.842;Too many inconclusive outputs
+job_unskilled_resident;0.114;2.35;0.0;0.0;duration_le_17d6: 100% of times;0.886;Too many inconclusive outputs
+job_high_qualif_or_self_emp_or_mgmt;0.0;0.0;0.05;3.16;checking_status_from_0_lt_200: 100% of times;0.95;Too many inconclusive outputs
+job_unemp_or_unskilled_non_res;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+num_dependents_le_1d2;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+num_dependents_gt_1d2;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+own_telephone_yes;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
+own_telephone_none;0.161;2.0;0.0;0.0;duration_le_17d6: 100% of times;0.839;Too many inconclusive outputs
+foreign_worker_no;0.0;0.0;0.0;0.0;-;1.0;Too many inconclusive outputs
