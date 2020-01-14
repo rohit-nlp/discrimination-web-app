@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/django-upload-example-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django-upload-example-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DF After SBNC.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DF After SBNC.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PRscores.csv" beforeDir="false" afterPath="$PROJECT_DIR$/PRscores.csv" afterDir="false" />
@@ -163,7 +165,7 @@
       <workItem from="1578832768435" duration="1797000" />
       <workItem from="1578902803299" duration="7402000" />
       <workItem from="1578931442794" duration="8954000" />
-      <workItem from="1578989752367" duration="3365000" />
+      <workItem from="1578989752367" duration="4120000" />
     </task>
     <servers />
   </component>
