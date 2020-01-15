@@ -85,8 +85,6 @@ def performRandomWalk(df, probs, nIter, posName, negName,indThr,diff):
     columns = [i for i in df.columns if i != posName and i != negName]
     graph = createGraph(probs)
     for i in columns:
-        if i == "race_Caucasian":
-            print("hey")
         veredictPie = ""
         var.append(i)
         # Get times we arrived in a negative and positive decision
