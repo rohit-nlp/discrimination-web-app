@@ -1,9 +1,0 @@
-Name;Positive Score;Avg. Positive Steps;Negative Score;Avg. Negative Steps;Intermediate Node;Inconclusive Score;Veredict
-Gender_Female;0.0;0.0;1.0;2.0;Dept_C: 46.20% of times;0.0;Negative Discrimination
-Gender_Male;1.0;2.0;0.0;0.0;Dept_A: 55.70% of times;0.0;Explainable/Conditional favoritism because of Dept_A
-Dept_A;1.0;1.0;0.0;0.0;None;0.0;Favoritism
-Dept_B;1.0;1.0;0.0;0.0;None;0.0;Favoritism
-Dept_C;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination
-Dept_D;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination
-Dept_E;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination
-Dept_F;0.0;0.0;1.0;1.0;None;0.0;Negative Discrimination

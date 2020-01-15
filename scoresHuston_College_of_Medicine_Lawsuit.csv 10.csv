@@ -1,0 +1,24 @@
+Name,Positive Score,Avg. Positive Steps,Negative Score,Avg. Negative Steps,Intermediate Node,Inconclusive Score,Veredict
+PublicationRate_Low,0.7,2.0,0.0,0.0,Dept_Surgery: 71.43% of times,0.3,Explainable/Conditional favoritism because of Dept_Surgery
+PublicationRate_Medium,0.8,2.0,0.0,0.0,Clinical_emphasis: 50.00% of times,0.2,Explainable/Conditional favoritism because of Clinical_emphasis
+PublicationRate_High,0.0,0.0,0.7,1.86,Research_emphasis: 85.71% of times,0.3,Explainable/Conditional discrimination because of Research_emphasis
+PublicationRate_Very_High,0.0,0.0,0.4,2.0,Research_emphasis: 75.00% of times,0.6,Too many inconclusive outputs
+years_since_MD_Low,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+years_since_MD_Medium,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+years_since_MD_High,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+years_since_MD_Very_High,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+Dept_Biochemistry,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+Dept_Physiology,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+Dept_Genetics,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+Dept_Pediatrics,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+Dept_Medicine,1.0,1.0,0.0,0.0,None,0.0,Favoritism
+Dept_Surgery,1.0,1.0,0.0,0.0,None,0.0,Favoritism
+Gender_Female,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+Gender_Male,0.3,3.0,0.0,0.0,Dept_Surgery: 66.67% of times,0.7,Too many inconclusive outputs
+Research_emphasis,0.0,0.0,1.0,1.0,None,0.0,Negative Discrimination
+Clinical_emphasis,0.4,1.0,0.0,0.0,None,0.6,Too many inconclusive outputs
+Board_certified_no,0.0,0.0,0.7,1.0,None,0.3,Negative Discrimination
+Board_certified_yes,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+Rank_Assistant,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+Rank_Associate,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+Rank_FullProfessor,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs

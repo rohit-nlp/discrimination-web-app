@@ -1,0 +1,13 @@
+Name,Positive Score,Avg. Positive Steps,Negative Score,Avg. Negative Steps,Intermediate Node,Inconclusive Score,Veredict
+prior_number_Low,1.0,1.0,0.0,0.0,None,0.0,Favoritism
+prior_number_Medium,0.164,1.0,0.0,0.0,None,0.836,Too many inconclusive outputs
+prior_number_High,0.0,0.0,0.76,1.0,None,0.24,Negative Discrimination
+c_charge_degree_F,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+c_charge_degree_M,1.0,2.0,0.0,0.0,prior_number_Low: 100% of times,0.0,Explainable/Conditional favoritism because of prior_number_Low
+race_African_American,0.052,3.0,0.76,1.61,None,0.188,Negative Discrimination
+race_Caucasian,0.92,1.91,0.0,0.0,prior_number_Low: 45.00% of times,0.08,Favoritism
+Age_25_45,0.0,0.0,0.762,1.92,prior_number_High: 92.39% of times,0.238,Explainable/Conditional discrimination because of prior_number_High
+age_Greater_45,0.952,1.53,0.004,2.0,None,0.044,Favoritism
+age_Less_25,0.404,2.0,0.242,1.0,prior_number_Low: 62.54% of times,0.354,Apparent Favoritism
+sex_Female,1.0,2.0,0.0,0.0,prior_number_Low: 100% of times,0.0,Explainable/Conditional favoritism because of prior_number_Low
+sex_Male,0.0,0.0,0.756,2.0,prior_number_High: 100% of times,0.244,Explainable/Conditional discrimination because of prior_number_High

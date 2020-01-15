@@ -1,0 +1,91 @@
+Name,Positive Score,Avg. Positive Steps,Negative Score,Avg. Negative Steps,Intermediate Node,Inconclusive Score,Veredict
+sex_Female,0.012,3.58,0.35,2.53,marital_status_Never_married: 46.96% of times,0.638,Too many inconclusive outputs
+sex_Male,0.377,3.05,0.0,0.0,occupation_Exec_managerial: 59.15% of times,0.623,Too many inconclusive outputs
+workclass_Private,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+workclass_Local_gov,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+workclass_Self_emp_inc,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+workclass_Self_emp_not_inc,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+workclass_Federal_gov,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+workclass_State_gov,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+workclass_Without_pay,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+workclass_Never_worked,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+education_Some_college,0.004,4.25,0.425,3.24,marital_status_Never_married: 74.83% of times,0.571,Too many inconclusive outputs
+education_Bachelors,0.527,1.36,0.0,0.0,None,0.473,Apparent Favoritism
+education_HS_grad,0.0,0.0,0.394,1.21,None,0.606,Too many inconclusive outputs
+education_9th,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+education_10th,0.0,0.0,0.538,2.0,occupation_Other_service: 100% of times,0.462,Apparent Negative Discrimination
+education_Prof_school,0.362,1.0,0.0,0.0,None,0.638,Too many inconclusive outputs
+education_Assoc_voc,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+education_Masters,0.469,1.3,0.0,0.0,None,0.531,Apparent Favoritism
+education_12th,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+education_7th_8th,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+education_Assoc_acdm,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+education_11th,0.004,4.5,0.749,2.77,marital_status_Never_married: 53.12% of times,0.247,Explainable/Conditional discrimination because of marital_status_Never_married
+education_5th_6th,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+education_Doctorate,0.404,1.0,0.0,0.0,None,0.596,Too many inconclusive outputs
+education_1st_4th,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+education_Preschool,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+marital_status_Never_married,0.002,2.0,0.992,1.21,None,0.006,Negative Discrimination
+marital_status_Separated,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+marital_status_Married_civ_spouse,0.528,1.98,0.0,0.0,None,0.472,Apparent Favoritism
+marital_status_Divorced,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+marital_status_Married_spouse_absent,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+marital_status_Widowed,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+marital_status_Married_AF_spouse,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Sales,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Other_service,0.0,0.0,1.0,1.0,None,0.0,Negative Discrimination
+occupation_Prof_specialty,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Handlers_cleaners,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Adm_clerical,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Exec_managerial,0.778,1.0,0.0,0.0,None,0.222,Favoritism
+occupation_Transport_moving,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Craft_repair,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Tech_support,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Machine_op_inspct,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Priv_house_serv,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Protective_serv,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Farming_fishing,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+occupation_Armed_Forces,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+relationship_Own_child,0.005,3.4,0.948,2.24,marital_status_Never_married: 75.55% of times,0.047,Explainable/Conditional discrimination because of marital_status_Never_married
+relationship_Not_in_family,0.035,2.63,0.562,1.8,marital_status_Never_married: 47.07% of times,0.403,Apparent Negative Discrimination
+relationship_Husband,0.422,2.0,0.0,0.0,occupation_Exec_managerial: 82.94% of times,0.578,Too many inconclusive outputs
+relationship_Wife,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+relationship_Unmarried,0.0,0.0,0.265,1.16,None,0.735,Too many inconclusive outputs
+relationship_Other_relative,0.002,3.5,0.748,2.2,marital_status_Never_married: 70.53% of times,0.25,Explainable/Conditional discrimination because of marital_status_Never_married
+race_White,0.302,3.39,0.064,4.3,occupation_Exec_managerial: 40.16% of times,0.634,Too many inconclusive outputs
+race_Black,0.0,0.0,0.477,2.43,marital_status_Never_married: 55.97% of times,0.523,Apparent Negative Discrimination
+race_Asian_Pac_Islander,0.143,2.97,0.037,3.22,occupation_Exec_managerial: 28.89% of times,0.82,Too many inconclusive outputs
+race_Amer_Indian_Eskimo,0.025,3.92,0.405,4.14,education_HS_grad: 41.16% of times,0.57,Too many inconclusive outputs
+race_Other,0.028,4.39,0.246,3.54,marital_status_Never_married: 58.39% of times,0.726,Too many inconclusive outputs
+age_young,0.002,3.0,0.734,2.37,marital_status_Never_married: 58.29% of times,0.264,Explainable/Conditional discrimination because of marital_status_Never_married
+age_old,0.471,2.2,0.007,2.0,occupation_Exec_managerial: 35.15% of times,0.522,Apparent Favoritism
+native_country_United_States,0.031,3.29,0.388,3.24,marital_status_Never_married: 36.99% of times,0.581,Too many inconclusive outputs
+native_country_Mexico,0.04,3.85,0.155,3.41,marital_status_Never_married: 54.87% of times,0.805,Too many inconclusive outputs
+native_country_India,0.369,3.41,0.0,0.0,occupation_Exec_managerial: 45.53% of times,0.631,Too many inconclusive outputs
+native_country_Philippines,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Iran,0.142,3.89,0.033,4.09,occupation_Exec_managerial: 31.43% of times,0.825,Too many inconclusive outputs
+native_country_El_Salvador,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Puerto_Rico,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Outlying_US_Guam_USVI_etc,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Haiti,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Cuba,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Cambodia,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Dominican_Republic,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Canada,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Ecuador,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Columbia,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Peru,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Poland,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_China,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_South,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Japan,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Jamaica,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Taiwan,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Guatemala,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Hong,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Italy,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Nicaragua,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Laos,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Thailand,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Vietnam,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs
+native_country_Trinadad_Tobago,0.0,0.0,0.0,0.0,-,1.0,Too many inconclusive outputs

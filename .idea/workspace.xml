@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ReadDataframes.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ReadDataframes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datasets/Adult/AdultBinary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Datasets/Adult/AdultBinary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scores.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +161,7 @@
       <workItem from="1578931442794" duration="8954000" />
       <workItem from="1578989752367" duration="5964000" />
       <workItem from="1579019974670" duration="48000" />
-      <workItem from="1579079324084" duration="1050000" />
+      <workItem from="1579079324084" duration="2670000" />
     </task>
     <servers />
   </component>

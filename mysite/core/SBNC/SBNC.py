@@ -56,7 +56,7 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
                         print("Starting discrimination scoring")
                         #probs.to_csv("probs.csv",sep=";",index=None)
                         scores,pos,neg,neut,explainable,inco,apparent = performRandomWalk(df,probs,1000,posColumn,negColumn,0.55,0.25)
-                        #scores.to_csv("scores.csv",sep=";",index=None)
+                        #scores.to_csv("scorees.csv",index=None)
                         #pageRank(df,probs,posColumn,negColumn)
                         elapsed = time.strftime('%H:%M:%S', time.gmtime((time.time() - elapsed)))
                     else:
