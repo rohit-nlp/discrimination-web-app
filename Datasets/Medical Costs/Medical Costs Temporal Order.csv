@@ -1,7 +1,7 @@
 attribute;order
 age_under_27;1
-age_under_39;1
-age_under_51;1
+age_27_39;1
+age_39_51;1
 age_51_more;1
 bmi_under_26;2
 bmi_under_30;2
