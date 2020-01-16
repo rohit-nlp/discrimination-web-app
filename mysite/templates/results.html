@@ -1,74 +1,59 @@
 {% extends 'base.html' %}
-{%  load static %}
-
+{% load static %}
 
 {% block content %}
-
     {% if reason != "" %}
-        <p class="text-center alert-danger font-weight-bold">Discrimination Analysis could not be performed: {{ reason }}</p>
-    {%  else %}
-
-     <div class="container-md-10">
-
-        <!--Section: Block Content-->
-        <section>
-
-        <div class="card-body">
-          <h5 class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
-          <hr>
-          <!--Grid row-->
-          <div class="row align-content-center">
-
-            <!--Grid column-->
-            <div class="col-md-5 align-content-center">
-
-              <canvas style="margin-top: 13vh;" id="pieChart"></canvas>
-
+        <div style="height: 82.5vh">
+            <div class="container animated fadeIn my-5 py-5 z-depth-1">
+                <h2 class="display-4 ">Error</h2>
+                <hr>
+                <p class="text-center alert-danger font-weight-bold">Discrimination Analysis could not be
+                    performed: {{ reason }}</p>
             </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-md-7  animated fadeIn">
-                {{ scores|safe }}
-            </div>
-            <!--Grid column-->
-
-          </div>
-          <!--Grid row-->
         </div>
+    {% else %}
+
+        <div class="container-md-10">
+        <section>
+            <div class="card-body">
+                <h5 class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
+                <hr>
+                <div class="row align-content-center">
+
+                    <div class="col-md-5 align-content-center">
+                        <canvas style="margin-top: 13vh;" id="pieChart"></canvas>
+                    </div>
+                    <div class="col-md-7  animated fadeIn">
+                        {{ scores|safe }}
+                    </div>
+                </div>
+            </div>
         </section>
 
         <div class="container-md-10">
-
-        <!--Section: Block Content-->
-        <section>
-
-        <div class="card-body  animated fadeIn">
-          <h5 class="text-left mb-4">Analysis and scoring lasted {{ elapsed }} "</h5>
-          <hr>
-          <!--Grid row-->
-          <div class="row align-content-center">
-            <!--Grid column-->
-            <div class="col-md-7 align-content-center view zoom">
-                <a href="./../.././media/Big%20DAG%20Reconstructed.png" data-size="2480, 3508">
-                    <figcaption class="figure-caption font-weight-bold" >Click to expand the graph</figcaption>
-                  <img src="./../.././media/DAG%20Reconstructed.png" class="img-fluid">
-                </a>
-            </div>
-          <!--Grid column-->
-            <div class="col-md-5 align-items-center">
-                <h4 class="font mb-4">Following variables are irrelevant for discrimination scoring:</h4>
-                {{ disconnected|safe }}
-            </div>
-          </div>
+            <section>
+                <div class="card-body  animated fadeIn">
+                    <h5 class="text-left mb-4">Analysis and scoring lasted {{ elapsed }} "</h5>
+                    <hr>
+                    <div class="row align-content-center">
+                        <div class="col-md-7 align-content-center view zoom">
+                            <a href="./../.././media/Big%20DAG%20Reconstructed.png" data-size="2480, 3508">
+                                <figcaption class="figure-caption font-weight-bold">Click to expand the graph
+                                </figcaption>
+                                <img src="./../.././media/DAG%20Reconstructed.png" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="col-md-5 align-items-center">
+                            <h4 class="font mb-4">Following variables are irrelevant for discrimination scoring:</h4>
+                            {{ disconnected|safe }}
+                        </div>
+                    </div>
+                </div>
+                {% if eventInfo != "" %}
+                    <p class="text-center alert-danger font-weight-bold">{{ eventInfo }}</p>
+                {% endif %}
+            </section>
         </div>
-        {% if eventInfo != "" %}
-            <p class="text-center alert-danger font-weight-bold">{{ eventInfo }}</p>
-        {% endif %}
-        </section>
-    </div>
-
-
     {% endif %}
 {% endblock %}
 

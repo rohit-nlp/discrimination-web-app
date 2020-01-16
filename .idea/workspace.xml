@@ -2,10 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mysite/core/SBNC/ConditionalProbsAndSuppesConditions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/core/SBNC/SuppesConditions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Adult/AdultBinary.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Datasets/Adult/AdultBinary.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ComputeDiscrimination.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ComputeDiscrimination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ComputeScores.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ComputeScores.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/DAGScores.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/DAGScores.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/DataframeCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/DataframeCheck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ExportSBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ExportSBNC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/LikelihoodFit.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/LikelihoodFit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/PrimaFacieCauses.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/PrimaFacieParents.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ReadDataframes.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ReadDataframes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scores.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/validators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/file_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/pageRankShow.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/pageRankShow.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/upload_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/upload_file.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/wsgi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +187,7 @@
       <workItem from="1578931442794" duration="8954000" />
       <workItem from="1578989752367" duration="5964000" />
       <workItem from="1579019974670" duration="48000" />
-      <workItem from="1579079324084" duration="2670000" />
+      <workItem from="1579079324084" duration="17480000" />
     </task>
     <servers />
   </component>
@@ -215,18 +241,24 @@
     <state x="655" y="383" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578902802976" />
     <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578989752416" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1579079331381" />
-    <state x="733" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578903046938">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state x="1466" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579116710263">
+      <screen x="0" y="24" width="3840" height="1056" />
     </state>
+    <state x="1466" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.24.3840.1056@0.24.3840.1056" timestamp="1579116710263" />
     <state x="733" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578903046938" />
     <state x="2653" y="445" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578419290311" />
+    <state x="0" y="-4" width="1387" height="754" maximized="true" key="dock-window-1" timestamp="1579129472621">
+      <screen x="0" y="24" width="3840" height="1056" />
+    </state>
+    <state x="0" y="-4" width="1387" height="754" maximized="true" key="dock-window-1/0.24.3840.1056@0.24.3840.1056" timestamp="1579129472621" />
     <state x="2559" y="135" width="707" height="807" key="find.popup" timestamp="1578471801172">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2559" y="135" width="707" height="807" key="find.popup/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578471801172" />
-    <state x="2575" y="236" width="672" height="678" key="search.everywhere.popup" timestamp="1578912448908">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="1310" y="255" width="1344" height="663" key="search.everywhere.popup" timestamp="1579109927052">
+      <screen x="0" y="24" width="3840" height="1056" />
     </state>
+    <state x="1310" y="255" width="1344" height="663" key="search.everywhere.popup/0.24.3840.1056@0.24.3840.1056" timestamp="1579109927052" />
     <state x="2575" y="236" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1578912448908" />
     <state x="698" y="255" width="672" height="678" key="search.everywhere.popup/65.24.1855.1056@65.24.1855.1056" timestamp="1577556110651" />
   </component>

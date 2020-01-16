@@ -1,11 +1,16 @@
-#setwd("C:/Users/blair/Desktop/reconstructions/GermanCreditBinary_formatted/SBCN")
-#setwd("C:/Users/blai.ras/Desktop/Suppes-Bayes-Causal-Network-for-discrimination-detection/Algorithm/ProbCausalDisc/reconstructions/GermanCreditBinary_formatted/SBCN")
+#################################################################################
+#Author: Blai Ras                                                               #
+#Bachelor Thesis developed with Eurecat and Universitat of Barcelona            #
+#January 2020                                                                   #
+#Title: Detecting discrimination through Suppes Bayes Causal Network            #
+#Based on the work: https://link.springer.com/article/10.1007/s41060-016-0040-z #
+#################################################################################
 
 import time
 
 from .ReadDataframes import read
 from .DataframeCheck import dataframeCheck
-from .PrimaFacieParents import getPrimaFacieParents
+from .ConditionalProbsAndSuppesConditions import performConditions
 from .LikelihoodFit import fit
 from .ComputeScores import score
 from .ExportSBNC import export
@@ -13,9 +18,15 @@ from .ComputeDiscrimination import pageRank
 from .WeightedRandomWalk import performRandomWalk
 from .DataframeCheck import probCheck, temporalOrderCheck
 
+#Mother class
+#Manages all the flow of the algorithm
 def SBNC(pathDF,pathOrder,posColumn,negColumn):
+
+    #Start ticking
     elapsed = time.time()
+    #Read the dataframes
     df, temporalOrder = read(pathDF,pathOrder)
+
     #For Returns
     probs=None
     scoresDicts = None
@@ -30,17 +41,20 @@ def SBNC(pathDF,pathOrder,posColumn,negColumn):
     invalidMarginal = None
     notDistinguish = None
 
+    #Dataframe exists
     if df is not None:
         temporalOrder,reason = temporalOrderCheck(df, temporalOrder, posColumn, negColumn)
+        # Temporal order exists and its correct
         if reason == "":
             # Check for NaN's, Nulls, Columns/Rows > 1
             reason = dataframeCheck(df)
             print("Dataframe is correct, starting probability computation")
             if reason == "":
+                #Prob computation
                 df, temporalOrder, invalidMarginal, notDistinguish, marginalProbs, jointProbs, reason = probCheck(df,temporalOrder)
                 #Prob checkight delete columns, so we have to check
                 if reason == "":
-                    adjacencyMatrix = getPrimaFacieParents(df,temporalOrder,jointProbs,marginalProbs)
+                    adjacencyMatrix = performConditions(df,temporalOrder,jointProbs,marginalProbs)
                     print("adjacencyMatrix done")
                     adjMatrixReconstucted = fit(df,adjacencyMatrix)
                     print("Fit done")

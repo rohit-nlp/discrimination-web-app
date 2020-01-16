@@ -3,181 +3,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Dicrimination Detection - Blai Ras</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-  <!-- Bootstrap core CSS -->
+    <!--BOOSTRAP MDB-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dicrimination Detection - Blai Ras</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href={% static 'css/bootstrap.min.css' %}>
-  <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href={% static 'css/mdb.min.css' %}>
-  <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href={%  static 'css/style.css' %}>
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href={% static 'css/mdb.min.css' %}>
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href={% static 'css/style.css' %}>
     <!-- MDBootstrap Datatables  -->
-  <link rel="stylesheet" href={% static 'css/addons/datatables.min.css' %}>
-  <link rel="stylesheet" href={% static 'css/addons/showResults.css' %}>
+    <link rel="stylesheet" href={% static 'css/addons/datatables.min.css' %}>
+    <link rel="stylesheet" href={% static 'css/addons/showResults.css' %}>
     <style>
-        table#disconnectedTable
-        {text-align: center;}
-        footer#peu
-        {background-color: #5bc0de;}
-        nav#nav
-        {background-color: #5bc0de;}
+        table#disconnectedTable {
+            text-align: center;
+        }
+
+        footer#peu {
+            background-color: #5bc0de;
+        }
+
+        nav#nav {
+            background-color: #5bc0de;
+        }
     </style>
 </head>
 <body>
 
 <!--Navbar -->
 <nav id="nav" class="mb-1 navbar navbar-expand-lg navbar-dark animated fadeInRight" style="height: 6vh">
-  <a style="font-weight: bold; color: #0d0d0d" class="navbar-brand" href="/">Discrimination Detection</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-    aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a style="font-size: 20px; color: #0d0d0d;" class="nav-link" href="/files/">File List</a>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a style="font-size: 20px; color: #0d0d0d" class="nav-link" href="/files/upload">Upload</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item">
-        <a class="nav-link waves-effect waves-light" href="https://es.linkedin.com/in/blai-ras-590381192" target="_blank">
-            <i style="color: black" class="fab fa-linkedin-in fa-2x"> </i>
-          </a>
-      </li>
-      <li class="nav-item">
-        <!--Github-->
-        <a class="nav-link waves-effect waves-light" href="https://github.com/Blaieet/" target="_blank">
-            <i style="color: black" class="fab fa-github fa-2x"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
+    <a style="font-weight: bold; color: #0d0d0d" class="navbar-brand" href="/">Discrimination Detection</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a style="font-size: 20px; color: #0d0d0d;" class="nav-link" href="/files/">File List</a>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a style="font-size: 20px; color: #0d0d0d" class="nav-link" href="/files/upload">Upload</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light" href="https://es.linkedin.com/in/blai-ras-590381192"
+                   target="_blank">
+                    <i style="color: black" class="fab fa-linkedin-in fa-2x"> </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <!--Github-->
+                <a class="nav-link waves-effect waves-light" href="https://github.com/Blaieet/" target="_blank">
+                    <i style="color: black" class="fab fa-github fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
 <!--/.Navbar -->
 
-  <!-- Start your project here-->
-    {% block content %}
-    {% endblock %}
+<!--Content will go here-->
+{% block content %}
+{% endblock %}
 
 <!-- Footer -->
-<!--<footer class="page-footer font-small cyan darken-3">-->
+
 <footer id="peu" class="page-footer font-small animated fadeInLeft" style="height: 6.5vh">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://eurecat.org/" target="_blank">Eurecat.org</a>
+    </div>
     <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://eurecat.org/" target="_blank">Eurecat.org</a>
-  </div>
-  <!-- Copyright -->
 </footer>
-  <!-- jQuery -->
-  <script type="text/javascript" src={%  static 'js/jquery.min.js' %}></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src={%  static 'js/popper.min.js' %}></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src={%  static 'js/bootstrap.min.js' %}></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src={%  static 'js/mdb.min.js' %}></script>
-  <!-- Your custom scripts (optional) -->
-  <script type="text/javascript"></script>
+<!--JAVASCRIPT-->
+<!-- jQuery -->
+<script type="text/javascript" src={% static 'js/jquery.min.js' %}></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src={% static 'js/popper.min.js' %}></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src={% static 'js/bootstrap.min.js' %}></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src={% static 'js/mdb.min.js' %}></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript"></script>
 
- <script type="text/javascript" src={% static 'js/addons/datatables.min.js' %}></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#scoreTable').DataTable({
-                "order":[[3,"desc"]]
-            });
-            $('.dataTables_length').addClass('bs-select');
-            $('#file_list').DataTable({
-            });
-            $('.dataTables_length').addClass('bs-select');
+<script type="text/javascript" src={% static 'js/addons/datatables.min.js' %}></script>
+<!--Script for the table sorting, pagination and searching-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Sort the table by the negative column, descending
+        $('#scoreTable').DataTable({
+            "order": [[3, "desc"]]
         });
-    </script>
-    <script type="text/javascript" id="dataPie" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}
-            data-explainable={{ explainable }} data-inco = {{ inco }} data-apparent={{ apparent }}>
-        var script_tag = document.getElementById('dataPie')
-        var pos = script_tag.getAttribute("data-pos");
-        var neg = script_tag.getAttribute("data-neg");
-        var neut = script_tag.getAttribute("data-neut");
-        var app = script_tag.getAttribute("data-apparent");
-        var inco = script_tag.getAttribute("data-inco");
-        var expl = script_tag.getAttribute("data-explainable");
-
-            // Data
-        const positive = parseInt(pos, 10);
-        const negative = parseInt(neg, 10);
-        const neutral = parseInt(neut, 10);
-        const apparent = parseInt(app, 10);
-        const inconclusive = parseInt(inco, 10);
-        const explainable = parseInt(expl, 10);
-
-        //pie
-        var ctxP = document.getElementById("pieChart").getContext('2d');
-        var myPieChart = new Chart(ctxP, {
-      plugins: [ChartDataLabels],
-      type: 'pie',
-      data: {
-        labels: ["Favoritism", "Negative", "Neutral","Apparent","Inconcuslive","Explainable"],
-        datasets: [{
-          data: [positive, negative, neutral,apparent,inconclusive,explainable],
-          backgroundColor: ["#5bc0de", "#d9534f","#292b2c","#f0ad4e",
-              "#f9f9f9", "#5cb85c"],
-          hoverBackgroundColor: ["#7CC0DE", "#ff6f69", "#414a4c","#f0ad4e",
-              "#f9f1f1", "#5cb85c"],
-          borderWidth: 4,
-          borderColor: '#414a4c'
-        }]
-      },
-      options: {
-        responsive: true,
-        legend: {
-          position: 'bottom',
-          labels: {
-            padding: 25,
-            boxWidth: 25,
-          }
-        },
-        plugins: {
-          datalabels: {
-            formatter: (value, ctx) => {
-              let sum = 0;
-              let dataArr = ctx.chart.data.datasets[0].data;
-              dataArr.map(data => {
-                  sum = sum+ data;
-              });
-              let percentage = (value * 100 / sum).toFixed(2) + "%";
-              if (percentage != '0.00%') {
-                  return percentage
-              } else {
-                  return null
-              }
-            },
-            color: 'black',
-            labels: {
-              title: {
-                font: {
-                  size: '20'
-                }
-              },
-            },
-            align: 'end'
-          }
-        },
-
-      }
+        $('.dataTables_length').addClass('bs-select');
+        $('#file_list').DataTable({});
+        $('.dataTables_length').addClass('bs-select');
     });
-    </script>
-    <script type="text/javascript">
-        function funcLoad(elem) {
-            $(elem).html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
-        };
-    </script>
+</script>
+<!--Script for the PieChart-->
+<script type="text/javascript" id="dataPie" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}
+        data-explainable={{ explainable }} data-inco={{ inco }} data-apparent={{ apparent }}>
+    //Collect the data
+    var script_tag = document.getElementById('dataPie');
+    var pos = script_tag.getAttribute("data-pos");
+    var neg = script_tag.getAttribute("data-neg");
+    var neut = script_tag.getAttribute("data-neut");
+    var app = script_tag.getAttribute("data-apparent");
+    var inco = script_tag.getAttribute("data-inco");
+    var expl = script_tag.getAttribute("data-explainable");
+
+    // Turning it to constants
+    const positive = parseInt(pos, 10);
+    const negative = parseInt(neg, 10);
+    const neutral = parseInt(neut, 10);
+    const apparent = parseInt(app, 10);
+    const inconclusive = parseInt(inco, 10);
+    const explainable = parseInt(expl, 10);
+
+    //Pie
+    var ctxP = document.getElementById("pieChart").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+        plugins: [ChartDataLabels],
+        type: 'pie',
+        data: {
+            labels: ["Favoritism", "Negative", "Neutral", "Apparent", "Inconcuslive", "Explainable"],
+            datasets: [{
+                data: [positive, negative, neutral, apparent, inconclusive, explainable],
+                backgroundColor: ["#5bc0de", "#d9534f", "#292b2c", "#f0ad4e",
+                    "#f9f9f9", "#5cb85c"],
+                hoverBackgroundColor: ["#7CC0DE", "#ff6f69", "#414a4c", "#f0ad4e",
+                    "#f9f1f1", "#5cb85c"],
+                borderWidth: 4,
+                borderColor: '#414a4c'
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                position: 'bottom',
+                labels: {
+                    padding: 25,
+                    boxWidth: 25,
+                }
+            },
+            plugins: {
+                datalabels: {
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum = sum + data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(2) + "%";
+                        if (percentage != '0.00%') {
+                            return percentage
+                        } else {
+                            return null
+                        }
+                    },
+                    color: 'black',
+                    labels: {
+                        title: {
+                            font: {
+                                size: '20'
+                            }
+                        },
+                    },
+                    align: 'end',
+                    anchor: 'end'
+                }
+            },
+
+        }
+    });
+</script>
+<!--Script for the file list buttons so they turn into "laoding"-->
+<script type="text/javascript">
+    function funcLoad(elem) {
+        $(elem).html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
+    }
+</script>
 </body>
 </html>

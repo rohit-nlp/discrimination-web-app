@@ -2,61 +2,55 @@
 {% block content %}
 
     <div class="container-md-10">
-        <!--Section: Block Content-->
         <section>
-        <div class="card-body">
-          <!--Grid row-->
-            <div class="animated fadeIn p-2 z-depth-1" style="width: 150vh; margin-left: 25vh; margin-top: 5vh">
-            <h2 class="display-4">Dataset List</h2>
-            <h5>Choose between the current datasets to start the discrimination Analysis or <a href="{% url 'upload_file' %}">upload one</a></h5>
-          <hr>
-            <!--Grid column-->
-            <div class="col-md-12 animated fadeIn">
-                <table id = file_list class="table table-hover table-sm">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Positive Decision column name</th>
-                    <th>Negative Decision column name</th>
-                    <th>Temporal Order table</th>
-                    <th>Delete</th>
-                    <th>Start Discrimination analysis</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for file in files %}
-                    <tr>
-                      <td>{{ file.file }}</td>
-                      <td>{{ file.posColumn }}</td>
-                        <td>{{ file.negColumn }}</td>
-                        <td>{{ file.temporalOrder }}</td>
-                      <td>
-                        <form method="post" action="{% url 'delete_file' file.pk %}">
-                          {% csrf_token %}
-                          <button type="submit" class="btn btn-outline-primary waves-effect">Delete</button>
-                        </form>
-                      </td>
-                      <td>
-                          <form method="get" action="{% url 'start_disc' file.pk %}">
-                              {% csrf_token %}
-                              <button type="submit" onclick="funcLoad(this)" class="btn btn-outline-primary waves-effect">Analyze</button>
-                          </form>
-                      </td>
-                    </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
+            <div class="card-body">
+                <div class="animated fadeIn p-2 z-depth-1" style="width: 150vh; margin-left: 25vh; margin-top: 5vh">
+                    <h2 class="display-4">Dataset List</h2>
+                    <h5>Choose between the current datasets to start the discrimination Analysis or <a
+                            href="{% url 'upload_file' %}">upload one</a></h5>
+                    <hr>
+                    <div class="col-md-12 animated fadeIn">
+                        <table id=file_list class="table table-hover table-sm">
+                            <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Positive Decision column name</th>
+                                <th>Negative Decision column name</th>
+                                <th>Temporal Order table</th>
+                                <th>Delete</th>
+                                <th>Start Discrimination analysis</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for file in files %}
+                                <tr>
+                                    <td>{{ file.file }}</td>
+                                    <td>{{ file.posColumn }}</td>
+                                    <td>{{ file.negColumn }}</td>
+                                    <td>{{ file.temporalOrder }}</td>
+                                    <td>
+                                        <form method="post" action="{% url 'delete_file' file.pk %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-outline-primary waves-effect">Delete
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="get" action="{% url 'start_disc' file.pk %}">
+                                            {% csrf_token %}
+                                            <button type="submit" onclick="funcLoad(this)"
+                                                    class="btn btn-outline-primary waves-effect">Analyze
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <!--Grid column-->
-
-          </div>
-          <!--Grid row-->
-        </div>
         </section>
-    </div>
-
-        <!--<div class="animated fadeIn p-2 z-depth-1" style="width: 150vh; margin-left: 25vh; margin-top: 5vh">-->
-
     </div>
 {% endblock %}
 
