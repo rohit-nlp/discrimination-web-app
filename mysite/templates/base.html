@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Dicrimination Detection - Blai Ras</title>
+    <!--Own Icon-->
+    <link rel="icon" href="{% static 'img/DiscriminationIcon.ico' %}" type="image/x-icon">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -130,6 +132,7 @@
     //Pie
     var ctxP = document.getElementById("pieChart").getContext('2d');
     var myPieChart = new Chart(ctxP, {
+
         plugins: [ChartDataLabels],
         type: 'pie',
         data: {
@@ -172,19 +175,18 @@
                     labels: {
                         title: {
                             font: {
-                                size: '20'
+                                size: '20',
                             }
                         },
                     },
-                    align: 'end',
-                    anchor: 'end'
+                    align: 'end'
                 }
             },
 
         }
-    });
+    })
 </script>
-<!--Script for the file list buttons so they turn into "laoding"-->
+<!--Script for the file list buttons so they turn into "loading"-->
 <script type="text/javascript">
     function funcLoad(elem) {
         $(elem).html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');

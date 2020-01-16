@@ -16,10 +16,14 @@
         <div class="container-md-10">
         <section>
             <div class="card-body">
-                <h5 class="text-center font-weight-bold mb-4">Discrimination Classification</h5>
+                <h5 class="text-center font-weight-bold mb-4">Discrimination Classification of</h5><h5
+                    class="text-center font mb-4">{{ FileName }}</h5>
                 <hr>
-                <div class="row align-content-center">
+                <a class="waves-effect p-2" onclick="window.history.go(-1)">
+                    <i style="color: black" class="fas fa-arrow-circle-left fa-2x"></i>
+                </a>
 
+                <div class="row align-content-center">
                     <div class="col-md-5 align-content-center">
                         <canvas style="margin-top: 13vh;" id="pieChart"></canvas>
                     </div>

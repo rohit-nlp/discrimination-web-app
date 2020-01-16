@@ -1,6 +1,0 @@
-0. Git
-1. Python >= 3.5
-2. R?
-3. Requirements
-4. Get Code
-5. Run 

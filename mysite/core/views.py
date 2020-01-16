@@ -119,7 +119,8 @@ def start_disc(request, pk):
                                                         table_id="disconnectedTable",
                                                         index=False,
                                                         justify="center"
-                                                    ), 'elapsed': elapsed, 'eventInfo': eventInfo})
+                                                    ), 'elapsed': elapsed, 'eventInfo': eventInfo,
+                                                    'FileName': file.file})
     return render(request, "results.html", {'file': file, 'reason': reason, 'probs': probs, 'scores': scores})
 
 

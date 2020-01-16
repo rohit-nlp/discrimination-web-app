@@ -2,7 +2,7 @@
 
 ## Running the Project Locally
 
-###Essential requirements
+### Essential requirements
 
 First, install git:
 
@@ -24,7 +24,7 @@ Third, install pip3:
 	sudo apt install python3-pip
 ```
 
-###Project specific requirments
+### Project specific requirments
 
 Install R on your computer. Check if your already have it:
 
@@ -54,6 +54,7 @@ Update & install:
 	sudo apt install r-base
 ```
 
+---
 
 Clone the repository to your local machine:
 
@@ -61,11 +62,43 @@ Clone the repository to your local machine:
 	git clone https://github.com/rohit-nlp/discrimination-web-app.git
 ```
 
+---
+
 Install the requirements:
 
 ```bash
-	pip install -r requirements.txt
+	pip3 install -r requirements.txt
 ```
+
+*Some of the requirements cannot be installed through pip.*
+
+**Pycairo**
+
+```bash
+	pip3 install pycairo
+```
+or
+
+```bash
+	sudo apt-get install python3-cairocffi
+```
+
+**iGraph**
+
+1.
+```bash
+	pip3 install python-igraph
+```
+
+If (1) doesn't work try:
+
+```bash
+	sudo apt install libxml2-dev libz-dev
+```
+
+And try (1) again.
+
+---
 
 Apply the migrations:
 
@@ -79,8 +112,4 @@ Finally, run the development server:
 	python3 manage.py runserver
 ```
 
-The project will be available at ****.
-
-
-## License
-
+The project will be available at **http://127.0.0.1:8000/**
