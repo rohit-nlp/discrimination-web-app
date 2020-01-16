@@ -1,4 +1,5 @@
-# Discrimination Web App - Detecting discrimination through Suppes-Bayes Causal Network, a bacherlor thesis by Blai Ras
+# Discrimination Web App - Detecting discrimination through Suppes-Bayes Causal Network
+**A bacherlor thesis by Blai Ras**
 
 ## Running the Project Locally
 
@@ -52,6 +53,12 @@ Update & install:
 ```bash
 	sudo apt update
 	sudo apt install r-base
+```
+
+*On the first run project will tell you if you want to install the required bnlearn R library. You can type 'yes' or install it manually on R before launching the project, with:*
+
+```bash
+		install.packages(“bnlearn”)
 ```
 
 ---

@@ -1,128 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Adult/AdultBinary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Adult/AdultBinaryHalf.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Adult/AdultBinaryHalfHalf.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Adult/AdultError.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Adult/AdultTemporalOrder (copy) 2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Adult/AdultTemporalOrder (copy).csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Adult/AdultTemporalOrder.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/COMPAS Scores Invalid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/COMPAS Scores.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/COMPAS Temporal Order Invalid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/COMPAS Temporal Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/COMPASS_Categorical.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/compas-scores-two-years-filtered.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/compas-scores-two-years-violent-Temporal_Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/compas-scores-two-years-violent-filtered-fixed.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/compas-scores-two-years-violent-filtered.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/compas-scores-two-years-violent.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/compas-scores-two-years.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/compas-scores.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/cox-parsed.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/COMPAS Scores/cox-violent-parsed.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Dataset Setup.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/German/GermanCreditBinary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/German/GermanTemporalOrder.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Huston College Lawsuit/Huston College of Medicine Lawsuit - Temporal Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Huston College Lawsuit/Huston College of Medicine Lawsuit.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Huston College Lawsuit/Lawsuit.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Huston College Lawsuit/LawsuitBinary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Huston College Lawsuit/Result" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Huston College Lawsuit/gender-discrimination.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/IBM Employee Attrition/IBM_Attrition_Temporal_Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/IBM Employee Attrition/IBM_Employee_Attrition.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/IBM Employee Attrition/WA_Fn-UseC_-HR-Employee-Attrition.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/IBM Employee Attrition/ibm-hr-analytics-attrition-dataset.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Medical Costs/Medical Costs Temporal Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Medical Costs/Medical Costs US.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Medical Costs/insurance.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Medical Costs/insurance.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/Medical Costs/insurance_filtered.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/UCBerkeley/TemporalOrderUCBAdmissions.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/UCBerkeley/UCBAdmissions.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/UCBerkeley/UCBAdmissionsBinary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Adult/AdultCompleteBinary_formatted.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Adult/AdultTemporalOrder.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/COMPAS Scores Invalid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/COMPAS Scores.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/COMPAS Temporal Order Invalid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/COMPAS Temporal Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/COMPASS_Categorical.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/compas-scores-two-years-filtered.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/compas-scores-two-years-violent-Temporal_Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/compas-scores-two-years-violent-filtered-fixed.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/compas-scores-two-years-violent-filtered.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/compas-scores-two-years-violent.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/compas-scores-two-years.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/compas-scores.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/cox-parsed.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/COMPAS Scores/cox-violent-parsed.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/California DDS Lawsuit/DDSData Binary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/California DDS Lawsuit/DDSData Temporal Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/California DDS Lawsuit/DDSData_divided.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/California DDS Lawsuit/DDSData_filter.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/California DDS Lawsuit/californiaDDSDataV2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/California DDS Lawsuit/californiaddsexpenditures.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/German/GermanCreditBinary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/German/GermanTemporalOrder.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Huston College Lawsuit/Huston College of Medicine Lawsuit - Temporal Order 2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Huston College Lawsuit/Huston College of Medicine Lawsuit - Temporal Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Huston College Lawsuit/Huston College of Medicine Lawsuit.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Huston College Lawsuit/Lawsuit.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Huston College Lawsuit/LawsuitBinary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Huston College Lawsuit/Result" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Huston College Lawsuit/gender-discrimination.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/IBM Employee Attrition/IBM_Data_Attrition_Comma.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/IBM Employee Attrition/IBM_Data_Attrition__.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/IBM Employee Attrition/TemporalOrder_IBM__.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/IBM Employee Attrition/WA_Fn-UseC_-HR-Employee-Attrition.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/IBM Employee Attrition/ibm-hr-analytics-attrition-dataset.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Medical Costs/Medical Costs Temporal Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Medical Costs/Medical Costs US.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Medical Costs/insurance.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Medical Costs/insurance.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/Medical Costs/insurance_filtered.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/UCBerkeley/TemporalOrderUCBAdmissions.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/UCBerkeley/UCBAdmissions.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datasets/_/UCBerkeley/UCBAdmissionsBinary.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/List4Deploy.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PRscores.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Adult/AdultTable.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Adult/temp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/COMPAS/Age_Greater_45_BoxPLot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/COMPAS/BoxPlotRaceCaucassian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/COMPAS/DAG Reconstructed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/COMPAS/PieCOMPAS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/COMPAS/Prior_BoxPlot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/COMPAS/Prior_distplot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/COMPAS/TableCOMPAS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/German/GermanPie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/German/New Clients Positive Score German.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/GermanPie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Huston/BoxPlotHustonPRateHigh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Huston/GraphHustonPublicationRateHigh.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Huston/GraphHustonPublicationRateLow.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Huston/distplotHustonGender.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/IBM_BoxPlot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Insurance_Age_51_More_BoxPlot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Insurance_Homes_distplot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/PieCompass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/UCBerkeley/DAG Reconstructed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Results/Veredicts.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/file_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/pageRankShow.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/pageRankShow.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements4Server.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -278,7 +157,7 @@
       <workItem from="1578989752367" duration="5964000" />
       <workItem from="1579019974670" duration="48000" />
       <workItem from="1579079324084" duration="17480000" />
-      <workItem from="1579164595607" duration="10128000" />
+      <workItem from="1579164595607" duration="10738000" />
     </task>
     <servers />
   </component>
