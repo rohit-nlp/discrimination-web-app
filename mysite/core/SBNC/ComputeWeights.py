@@ -8,7 +8,7 @@
 
 # Function that gets the adjacency matrix and for every node with edge creates a list of his weights,
 # so we have multiple lists of lists
-def score(df, adjMatrixReconstucted, marginalProbs, jointProbs):
+def weights(df, adjMatrixReconstucted, marginalProbs, jointProbs):
     # List of lists
     # In this case, list will be [node0,node1,node2...] where node0 = ['name','name','name'], (the same name). Done like this for simple coding in a future
     nodes = [[i] for i in [-1 for j in range(df.shape[1])]]

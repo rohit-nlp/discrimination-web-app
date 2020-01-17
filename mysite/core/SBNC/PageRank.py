@@ -6,9 +6,8 @@
 # Based on the work: https://link.springer.com/article/10.1007/s41060-016-0040-z #
 #################################################################################
 
-import pandas as pd
 import igraph as p
-
+import pandas as pd
 
 # Function that computes the Personalized Page Rank score for every individual on the dataset
 def pageRank(df, probs, posName, negName, varName):

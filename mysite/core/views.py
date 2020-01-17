@@ -17,7 +17,7 @@ from django.views.generic import TemplateView
 from .SBNC.SBNC import SBNC
 from .forms import FileForm
 from .models import File
-from .SBNC.ComputeDiscrimination import pageRank
+from .SBNC.PageRank import pageRank
 
 
 class Home(TemplateView):
@@ -77,7 +77,7 @@ def start_disc(request, pk):
         #   pos, neg, neut, explainable, inco, apparent: number of variables classified in this type of discrimination
         #   elapsed: time needed for the execution
         reason, df, invalidMarginal, notDistinguish, probs, scores, disconnectedNodes, pos, neg, neut, explainable, inco, apparent, elapsed = SBNC(
-            file.file, file.temporalOrder.file, file.posColumn, file.negColumn)
+            file.file, file.temporalOrder.file, file.posColumn, file.negColumn,0.55,0.25)
         # If there are no errors
         if scores is not None:
             eventInfo = ""
@@ -98,6 +98,9 @@ def start_disc(request, pk):
             request.session['probs'] = probs.to_json(orient='split')
             request.session['columns'] = pd.DataFrame({'pos': file.posColumn, 'neg': file.negColumn},
                                                       index=[0]).to_json(orient='split')
+
+            #Saving scores for download
+            #scores.to_csv("media/DiscriminationTable.xlsx")
 
             # So the table doesnt shrink
             pd.set_option('display.max_colwidth', -1)
@@ -140,7 +143,6 @@ def pageRankExam(request, name):
             print("Starting Page Rank Scores")
             PRScores = pageRank(df, probs, columns['pos'][0], columns['neg'][0], name)
             print("Page Rank Scores computed")
-            PRScores.to_csv("PRscores.csv", index=None, sep=";")
             if PRScores is not None:
                 # Create the plots!
                 createGraphs(PRScores, name)
@@ -164,7 +166,7 @@ def createGraphs(PRScores, name):
     fig, axs = plt.subplots(figsize=(15, 15))
     sns_plot = sns.lmplot(y='Negative Discrimination', x='Positive Discrimination', data=PRScores,
                           hue=name, fit_reg=False)
-    plt.savefig("media/smallPoints.png", dpi=200)
+    plt.savefig("mysite/core/static/img/smallPoints.png", dpi=200)
     plt.close()
 
     # Distribution plots
@@ -180,7 +182,7 @@ def createGraphs(PRScores, name):
                  hist=False,
                  ax=axs[1])
 
-    plt.savefig('media/distplot.png', dpi=200)
+    plt.savefig('mysite/core/static/img/distplot.png', dpi=200)
 
     # Boxplots,
     fig, axs = plt.subplots(ncols=2, figsize=(20, 15), sharey=True)
@@ -190,4 +192,4 @@ def createGraphs(PRScores, name):
                 showcaps=False, boxprops={'facecolor': '#d9534f'},
                 showfliers=False, ax=axs[1])
 
-    plt.savefig('media/BoxPlot.png', dpi=200)
+    plt.savefig('mysite/core/static/img/BoxPlot.png', dpi=200)

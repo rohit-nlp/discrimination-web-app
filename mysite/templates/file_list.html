@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    <div class="container-md-10">
+    <div style="height: 87.1vh" class="container-md-10">
         <section>
             <div class="card-body">
                 <div class="animated fadeIn p-2 z-depth-1" style="width: 150vh; margin-left: 25vh; margin-top: 5vh">
                     <h2 class="display-4">Dataset List</h2>
                     <h5>Choose between the current datasets to start the discrimination Analysis or <a
-                            href="{% url 'upload_file' %}">upload one</a></h5>
+                            title="Upload a file" href="{% url 'upload_file' %}">upload one</a></h5>
                     <hr>
                     <div class="col-md-12 animated fadeIn">
                         <table id=file_list class="table table-hover table-sm">
@@ -31,14 +30,16 @@
                                     <td>
                                         <form method="post" action="{% url 'delete_file' file.pk %}">
                                             {% csrf_token %}
-                                            <button type="submit" class="btn btn-outline-primary waves-effect">Delete
+                                            <button title="Delete File" type="submit"
+                                                    class="btn btn-outline-primary waves-effect">Delete
                                             </button>
                                         </form>
                                     </td>
                                     <td>
                                         <form method="get" action="{% url 'start_disc' file.pk %}">
                                             {% csrf_token %}
-                                            <button type="submit" onclick="funcLoad(this)"
+                                            <button title="Start discrimination detection" type="submit"
+                                                    onclick="funcLoad(this)"
                                                     class="btn btn-outline-primary waves-effect" ;
                                                     style="width: 17vh">Analyze
                                             </button>

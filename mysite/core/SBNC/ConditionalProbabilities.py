@@ -10,7 +10,7 @@ import numpy as np
 
 
 # Function that computes conditional probabilities for every pair of nodes
-def DAG(df, jointProbs, marginalProbs):
+def conditionalProb(df, jointProbs, marginalProbs):
     primaFacieModel = np.full((df.shape[1], df.shape[1]), 0).astype(float)
     primaFacieModelNotHappened = np.full((df.shape[1], df.shape[1]), 0).astype(float)
 

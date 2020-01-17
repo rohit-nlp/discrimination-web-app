@@ -19,7 +19,6 @@ def probCheck(df, temporalOrder):
 
     # And if there are invalid event, we delete them from the dataset and the temporal order table
     if len(validEvents) != len(marginalProbs):
-
         for i, j in enumerate(marginalProbs):
             if j not in validEvents:
                 print("Event '", df.columns[i], "' will be discarded because it has an invalid Marginal Probability")
@@ -29,7 +28,7 @@ def probCheck(df, temporalOrder):
     # UserInfo is a list that his content will be displayed to the user.
     notDistinguish = list()
     notDistinguishUserInfo = list()
-    if (df.shape[0] > 1) and (df.shape[1] > 0):
+    if (df.shape[0] > 1) and (df.shape[1] > 2):
         # Recalculate
         jointProbs, marginalProbs = marginalAndJointProbs(df)
 
@@ -47,10 +46,10 @@ def probCheck(df, temporalOrder):
                               " will be merged because they re not distinguishable")
     if notDistinguish:
         deleteCols(df, temporalOrder, notDistinguish)
-    if (df.shape[0] > 1) and (df.shape[1] > 0):
+    if (df.shape[0] > 1) and (df.shape[1] > 2):
         return df, temporalOrder, invalid, notDistinguishUserInfo, marginalProbs, jointProbs, ""
 
-    return None, None, None, None, "After deleting events the dataframe has less than 1 column. Aborting."
+    return None, None, None, None, "After deleting events the dataframe has less than 3 columns. Aborting."
 
 
 # Function that deletes a series of cols from the dataset and Temporal Order, rembember that for temporal Order a column is a row!
@@ -62,9 +61,7 @@ def deleteCols(df, temporalOrder, invalid):
         if j in invalid:
             rowIndex.append(i)
     temporalOrder = temporalOrder.drop(rowIndex, axis=0)
-
     temporalOrder.reset_index(inplace=True)
-
     return df, temporalOrder
 
 
@@ -72,12 +69,12 @@ def deleteCols(df, temporalOrder, invalid):
 # Also, a correct metric will be summing zeros and ones. This sum should be the Dataframe rows x columns
 def dataframeCheck(df):
     if df.isna().values.any() == False and df.isnull().values.any() == False:
-        if (df.shape[0] > 1) and (df.shape[1] > 0) and df[df == 0].count().sum() + df[df == 1].count().sum() == \
+        if (df.shape[0] > 1) and (df.shape[1] > 2) and df[df == 0].count().sum() + df[df == 1].count().sum() == \
                 df.shape[
                     0] * df.shape[1]:
             return ""
         else:
-            return "Dataframe has less than 1 row/column or contains cells with values different than '0' or '1'"
+            return "Dataframe has less than 2 rows/less than 3 columns or contains cells with values different than '0' or '1'"
     return "Dataframe contains 'NULL' or 'NA'"
 
 

@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
     <header>
         <h1 class="font-weight mb-4 p-2">Page Rank Score</h1>
         <a class="waves-effect p-2" onclick="window.history.go(-1)">
-            <i style="color: black" class="fas fa-arrow-circle-left fa-2x"></i>
+            <i title="Back" style="color: black" class="fas fa-arrow-circle-left fa-2x"></i>
         </a>
     </header>
 
@@ -22,23 +24,23 @@
                 <h3 class="font-weight-bold mb-4 pb-2">{{ name }}</h3>
                 <div class="row">
                     <div class="view zoom">
-                        <a href="./../.././media/distplot.png" data-size="2388x1955">
-                            <img src="./../.././media/distplot.png" class="img-fluid">
+                        <a href="{% static "img/distplot.png" %}" data-size="2388x1955">
+                            <img src="{%  static "img/distplot.png" %}" class="img-fluid">
                         </a>
                     </div>
                     <div>
                         <div class="view zoom">
                             <div class="view zoom">
-                                <a href="./../.././media/BoxPlot.png" data-size="2388x1955">
-                                    <img src="./../.././media/BoxPlot.png" class="img-fluid">
+                                <a href="{% static "img/BoxPlot.png" %}" data-size="2388x1955">
+                                    <img src="{%  static "img/BoxPlot.png" %}" class="img-fluid">
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <a href="./../.././media/smallPoints.png" data-size="2388x1955">
-                        <img src="./../.././media/smallPoints.png" class="img-fluid">
+                    <a href="{% static "img/smallPoints.png" %}" data-size="2388x1955">
+                        <img src="{%  static "img/smallPoints.png" %}" class="img-fluid">
                     </a>
                 </div>
             </section>
