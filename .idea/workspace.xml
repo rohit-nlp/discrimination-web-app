@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +166,7 @@
       <workItem from="1579248861326" duration="12150000" />
       <workItem from="1579266467510" duration="4026000" />
       <workItem from="1579278277098" duration="1294000" />
+      <workItem from="1579282960498" duration="39000" />
     </task>
     <servers />
   </component>
@@ -218,11 +214,11 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1579002460190" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1579278277080">
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1579282961276">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="655" y="383" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578902802976" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1579278277080" />
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1579282961276" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1579079331381" />
     <state x="1466" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579116710263">
       <screen x="0" y="24" width="3840" height="1056" />
