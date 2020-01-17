@@ -1,5 +1,5 @@
 # Discrimination Web App - Detecting discrimination through Suppes-Bayes Causal Network
-**A bacherlor thesis by Blai Ras**
+**A bacherlor thesis by Blai Ras**. Read the full paper at https://drive.google.com/open?id=1vX3xK7mLp9RVZCpuPzOP3mCuKNqqb5ds
 
 ## Running the Project Locally
 
