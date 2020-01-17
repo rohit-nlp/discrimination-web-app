@@ -6,28 +6,37 @@
 # Based on the work: https://link.springer.com/article/10.1007/s41060-016-0040-z #
 #################################################################################
 
+import os
+import time
+from wsgiref.util import FileWrapper
+
 import pandas as pd
 import seaborn as sns
-from matplotlib import pyplot as plt
-import time
-
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, render_to_response
 from django.views.generic import TemplateView
+from matplotlib import pyplot as plt
 
+from .SBNC.PageRank import pageRank
 from .SBNC.SBNC import SBNC
 from .forms import FileForm
 from .models import File
-from .SBNC.PageRank import pageRank
 
 
 class Home(TemplateView):
     template_name = 'home.html'
 
 
-# Handler for error 404
+# Handler for error 404 (not found)
 def notFound(request, exception):
     response = render_to_response("error404.html")
     response.status_code = 404
+    return response
+
+# Handler for error 500 (server)
+def notFound500(request):
+    response = render_to_response("error500.html")
+    response.status_code = 500
     return response
 
 
@@ -77,7 +86,7 @@ def start_disc(request, pk):
         #   pos, neg, neut, explainable, inco, apparent: number of variables classified in this type of discrimination
         #   elapsed: time needed for the execution
         reason, df, invalidMarginal, notDistinguish, probs, scores, disconnectedNodes, pos, neg, neut, explainable, inco, apparent, elapsed = SBNC(
-            file.file, file.temporalOrder.file, file.posColumn, file.negColumn,0.55,0.25)
+            file.file, file.temporalOrder.file, file.posColumn, file.negColumn, 0.55, 0.25)
         # If there are no errors
         if scores is not None:
             eventInfo = ""
@@ -99,8 +108,8 @@ def start_disc(request, pk):
             request.session['columns'] = pd.DataFrame({'pos': file.posColumn, 'neg': file.negColumn},
                                                       index=[0]).to_json(orient='split')
 
-            #Saving scores for download
-            #scores.to_csv("media/DiscriminationTable.xlsx")
+            # Saving scores for download
+            scores.to_csv("media/DiscriminationTable.xlsx")
 
             # So the table doesnt shrink
             pd.set_option('display.max_colwidth', -1)
@@ -193,3 +202,15 @@ def createGraphs(PRScores, name):
                 showfliers=False, ax=axs[1])
 
     plt.savefig('mysite/core/static/img/BoxPlot.png', dpi=200)
+
+
+# Function that downloads the generated score table
+def saveTable(request):
+    file_path = "media/DiscriminationTable.xlsx"
+    try:
+        wrapper = FileWrapper(open(file_path, 'rb'))
+        response = HttpResponse(wrapper, content_type='application/force-download')
+        response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+        return response
+    except Exception as e:
+        return None

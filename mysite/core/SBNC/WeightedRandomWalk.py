@@ -7,8 +7,8 @@
 #################################################################################
 
 import igraph as p
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 # Function that perfoms a weighted random walk algorithm
@@ -146,23 +146,27 @@ def performRandomWalk(df, probs, nIter, posName, negName, indThr, diff):
         indScore = inconclusiveScore / nIter
         inconclusiveScores.append(indScore)
 
-        # Compute a veredict
+        # Compute a veredict by decision tree
         if indScore >= indThr:
             veredict = "Too many inconclusive outputs"
         else:
+            # Check for neutral
             if abs(posScores[-1] - negScores[-1]) < 0.06:
                 veredict = "Neutral variable"
             else:
-                # If we arrived here, we have to choose betweeen apparent veredict or total negative or positive veredict
+                # Lets decide if discrimination or apparent discrimination
                 if posScores[-1] > negScores[-1]:
-                    veredict = "Favoritism"  # Maybe it will overwrited later
+                    if posScores[-1] > (negScores[-1] + indScore + diff):
+                        veredict = "Favoritism"
+                    else:
+                        veredict = "Apparent Favoritism"
+                        veredictPie = "Apparent discrimination"
                 else:
-                    veredict = "Negative Discrimination"
-                # If the difference is too small, given inconclusive score we choose between apparent negative or apparent positive
-                if ((posScores[-1] - indScore < diff) and (negScores[-1] < indScore)) or (
-                        (negScores[-1] - indScore < diff) and posScores[-1] < indScore):
-                    veredict = "Apparent " + veredict
-                    veredictPie = "Apparent discrimination"
+                    if negScores[-1] > (posScores[-1] + indScore + diff):
+                        veredict = "Negative Discrimination"
+                    else:
+                        veredict = "Apparent Negative Discrimination"
+                        veredictPie = "Apparent discrimination"
 
         # Choosing the most common intermediate node
         interName = max(set(intermediate), key=intermediate.count)

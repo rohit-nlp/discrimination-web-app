@@ -3,25 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example Datasets/COMPAS Scores/COMPAS-Temporal -Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example Datasets/Huston College Lawsuit/Huston-College-Of -Medicine -Lawsuit.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example Datasets/Huston College Lawsuit/Huston_College-Of- Medicine- Lawsuit-Temporal -Order.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ComputeDiscrimination.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/PageRank.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ComputeScores.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ComputeWeights.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ConditionalProbsAndSuppesConditions.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ConditionalProbsAndSuppesConditions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/DAGScores.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ConditionalProbabilities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/DataframeCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/DataframeCheck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/ExportSBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/ExportSBNC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/error404.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/error404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/file_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/pageRankShow.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/pageRankShow.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/templates/upload_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/upload_file.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,19 +58,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mysite/core/static/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mysite/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/mysite/core/static/img" />
-      <recent name="$PROJECT_DIR$/mysite/core/static/js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\blair\Desktop\discrimination-web-app\mysite\core\SBNC" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mysite/templates" />
+      <recent name="$PROJECT_DIR$/mysite/core/static/img" />
+      <recent name="$PROJECT_DIR$/mysite/core/static/js" />
     </key>
   </component>
   <component name="RunManager">
@@ -182,6 +169,8 @@
       <workItem from="1579164595607" duration="10738000" />
       <workItem from="1579193410152" duration="293000" />
       <workItem from="1579248861326" duration="12150000" />
+      <workItem from="1579266467510" duration="4026000" />
+      <workItem from="1579278277098" duration="1294000" />
     </task>
     <servers />
   </component>
@@ -229,11 +218,11 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1579002460190" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1579248861484">
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1579278277080">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="655" y="383" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578902802976" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1579248861484" />
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1579278277080" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1579079331381" />
     <state x="1466" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579116710263">
       <screen x="0" y="24" width="3840" height="1056" />
