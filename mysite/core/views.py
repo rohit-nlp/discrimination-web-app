@@ -109,7 +109,7 @@ def start_disc(request, pk):
                                                       index=[0]).to_json(orient='split')
 
             # Saving scores for download
-            scores.to_csv("media/DiscriminationTable.xlsx")
+            scores.to_csv("media/DiscriminationTable.csv",index=None)
 
             # So the table doesnt shrink
             pd.set_option('display.max_colwidth', -1)
@@ -206,7 +206,7 @@ def createGraphs(PRScores, name):
 
 # Function that downloads the generated score table
 def saveTable(request):
-    file_path = "media/DiscriminationTable.xlsx"
+    file_path = "media/DiscriminationTable.csv"
     try:
         wrapper = FileWrapper(open(file_path, 'rb'))
         response = HttpResponse(wrapper, content_type='application/force-download')
