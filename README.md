@@ -116,7 +116,7 @@ Apply the migrations:
 Finally, run the development server:
 
 ```bash
-	python3 manage.py runserver
+	python3 manage.py runserver --insecure
 ```
 
 The project will be available at **http://127.0.0.1:8000/**

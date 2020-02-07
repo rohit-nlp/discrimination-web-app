@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+<style>
+    .scrollCategor {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+</style>
+{% block content %}
+    <div style="height: 82.5vh">
+        <div class="container animated fadeIn my-5 py-5 z-depth-1">
+            <h2 class="display-4">Categorized Dataset</h2>
+            <hr>
+            {% if err == "" %}
+                <p>This dataset contains just zeros and ones. Each variable is now categorical.</p>
+                <p>Numerical variables have been transformed looking at his quartiles (25, median and 75)</p>
+                <p>Decision variable, in case of being numerical, has been transformed with his median</p>
+                <div class="table-wrapper-scroll-y scrollCategor">
+                    {{ df|safe }}
+                </div>
+            {% else %}
+                <div style="height: 82.5vh">
+                    <div class="container animated fadeIn my-5 py-5 z-depth-1">
+                        <h2 class="display-4 ">Error</h2>
+                        <hr>
+                        <p class="text-center alert-danger font-weight-bold">Categoritzation couldn't be perdomed: {{ err }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

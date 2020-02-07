@@ -6,15 +6,14 @@
             <h2 class="display-4">Upload a file</h2>
             <hr>
             <p>Files can be .txt or .csv, always separed by comma.</p>
-            <p>Dataset must contain a header, more than 2 columns and rows. Each value must be '0' or '1'</p>
+            <p>Dataset must contain a header, more than 2 columns and rows.</p>
             <p>Temporal Order must contain 2 columns. In the first one must be listed all the variables from the
                 dataset. In the second one, an integer defining its topological order. Positive and Negative decision
                 columns must have the higher order.</p>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <p>Dataset: {{ form.file }}</p>
-                <p>Positive decision column name: {{ form.posColumn }}</p>
-                <p>Negative decision column name: {{ form.negColumn }}</p>
+                <p>Decision column name: {{ form.decColumn }}</p>
                 <p>Temporal Order of the dataset: {{ form.temporalOrder }}</p>
                 <button title="Upload the file" type="submit" class="btn btn-outline-primary waves-effect">Upload File</button>
             </form>

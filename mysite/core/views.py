@@ -21,6 +21,8 @@ from .SBNC.PageRank import pageRank
 from .SBNC.SBNC import SBNC
 from .forms import FileForm
 from .models import File
+from .SBNC.ReadDataframes import read
+from .SBNC.CategorizeDataset import adaptDF
 
 
 class Home(TemplateView):
@@ -57,6 +59,8 @@ def upload_file(request):
             return redirect('file_list')
     else:
         form = FileForm()
+
+
     return render(request, 'upload_file.html', {
         'form': form
     })
@@ -70,8 +74,24 @@ def delete_file(request, pk):
     return redirect('file_list')
 
 
+def categorize(request,pk):
+    if request.method == 'POST':
+        # Collect the file
+        file = File.objects.get(pk=pk)
+        df, temporalOrder = read(file.file, file.temporalOrder.file)
+        print(file.decColumn)
+        df,posColumn, negColumn, error = adaptDF(df,file.decColumn)
+        if error == "":
+            return render(request,"categorized.html",{'df':df.head().to_html(classes="table table-borderless table-striped table-sm",
+                                                            table_id="disconnectedTable",
+                                                            index=False,
+                                                            justify="center"),'pos':posColumn,'neg':negColumn,'err':error})
+
+    return render(request,"categorized.html",{'err':error})
+
 # Function that handles the discrimination analysis
 def start_disc(request, pk):
+    print("LLLLL")
     if request.method == 'GET':
         # Collect the file
         file = File.objects.get(pk=pk)

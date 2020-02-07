@@ -13,8 +13,7 @@
                             <thead>
                             <tr>
                                 <th>Title</th>
-                                <th>Positive Decision column name</th>
-                                <th>Negative Decision column name</th>
+                                <th>Decision column name</th>
                                 <th>Temporal Order table</th>
                                 <th>Delete</th>
                                 <th>Start Discrimination analysis</th>
@@ -24,8 +23,7 @@
                             {% for file in files %}
                                 <tr>
                                     <td>{{ file.file }}</td>
-                                    <td>{{ file.posColumn }}</td>
-                                    <td>{{ file.negColumn }}</td>
+                                    <td>{{ file.decColumn }}</td>
                                     <td>{{ file.temporalOrder }}</td>
                                     <td>
                                         <form method="post" action="{% url 'delete_file' file.pk %}">
@@ -36,7 +34,7 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form method="get" action="{% url 'start_disc' file.pk %}">
+                                        <form method="post" action="{% url 'categorize' file.pk %}">
                                             {% csrf_token %}
                                             <button title="Start discrimination detection" type="submit"
                                                     onclick="funcLoad(this)"

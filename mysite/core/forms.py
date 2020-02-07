@@ -14,4 +14,4 @@ from .models import File
 class FileForm(forms.ModelForm):
     class Meta:
         model = File
-        fields = ('file', 'posColumn', 'negColumn', 'temporalOrder')
+        fields = ('file', 'decColumn', 'temporalOrder')
