@@ -24,7 +24,6 @@ from .models import File
 from .SBNC.ReadDataframes import read
 from .SBNC.CategorizeDataset import adaptDF
 
-
 class Home(TemplateView):
     template_name = 'home.html'
 
@@ -75,26 +74,32 @@ def delete_file(request, pk):
 
 
 def categorize(request,pk):
+    error = ""
     if request.method == 'POST':
         # Collect the file
         file = File.objects.get(pk=pk)
         df, temporalOrder = read(file.file, file.temporalOrder.file)
-        print(file.decColumn)
         df,posColumn, negColumn, error = adaptDF(df,file.decColumn)
+        df.to_csv("mysite/core/static/df/Categorized_"+str(file.file),index=None)
         if error == "":
-            return render(request,"categorized.html",{'df':df.head().to_html(classes="table table-borderless table-striped table-sm",
-                                                            table_id="disconnectedTable",
+            return render(request,"categorized.html",{'dfView':df.head().to_html(classes="table table-borderless table-striped table-sm",
+                                                            table_id="categorizedTable",
                                                             index=False,
-                                                            justify="center"),'pos':posColumn,'neg':negColumn,'err':error})
+                                                            justify="center"),'pos':posColumn,'neg':negColumn,'err':error,'file':file.pk})
 
     return render(request,"categorized.html",{'err':error})
 
 # Function that handles the discrimination analysis
 def start_disc(request, pk):
-    print("LLLLL")
+
     if request.method == 'GET':
         # Collect the file
         file = File.objects.get(pk=pk)
+        route_to_df = "mysite/core/static/df/Categorized_"+str(file.file)
+        posColumn = request.GET['positiveDrop']
+        negColumn = request.GET['negativeDrop']
+
+
         # Try to collect every info needed:
         #   Reason: if its not empty, and error occurred
         #   DF: the dataset after the training
@@ -105,8 +110,8 @@ def start_disc(request, pk):
         #   disconnectedNodes: no explanation needed
         #   pos, neg, neut, explainable, inco, apparent: number of variables classified in this type of discrimination
         #   elapsed: time needed for the execution
-        reason, df, invalidMarginal, notDistinguish, probs, scores, disconnectedNodes, pos, neg, neut, explainable, inco, apparent, elapsed = SBNC(
-            file.file, file.temporalOrder.file, file.posColumn, file.negColumn, 0.55, 0.25)
+        reason, df, invalidMarginal, notDistinguish, probs, scores, disconnectedNodes, pos, neg, neut, explainable, inco, apparent, elapsed = SBNC(route_to_df,
+            file.temporalOrder.file, posColumn, negColumn, 0.55, 0.25)
         # If there are no errors
         if scores is not None:
             eventInfo = ""

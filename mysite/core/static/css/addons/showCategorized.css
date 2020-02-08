@@ -1,0 +1,8 @@
+.categorizedTable {
+    position: relative;
+    height: 290px;
+    overflow: auto;
+}
+.categorizedTable-x {
+    display: block;
+}

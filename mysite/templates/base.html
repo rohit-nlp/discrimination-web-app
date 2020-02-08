@@ -21,6 +21,7 @@
     <!-- MDBootstrap Datatables  -->
     <link rel="stylesheet" href={% static 'css/addons/datatables.min.css' %}>
     <link rel="stylesheet" href={% static 'css/addons/showResults.css' %}>
+    <link rel="stylesheet" href={% static 'css/addons/showCategorized.css' %}>
     <style>
         table#disconnectedTable {
             text-align: center;
@@ -33,6 +34,10 @@
         nav#nav {
             background-color: #5bc0de;
         }
+        button#analyzeButton{
+            display: flex; justify-content: center;
+        }
+</style>
     </style>
 </head>
 <body>
@@ -113,6 +118,7 @@
         });
     });
 </script>
+
 <!--Script for the PieChart-->
 <script type="text/javascript" id="dataPie" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}
         data-explainable={{ explainable }} data-inco={{ inco }} data-apparent={{ apparent }}>
