@@ -7,7 +7,7 @@
 #################################################################################
 
 import numpy as np
-
+from .ReadDataframes import readOriginalDF
 
 # Computes marginal and joint probs to determinate if the dataset joins the necessary condtions for the discrimation analisis.
 def probCheck(df, temporalOrder):
@@ -79,28 +79,27 @@ def dataframeCheck(df):
 
 
 # Check for possible errors in the Temporal Table
-def temporalOrderCheck(df, temporalOrder, pos, neg):
+def temporalOrderCheck(df, temporalOrder, decisionColumn,pathOriginalDf):
+
+    originalDF = readOriginalDF(pathOriginalDf)
     reason = ""
     # Should always have 2 columns
     if temporalOrder.shape[1] == 2:
         temporalOrder.columns = ["attribute", "order"]
-        # Should have always the same ammount of rows as columns has the Dataframe
-        if temporalOrder.shape[0] == df.shape[1]:
-            notGood = [i for i in temporalOrder['attribute'] if i not in df.columns]
-            if len(notGood) > 0:
-                reason = "Temporal Order contains attributes that aren't on the dataset"
+        if set(temporalOrder['attribute'].tolist()) == set(originalDF.columns):
+            if temporalOrder[temporalOrder["order"] == max(temporalOrder['order'])].shape[0] > 1 or\
+                    temporalOrder[temporalOrder["attribute"] == decisionColumn]["order"].iloc[0] != max(temporalOrder['order']):
+                reason = "Decision Variable (alone) must have the highest order value"
             else:
-                # Check pos and neg variable temporal order value
-                if temporalOrder[temporalOrder["attribute"] == pos]["order"].iloc[0] != max(temporalOrder['order']) or \
-                        temporalOrder[temporalOrder["attribute"] == neg]["order"].iloc[0] != max(
-                    temporalOrder['order']):
-                    reason = "Positive and negative decision columns should always have the maximum order value"
-        else:
-            reason = "Temporal Order must have as many rows as variables in the dataset"
+                temporalOrder = temporalOrderAdapt(df,temporalOrder)
+        else: reason = "Temporal Order variables (first column) must match with Dataframe columns"
+
     else:
-        reason = "Temporal Order columns must be 2"
+        reason = "Temporal Order columns must be 2, like 'Attribute' and 'Order'."
     return temporalOrder, reason
 
+def temporalOrderAdapt(df,temporalOrder):
+    a  = 3
 
 # Computes marginal and joint probs
 def marginalAndJointProbs(df):

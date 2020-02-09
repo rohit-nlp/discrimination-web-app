@@ -21,11 +21,11 @@ from .WeightedRandomWalk import performRandomWalk
 
 # Mother class
 # Manages all the flow of the algorithm
-def SBNC(pathDF, pathOrder, posColumn, negColumn, inonclusiveThreshold, apparentThreshold):
+def SBNC(pathDFCategorized, pathOriginalDf, pathOrder, decisionColumn,posColumn, negColumn, inonclusiveThreshold, apparentThreshold):
     # Start ticking
     elapsed = time.time()
     # Read the dataframes
-    df, temporalOrder = read(pathDF, pathOrder)
+    df, temporalOrder = read(pathDFCategorized, pathOrder)
 
     # For Returns
     probs = None
@@ -43,7 +43,7 @@ def SBNC(pathDF, pathOrder, posColumn, negColumn, inonclusiveThreshold, apparent
 
     # Dataframe exists
     if df is not None:
-        temporalOrder, reason = temporalOrderCheck(df, temporalOrder, posColumn, negColumn)
+        temporalOrder, reason = temporalOrderCheck(df, temporalOrder, decisionColumn,pathOriginalDf)
         # Temporal order exists and its correct
         if reason == "":
             # Check for NaN's, Nulls, Columns/Rows > 1

@@ -111,7 +111,7 @@ def start_disc(request, pk):
         #   pos, neg, neut, explainable, inco, apparent: number of variables classified in this type of discrimination
         #   elapsed: time needed for the execution
         reason, df, invalidMarginal, notDistinguish, probs, scores, disconnectedNodes, pos, neg, neut, explainable, inco, apparent, elapsed = SBNC(route_to_df,
-            file.temporalOrder.file, posColumn, negColumn, 0.55, 0.25)
+            file.file,file.temporalOrder.file, file.decColumn, posColumn, negColumn, 0.55, 0.25)
         # If there are no errors
         if scores is not None:
             eventInfo = ""
