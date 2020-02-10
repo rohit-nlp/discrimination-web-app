@@ -82,10 +82,10 @@ def categorize(request,pk):
         df,posColumn, negColumn, error = adaptDF(df,file.decColumn)
         df.to_csv("mysite/core/static/df/Categorized_"+str(file.file),index=None)
         if error == "":
-            return render(request,"categorized.html",{'dfView':df.head().to_html(classes="table table-borderless table-striped table-sm",
+            return render(request,"categorized.html",{'dfView':df.head().to_html(classes="table table-striped table-sm",
                                                             table_id="categorizedTable",
                                                             index=False,
-                                                            justify="center"),'pos':posColumn,'neg':negColumn,'err':error,'file':file.pk})
+                                                            justify="right"),'pos':posColumn,'neg':negColumn,'err':error,'file':file.pk})
 
     return render(request,"categorized.html",{'err':error})
 
@@ -130,7 +130,7 @@ def start_disc(request, pk):
             # Also send pos and negative column names
             request.session['df'] = df.to_json(orient='split')
             request.session['probs'] = probs.to_json(orient='split')
-            request.session['columns'] = pd.DataFrame({'pos': file.posColumn, 'neg': file.negColumn},
+            request.session['columns'] = pd.DataFrame({'pos': posColumn, 'neg': negColumn},
                                                       index=[0]).to_json(orient='split')
 
             # Saving scores for download

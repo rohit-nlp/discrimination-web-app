@@ -38,13 +38,21 @@ def categorize4(df):
     for column in df.columns:
         min,p25,median,p75,max =getQuartiles(df,column)
         bins = [min,p25,median,p75,max]
+
         if min == 0:
             colMin = "0"
         else: colMin = ('%f' % min).rstrip('.0')
-        names = [colMin+"_"+('%f' % p25).rstrip('.0'),
-                 ('%f' % p25).rstrip('.0')+"_"+('%f' % median).rstrip('.0'),
+
+        if min == p25:
+            bins = [min, median, p75,max]
+            names = [colMin +"_"+('%f' % median).rstrip('.0'),
                  ('%f' % median).rstrip('.0')+"_"+('%f' % p75).rstrip('.0'),
                  ('%f' % p75).rstrip('.0')+"_"+('%f' % max).rstrip('.0')]
+        else:
+            names = [colMin+"_"+('%f' % p25).rstrip('.0'),
+                     ('%f' % p25).rstrip('.0')+"_"+('%f' % median).rstrip('.0'),
+                     ('%f' % median).rstrip('.0')+"_"+('%f' % p75).rstrip('.0'),
+                     ('%f' % p75).rstrip('.0')+"_"+('%f' % max).rstrip('.0')]
         tempDict = dict(enumerate(names, 1))
         newDf[column] = np.vectorize(tempDict.get)(np.digitize(df[column], bins))
     return newDf
@@ -77,8 +85,9 @@ def dummyFeatures(df):
 
     # Create new dataframe with dummy features
     categorical_feats = df.select_dtypes(include=['object']).columns.tolist()
-
-    return pd.get_dummies(df, columns=categorical_feats)
+    finalDF = pd.get_dummies(df, columns=categorical_feats,prefix_sep="[")
+    finalDF.columns = [i.replace(" ","_").replace("-","_")+"]" for i in finalDF.columns]
+    return finalDF
 
 
 def adaptDF(data, decisionCol):
@@ -86,6 +95,7 @@ def adaptDF(data, decisionCol):
     posColumn = ""
     negColumn = ""
     df = data.copy(deep=True)
+    df.columns = [i.replace("[","") for i in df.columns]
     error = isAble(df, decisionCol)
 
     if error == "":
@@ -104,11 +114,12 @@ def adaptDF(data, decisionCol):
         if decisionCate == False:
             dfDecision = categorize2(df[[decisionCol]].copy(deep=True))
             dfDecision = dfDecision.join(dfNum)
+            joinedDf = dfDecision.join(df[categorical])
 
-        joinedDf = dfDecision.join(df[categorical])
+        joinedDf = dfNum.join(df[categorical])
 
 
-        posColumn, negColumn = decisionCol+"_"+joinedDf[decisionCol].unique()
+        posColumn, negColumn = decisionCol+"["+joinedDf[decisionCol].unique()+"]"
 
         # Transform categorical features (all of them)
         return dummyFeatures(joinedDf), posColumn, negColumn, error

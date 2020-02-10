@@ -26,7 +26,7 @@ def fit(df, adjacencyMatrix):
                 categoricalMatrix[i, j] = "hit"
 
     # Same matrix but with colnames
-    categoricalMatrixDF = pd.DataFrame(categoricalMatrix, columns=df.columns)
+    categoricalMatrixDF = pd.DataFrame(categoricalMatrix, columns=[i.replace("[",".").replace("]",".") for i in df.columns])
 
     # Create a blacklist of edges that are not legal by Suppes theory
     nodeFrom = list()
@@ -35,13 +35,14 @@ def fit(df, adjacencyMatrix):
         for j in range(adjacencyMatrix.shape[1]):
             if i != j:
                 if adjacencyMatrix[i, j] == 0:
-                    nodeFrom.append(df.columns[i])
-                    nodeTo.append(df.columns[j])
+                    nodeFrom.append(df.columns[i].replace("[",".").replace("]","."))
+                    nodeTo.append(df.columns[j].replace("[",".").replace("]","."))
 
     # If not, bnlearn says dataset contains Na/NaN
     categoricalMatrixDF = categoricalMatrixDF.astype('category')
 
     blacklist = pd.DataFrame({'From': nodeFrom, 'To': nodeTo})
+
 
     ###R interface for the hc function call
     import rpy2.robjects.packages as rpackages
@@ -73,7 +74,8 @@ def fit(df, adjacencyMatrix):
     arcs = training[2]
 
     # Dic to map column names with index. Remember we did the blacklist with var names instead of numbers.
-    indexColumns = {df.columns[i]: i for i in range(0, len(df.columns))}
+    indexColumns = {df.columns[i].replace("[",".").replace("]","."): i for i in range(0, len(df.columns))}
+
 
     # Compute the adjacency matrix of the trained model
     reconstructed = np.zeros(adjacencyMatrix.shape)

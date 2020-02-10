@@ -7,6 +7,7 @@
 #################################################################################
 
 import numpy as np
+import pandas as pd
 from .ReadDataframes import readOriginalDF
 
 # Computes marginal and joint probs to determinate if the dataset joins the necessary condtions for the discrimation analisis.
@@ -99,7 +100,12 @@ def temporalOrderCheck(df, temporalOrder, decisionColumn,pathOriginalDf):
     return temporalOrder, reason
 
 def temporalOrderAdapt(df,temporalOrder):
-    a  = 3
+    orders = []
+    for i in df.columns:
+        originalVal = i[:i.find("[")]
+        orders.append(temporalOrder[temporalOrder['attribute'] == originalVal]['order'].iloc[0])
+    return pd.DataFrame({'attribute':df.columns,"order":orders})
+
 
 # Computes marginal and joint probs
 def marginalAndJointProbs(df):
