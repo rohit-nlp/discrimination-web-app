@@ -6,11 +6,12 @@
 # Based on the work: https://link.springer.com/article/10.1007/s41060-016-0040-z #
 #################################################################################
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 from sklearn import preprocessing
 
-# For checking if df is valid
+
+# For checking if df is valid for categoraritzation
 def isAble(df, decisionCol):
     error = ""
     if df.isna().values.any() == True or df.isnull().values.any() == True:
@@ -22,42 +23,51 @@ def isAble(df, decisionCol):
     return error
 
 
+# Function that returns the minimum, maximum, first quartile, median and third quartile of a data sample
 def getQuartiles(df, column):
     if column in df.columns:
         min = df[column].quantile(0)
         p25 = df[column].quantile(0.25)
         median = df[column].quantile(0.5)
         p75 = df[column].quantile(0.75)
-        max = df[column].quantile(1)+1
+        max = df[column].quantile(1) + 1
         return min, p25, median, p75, max
     return None
 
 
+# Function that splits (categorizes) a numerical data sample in 4 bins by looking at its quartiles
 def categorize4(df):
     newDf = pd.DataFrame()
+    # For every column, get its quartiles
     for column in df.columns:
-        min,p25,median,p75,max =getQuartiles(df,column)
-        bins = [min,p25,median,p75,max]
+        min, p25, median, p75, max = getQuartiles(df, column)
+        bins = [min, p25, median, p75, max]
 
+        # I want to remove the '.0' of floats when str(float) but if the float its (0.0) then I remove the whole string
         if min == 0:
             colMin = "0"
-        else: colMin = ('%f' % min).rstrip('.0')
-
-        if min == p25:
-            bins = [min, median, p75,max]
-            names = [colMin +"_"+('%f' % median).rstrip('.0'),
-                 ('%f' % median).rstrip('.0')+"_"+('%f' % p75).rstrip('.0'),
-                 ('%f' % p75).rstrip('.0')+"_"+('%f' % max).rstrip('.0')]
         else:
-            names = [colMin+"_"+('%f' % p25).rstrip('.0'),
-                     ('%f' % p25).rstrip('.0')+"_"+('%f' % median).rstrip('.0'),
-                     ('%f' % median).rstrip('.0')+"_"+('%f' % p75).rstrip('.0'),
-                     ('%f' % p75).rstrip('.0')+"_"+('%f' % max).rstrip('.0')]
+            colMin = ('%f' % min).rstrip('.0')
+
+        # If the first quartile is also zero, I just need 3 splits
+        if min == p25:
+            bins = [min, median, p75, max]
+            names = [colMin + "_" + ('%f' % median).rstrip('.0'),
+                     ('%f' % median).rstrip('.0') + "_" + ('%f' % p75).rstrip('.0'),
+                     ('%f' % p75).rstrip('.0') + "_" + ('%f' % max).rstrip('.0')]
+        else:
+            names = [colMin + "_" + ('%f' % p25).rstrip('.0'),
+                     ('%f' % p25).rstrip('.0') + "_" + ('%f' % median).rstrip('.0'),
+                     ('%f' % median).rstrip('.0') + "_" + ('%f' % p75).rstrip('.0'),
+                     ('%f' % p75).rstrip('.0') + "_" + ('%f' % max).rstrip('.0')]
+
+        # Enumerate & vectorize the numerical values
         tempDict = dict(enumerate(names, 1))
         newDf[column] = np.vectorize(tempDict.get)(np.digitize(df[column], bins))
     return newDf
 
 
+# Function that categorizes in 2 splits (never used)
 def categorize2(df):
     newDf = pd.DataFrame()
     for column in df.columns:
@@ -65,13 +75,16 @@ def categorize2(df):
         bins = [min, median, max]
         if min == 0:
             colMin = "0"
-        else: colMin = ('%f' % min).rstrip('.0')
-        names = [colMin + "_" + ('%f' % median).rstrip('.0'), ('%f' % median).rstrip('.0') + "_" + ('%f' % max).rstrip('.0')]
+        else:
+            colMin = ('%f' % min).rstrip('.0')
+        names = [colMin + "_" + ('%f' % median).rstrip('.0'),
+                 ('%f' % median).rstrip('.0') + "_" + ('%f' % max).rstrip('.0')]
         tempDict = dict(enumerate(names, 1))
         newDf[column] = np.vectorize(tempDict.get)(np.digitize(df[column], bins))
     return newDf
 
 
+# Takes a df and categorizes it with numerical and categorical variables in it.
 def dummyFeatures(df):
     # Deep copy the original data
     data_encoded = df.copy(deep=True)
@@ -85,44 +98,50 @@ def dummyFeatures(df):
 
     # Create new dataframe with dummy features
     categorical_feats = df.select_dtypes(include=['object']).columns.tolist()
-    finalDF = pd.get_dummies(df, columns=categorical_feats,prefix_sep="[")
-    finalDF.columns = [i.replace(" ","_").replace("-","_")+"]" for i in finalDF.columns]
+    finalDF = pd.get_dummies(df, columns=categorical_feats, prefix_sep="[")
+    finalDF.columns = [replaceAll(i) + "]" for i in finalDF.columns]
     return finalDF
 
 
+# Our training library doesn't support some symbols, so I'm removing it
+def replaceAll(string):
+    invalidDict = {' ': "_", "-": "_", ")": "", "(": "", "&": "_and_", "<": "minus", ">": "bigger",
+                   "<=": "minus_or_equal", ">=": "bigger_or_equal",
+                   "*": "", "'": "", '"': "", "=": "_equal_"}
+    for i, j in invalidDict.items():
+        string = string.replace(i, j)
+    return string
+
+
+# Function that manages the categorization of a dataframe
 def adaptDF(data, decisionCol):
-    decisionCate = True
     posColumn = ""
     negColumn = ""
     df = data.copy(deep=True)
-    df.columns = [i.replace("[","") for i in df.columns]
+    # My separators are []
+    df.columns = [i.replace("[", "") for i in df.columns]
+    # Check if the df can be categorized
     error = isAble(df, decisionCol)
-
     if error == "":
         # Select categorical features
         categorical = df.select_dtypes(include=['object']).columns.tolist()
         numerical = [i for i in df.columns if i not in categorical]
 
         if decisionCol in numerical:
-            numerical.remove(decisionCol)
-            decisionCate = False
+            error = "Decision Variable can't be numerical: how do I split the data?"
+        else:
+            # Get Decision Variable
+            posColumn, negColumn = decisionCol + "[" + df[decisionCol].unique() + "]"
+            posColumn = replaceAll(posColumn)
+            negColumn = replaceAll(negColumn)
+            # Check if I have to categorize numerical variables
+            if len(numerical) > 0:
+                # Transform numerical features
+                dfNum = categorize4(df[numerical].copy(deep=True))
+                joinedDf = dfNum.join(df[categorical])
+                # Transform categorical features (all of them)
+                return dummyFeatures(joinedDf), posColumn, negColumn, error
+            else:
+                return dummyFeatures(df), posColumn, negColumn, error
 
-        # Transform numerical features
-        dfNum = categorize4(df[numerical].copy(deep=True))
-
-        # Transform  decision variable if its numerical
-        if decisionCate == False:
-            dfDecision = categorize2(df[[decisionCol]].copy(deep=True))
-            dfDecision = dfDecision.join(dfNum)
-            joinedDf = dfDecision.join(df[categorical])
-
-        joinedDf = dfNum.join(df[categorical])
-
-
-        posColumn, negColumn = decisionCol+"["+joinedDf[decisionCol].unique()+"]"
-
-        # Transform categorical features (all of them)
-        return dummyFeatures(joinedDf), posColumn, negColumn, error
-
-    else:
-        return None, posColumn, negColumn, error
+    return None, posColumn, negColumn, error

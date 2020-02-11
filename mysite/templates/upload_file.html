@@ -5,8 +5,9 @@
         <div class="container animated fadeIn my-5 py-5 z-depth-1">
             <h2 class="display-4">Upload a file</h2>
             <hr>
-            <p>Files can be .txt or .csv, always separed by comma.</p>
-            <p>Dataset must contain a header, more than 2 columns and rows.</p>
+            <p>Files can be .txt or .csv, always separated by comma. No special symbols are allowed.</p>
+            <p>Dataset must contain a header, more than 1 columns and rows. Decision Variable must be categorical, not
+                numerical</p>
             <p>Temporal Order must contain 2 columns. In the first one must be listed all the variables from the
                 dataset. In the second one, an integer defining its topological order. Positive and Negative decision
                 columns must have the higher order.</p>
@@ -15,7 +16,8 @@
                 <p>Dataset: {{ form.file }}</p>
                 <p>Decision column name: {{ form.decColumn }}</p>
                 <p>Temporal Order of the dataset: {{ form.temporalOrder }}</p>
-                <button title="Upload the file" type="submit" class="btn btn-outline-primary waves-effect">Upload File</button>
+                <button title="Upload the file" type="submit" class="btn btn-outline-primary waves-effect">Upload File
+                </button>
             </form>
         </div>
     </div>

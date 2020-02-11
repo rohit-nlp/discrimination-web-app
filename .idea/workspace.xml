@@ -4,22 +4,49 @@
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Example Datasets/Adapting Temporal Order Table.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Example Datasets/Adapting Temporal Order Table.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Adult/Adult-Temporal-Order-For-Invalid.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Adult/Adult-Temporal-Order.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Example Datasets/Adult/Adult-Temporal-Order.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Adult/Adult-With-1-Invalid-Column.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Adult/Adult.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Adult/Info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/COMPAS Scores/.~lock.COMPAS-Scores.csv#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/COMPAS Scores/COMPAS-Scores With-Invalid-Column.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/COMPAS Scores/COMPAS-Scores.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/COMPAS Scores/COMPAS-Temporal-Order-Wiht-Invalid-Column.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/COMPAS Scores/COMPAS-Temporal-Order.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/COMPAS Scores/Info" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Example Datasets/Dataset Setup.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Example Datasets/Dataset Setup.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Example Datasets/Original Datasets/compas-scores-two-years.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Example Datasets/Original Datasets/compas-scores-two-years.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/German/German-Credit-Temporal-Order.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/German/GermanCredit.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/German/Info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Huston College Lawsuit/Huston-College-Of- Medicine-Lawsuit-Temporal-Order.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Huston College Lawsuit/Huston-College-Of-Medicine-Lawsuit.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Huston College Lawsuit/Info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/IBM Employee Attrition/IBM_Attrition_Temporal_Order.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/IBM Employee Attrition/IBM_Employee_Attrition.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/IBM Employee Attrition/info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Medical Costs/Medical-Costs- Temporal-Order.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Medical Costs/Medical-Costs-US.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Medical Costs/info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Original Datasets/COMPAS-Temporal-Order-Table Invalid.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Original Datasets/COMPAS-Temporal-Order-Table.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Original Datasets/compas-scores-two-years.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/UCBerkeley/Admissions-UCB-Temporal-Order.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/UCBerkeley/Admissions-UCB.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/UCBerkeley/info" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/CategorizeDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/CategorizeDataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/DataframeCheck.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/DataframeCheck.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/LikelihoodFit.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/LikelihoodFit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/static/df/Categorized_compas-scores-two-years.csv" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/df/Categorized_compas-scores-two-years.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/static/df/Categorized_compas-scores-two-years_v1kWXXV.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/static/df/Categorizedcompas-scores-two-years.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/BoxPlot.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/BoxPlot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/distplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/distplot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/smallPoints.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/smallPoints.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/categorized.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/categorized.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/file_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/upload_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/upload_file.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +218,7 @@
       <workItem from="1581251044880" duration="2000" />
       <workItem from="1581251205226" duration="5988000" />
       <workItem from="1581322697423" duration="9460000" />
+      <workItem from="1581411208592" duration="8270000" />
     </task>
     <servers />
   </component>
@@ -238,11 +266,11 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1581075292407" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1581322703049">
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1581411209524">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="655" y="383" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1578902802976" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1581322703049" />
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1581411209524" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1579079331381" />
     <state x="1466" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579116710263">
       <screen x="0" y="24" width="3840" height="1056" />

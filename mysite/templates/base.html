@@ -34,11 +34,13 @@
         nav#nav {
             background-color: #5bc0de;
         }
-        button#analyzeButton{
-            display: flex; justify-content: center;
+
+        button#analyzeButton {
+            display: flex;
+            justify-content: center;
         }
-</style>
     </style>
+
 </head>
 <body>
 
@@ -200,6 +202,12 @@
 <script type="text/javascript">
     function funcLoad(elem) {
         $(elem).html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
+    }
+</script>
+
+<script type="text/javascript">
+    function analyzeLoad(elem) {
+        $(elem).html('<span class ="spinner-grow spinner-grow-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
     }
 </script>
 

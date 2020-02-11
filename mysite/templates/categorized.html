@@ -8,7 +8,7 @@
             {% if err == "" %}
                 <p>This dataset contains just zeros and ones. Each variable is now categorical.</p>
                 <p>Numerical variables have been transformed looking at his quartiles (25, median and 75)</p>
-                <p>Decision variable, in case of being numerical, has been transformed with his median</p>
+                <p>No special symbols (apart from '_') are allowed</p>
                 <div class="col-md-12 align-items-center animated fadeIn">
                     <div class="table-wrapper-scroll-x categorizedTable">
                         {{ dfView|safe }}
@@ -24,7 +24,7 @@
                             <!-- Material input -->
                             <h5 class="font mb-4" style="color: #d9534f;">Select positive decision variable name:</h5>
                             <select name="positiveDrop" class="browser-default custom-select">
-                                <option selected>{{pos}}</option>
+                                <option selected>{{ pos }}</option>
                                 <option value={{ neg }}>{{ neg }}</option>
                             </select>
                         </div>
@@ -37,7 +37,7 @@
                                 <h5 class="font mb-4" style="color: #d9534f;">Select negative decision variable
                                     name:</h5>
                                 <select name="negativeDrop" class="browser-default custom-select">
-                                    <option selected>{{neg}}</option>
+                                    <option selected>{{ neg }}</option>
                                     <option value={{ pos }}>{{ pos }}</option>
                                 </select>
                             </div>
@@ -45,7 +45,11 @@
                         <!-- Grid column -->
                     </div>
                     <!-- Grid row -->
-                    <input id="analyzeButton" style="margin-left: 52.4vh" type="submit" class="btn btn-outline-primary waves-effect" value="Analyze">
+                    <button title="Start discrimination detection" type="submit"
+                            onclick="funcLoad(this)"
+                            class="btn btn-outline-primary waves-effect" ;
+                            style="margin-left: 52.4vh; width: 17vh">Analyze
+                    </button>
                 </form>
                 <!-- Material form row -->
             {% else %}
