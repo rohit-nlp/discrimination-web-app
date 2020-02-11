@@ -17,12 +17,13 @@ from django.shortcuts import render, redirect, render_to_response
 from django.views.generic import TemplateView
 from matplotlib import pyplot as plt
 
+from .SBNC.CategorizeDataset import adaptDF
 from .SBNC.PageRank import pageRank
+from .SBNC.ReadDataframes import read
 from .SBNC.SBNC import SBNC
 from .forms import FileForm
 from .models import File
-from .SBNC.ReadDataframes import read
-from .SBNC.CategorizeDataset import adaptDF
+
 
 class Home(TemplateView):
     template_name = 'home.html'
@@ -33,6 +34,7 @@ def notFound(request, exception):
     response = render_to_response("error404.html")
     response.status_code = 404
     return response
+
 
 # Handler for error 500 (server)
 def notFound500(request):
@@ -59,7 +61,6 @@ def upload_file(request):
     else:
         form = FileForm()
 
-
     return render(request, 'upload_file.html', {
         'form': form
     })
@@ -73,32 +74,37 @@ def delete_file(request, pk):
     return redirect('file_list')
 
 
-def categorize(request,pk):
+# Handler for the dataset categorization
+def categorize(request, pk):
     error = ""
     if request.method == 'POST':
         # Collect the file
         file = File.objects.get(pk=pk)
+        # Gather the files
         df, temporalOrder = read(file.file, file.temporalOrder.file)
-        df,posColumn, negColumn, error = adaptDF(df,file.decColumn)
-        df.to_csv("mysite/core/static/df/Categorized_"+str(file.file),index=None)
+        # Categorize DF
+        df, posColumn, negColumn, error = adaptDF(df, file.decColumn)
+        # Safe categorized DF
+        df.to_csv("mysite/core/static/df/Categorized_" + str(file.file), index=None)
         if error == "":
-            return render(request,"categorized.html",{'dfView':df.head().to_html(classes="table table-borderless table-striped table-sm",
-                                                            table_id="categorizedTable",
-                                                            index=False,
-                                                            justify="center"),'pos':posColumn,'neg':negColumn,'err':error,'file':file.pk})
+            return render(request, "categorized.html",
+                          {'dfView': df.head().to_html(classes="table table-striped table-sm",
+                                                       table_id="categorizedTable",
+                                                       index=False,
+                                                       justify="right"), 'pos': posColumn, 'neg': negColumn,
+                           'err': error, 'file': file.pk})
 
-    return render(request,"categorized.html",{'err':error})
+    return render(request, "categorized.html", {'err': error})
+
 
 # Function that handles the discrimination analysis
 def start_disc(request, pk):
-
     if request.method == 'GET':
         # Collect the file
         file = File.objects.get(pk=pk)
-        route_to_df = "mysite/core/static/df/Categorized_"+str(file.file)
+        route_to_df = "mysite/core/static/df/Categorized_" + str(file.file)
         posColumn = request.GET['positiveDrop']
         negColumn = request.GET['negativeDrop']
-
 
         # Try to collect every info needed:
         #   Reason: if its not empty, and error occurred
@@ -110,8 +116,9 @@ def start_disc(request, pk):
         #   disconnectedNodes: no explanation needed
         #   pos, neg, neut, explainable, inco, apparent: number of variables classified in this type of discrimination
         #   elapsed: time needed for the execution
-        reason, df, invalidMarginal, notDistinguish, probs, scores, disconnectedNodes, pos, neg, neut, explainable, inco, apparent, elapsed = SBNC(route_to_df,
-            file.temporalOrder.file, posColumn, negColumn, 0.55, 0.25)
+        reason, df, invalidMarginal, notDistinguish, probs, scores, disconnectedNodes, pos, neg, neut, explainable, inco, apparent, elapsed = SBNC(
+            route_to_df,
+            file.file, file.temporalOrder.file, file.decColumn, posColumn, negColumn, 0.55, 0.25)
         # If there are no errors
         if scores is not None:
             eventInfo = ""
@@ -130,11 +137,11 @@ def start_disc(request, pk):
             # Also send pos and negative column names
             request.session['df'] = df.to_json(orient='split')
             request.session['probs'] = probs.to_json(orient='split')
-            request.session['columns'] = pd.DataFrame({'pos': file.posColumn, 'neg': file.negColumn},
+            request.session['columns'] = pd.DataFrame({'pos': posColumn, 'neg': negColumn},
                                                       index=[0]).to_json(orient='split')
 
             # Saving scores for download
-            scores.to_csv("media/DiscriminationTable.csv",index=None)
+            scores.to_csv("media/DiscriminationTable.csv", index=None)
 
             # So the table doesnt shrink
             pd.set_option('display.max_colwidth', -1)

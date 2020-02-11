@@ -22,3 +22,11 @@ def read(pathDF, pathOrder):
         print("Temporal Order file not found!")
         return None, None
     return df, temporalOrderDF
+
+def readOriginalDF(path):
+    try:
+        df = pd.read_csv(path)
+    except FileNotFoundError:
+        print("Dataframe file not found!")
+        return None, None
+    return df
