@@ -124,7 +124,7 @@ def start_disc(request, pk):
             eventInfo = ""
             # Prepare to tell the deleted events, if any
             if invalidMarginal:
-                eventInfo = "Following events were deleted because an invalid marginal probability: " + ', '.join(
+                eventInfo = "Following events were deleted because they have an invalid marginal probability: " + ', '.join(
                     invalidMarginal) + " ."
 
             # Prepare to tell the merged events, if any

@@ -121,11 +121,13 @@
     });
 </script>
 
-<!--Script for the PieChart-->
-<script type="text/javascript" id="dataPie" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}
+
+<!--Script for the Bar Chart-->
+<script type="text/javascript" id="dataBar" data-pos={{ pos }} data-neg={{ neg }} data-neut={{ neut }}
         data-explainable={{ explainable }} data-inco={{ inco }} data-apparent={{ apparent }}>
+
     //Collect the data
-    var script_tag = document.getElementById('dataPie');
+    var script_tag = document.getElementById('dataBar');
     var pos = script_tag.getAttribute("data-pos");
     var neg = script_tag.getAttribute("data-neg");
     var neut = script_tag.getAttribute("data-neut");
@@ -141,32 +143,41 @@
     const inconclusive = parseInt(inco, 10);
     const explainable = parseInt(expl, 10);
 
-    //Pie
-    var ctxP = document.getElementById("pieChart").getContext('2d');
-    var myPieChart = new Chart(ctxP, {
+    //List how all the graph should be
+    var allData = [positive, negative, neutral, apparent, inconclusive, explainable];
+    var allLabel = ["Favoritism", "Negative", "Neutral", "Apparent", "Inconcuslive", "Explainable"];
+    var backgroundColor = ["#5bc0de", "#d9534f", "#292b2c", "#f0ad4e", "#f9f9f9", "#5cb85c"];
+    var hoverBackgroundColor = ["#7CC0DE", "#ff6f69", "#414a4c", "#ffc367", "#f9f1f1", "#99cc99"];
 
+    //Iterate the data and remove value,label, color and hover color if the value is zero (do not show)
+    var i = allData.length;
+    while (i--) {
+        if (allData[i] == '0') {
+            allData.splice(i, 1);
+            allLabel.splice(i, 1);
+            backgroundColor.splice(i, 1);
+            hoverBackgroundColor.splice(i, 1);
+        }
+    }
+
+    //Bar architecture
+    var ctxP = document.getElementById("barChart").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
         plugins: [ChartDataLabels],
-        type: 'pie',
+        type: 'bar',
         data: {
-            labels: ["Favoritism", "Negative", "Neutral", "Apparent", "Inconcuslive", "Explainable"],
+            labels: allLabel,
             datasets: [{
-                data: [positive, negative, neutral, apparent, inconclusive, explainable],
-                backgroundColor: ["#5bc0de", "#d9534f", "#292b2c", "#f0ad4e",
-                    "#f9f9f9", "#5cb85c"],
-                hoverBackgroundColor: ["#7CC0DE", "#ff6f69", "#414a4c", "#f0ad4e",
-                    "#f9f1f1", "#5cb85c"],
+                data: allData,
+                backgroundColor: backgroundColor,
+                hoverBackgroundColor: hoverBackgroundColor,
                 borderWidth: 4,
-                borderColor: '#414a4c'
+                borderColor: '#414a4c',
             }]
         },
         options: {
-            responsive: true,
             legend: {
-                position: 'bottom',
-                labels: {
-                    padding: 25,
-                    boxWidth: 25,
-                }
+                display: false
             },
             plugins: {
                 datalabels: {
@@ -182,22 +193,20 @@
                         } else {
                             return null
                         }
-                    },
-                    color: 'black',
-                    labels: {
-                        title: {
-                            font: {
-                                size: '20',
-                            }
-                        },
-                    },
-                    align: 'end'
+                    }
                 }
             },
-
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                    }
+                }]
+            }
         }
-    })
+    });
 </script>
+
 <!--Script for the file list buttons so they turn into "loading"-->
 <script type="text/javascript">
     function funcLoad(elem) {
