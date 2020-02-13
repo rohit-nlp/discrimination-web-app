@@ -210,12 +210,12 @@ def performRandomWalk(df, probs, nIter, posName, negName, indThr, diff):
          'Veredict': veredicts},
         columns=['Name', 'Positive Score', 'Avg. Positive Steps', 'Negative Score', 'Avg. Negative Steps',
                  'Intermediate Node', 'Inconclusive Score', 'Veredict'])
-    pos, neg, neut, explainable, inco, apparent = makePie(pd.DataFrame({'veredict': veredictsPie}))
+    pos, neg, neut, explainable, inco, apparent = makeBar(pd.DataFrame({'veredict': veredictsPie}))
     return scores, pos, neg, neut, explainable, inco, apparent
 
 
-# Function that creates 6 integers, each for every "discrimination type" that will be used for the pie chart
-def makePie(veredict):
+# Function that creates 6 integers, each for every "discrimination type" that will be used for the bar chart
+def makeBar(veredict):
     pos = 0
     neg = 0
     neut = 0
