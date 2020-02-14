@@ -3,10 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/WeightedRandomWalk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/static/df/Categorized_adult.csv" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/df/Categorized_adult.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Example Datasets/Dataset Setup.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Example Datasets/Dataset Setup.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/CategorizeDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/CategorizeDataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/PageRank.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/PageRank.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/df/Categorized_Insurance_Costs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/df/Categorized_Insurance_Costs.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/df/Medical-Costs-US.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/img/BoxPlot.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/BoxPlot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/img/distplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/distplot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/img/smallPoints.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/smallPoints.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/templates/categorized.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/categorized.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,6 +190,9 @@
       <workItem from="1581495984861" duration="6276000" />
       <workItem from="1581584159438" duration="2297000" />
       <workItem from="1581587481202" duration="2815000" />
+      <workItem from="1581592233356" duration="2051000" />
+      <workItem from="1581668262023" duration="6744000" />
+      <workItem from="1581681141413" duration="305000" />
     </task>
     <servers />
   </component>
@@ -230,11 +240,11 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1581075292407" />
-    <state x="655" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1581587486088">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1581681140856">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="655" y="383" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1581587486088" />
-    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1581584158913" />
+    <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1581681140856" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1579079331381" />
     <state x="1466" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579116710263">
       <screen x="0" y="24" width="3840" height="1056" />

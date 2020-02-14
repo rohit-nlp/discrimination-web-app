@@ -19,7 +19,7 @@ def isAble(df, decisionCol):
     if df.shape[0] < 2 or df.shape[1] < 2:
         error = "Dataframe has less than 2 columns or less than 2 rows"
     if decisionCol not in df.columns:
-        error = "Dataframe has not the decision column " + decisionCol
+        error = "Dataframe has not the decision column called '" + decisionCol + "'"
     return error
 
 
@@ -28,57 +28,50 @@ def getQuartiles(df, column):
     if column in df.columns:
         min = df[column].quantile(0)
         p25 = df[column].quantile(0.25)
-        median = df[column].quantile(0.5)
         p75 = df[column].quantile(0.75)
         max = df[column].quantile(1) + 1
-        return min, p25, median, p75, max
+        return min, p25, p75, max
     return None
 
 
-# Function that splits (categorizes) a numerical data sample in 4 bins by looking at its quartiles
-def categorize4(df):
+# Function that splits (categorizes) a numerical data sample in 3 bins by looking at its quartiles
+def categorize3(df):
     newDf = pd.DataFrame()
     # For every column, get its quartiles
     for column in df.columns:
-        min, p25, median, p75, max = getQuartiles(df, column)
-        bins = [min, p25, median, p75, max]
+        min, p25, p75, max = getQuartiles(df, column)
+        bins = [min, p25, p75, max]
+        minString = str(min)
+        p25String = str(p25)
+        p75String = str(p75)
+        maxString = str(max)
 
-        # I want to remove the '.0' of floats when str(float) but if the float its (0.0) then I remove the whole string
-        if min == 0:
-            colMin = "0"
-        else:
-            colMin = ('%f' % min).rstrip('.0')
+        names = ["Low","Average","High"]
 
-        # If the first quartile is also zero, I just need 3 splits
-        if min == p25:
-            bins = [min, median, p75, max]
-            names = [colMin + "_" + ('%f' % median).rstrip('.0'),
-                     ('%f' % median).rstrip('.0') + "_" + ('%f' % p75).rstrip('.0'),
-                     ('%f' % p75).rstrip('.0') + "_" + ('%f' % max).rstrip('.0')]
-        else:
-            names = [colMin + "_" + ('%f' % p25).rstrip('.0'),
-                     ('%f' % p25).rstrip('.0') + "_" + ('%f' % median).rstrip('.0'),
-                     ('%f' % median).rstrip('.0') + "_" + ('%f' % p75).rstrip('.0'),
-                     ('%f' % p75).rstrip('.0') + "_" + ('%f' % max).rstrip('.0')]
+
+
+        # # I want to remove the '.0' of floats when str(float) but if the float its (0.0) then I remove the whole string
+        # if min == 0:
+        #     colMin = "0"
+        # else:
+        #     colMin = minString.replace(".0", "")
+        # # If the first quartile is also zero, I just need 3 splits
+        # if min == p25:
+        #     bins = [min, median, p75, max]
+        #
+        #     names = [colMin + "_" + medianString,
+        #              medianString + "_" + p75String,
+        #              p75String + "_" + maxString]
+        # else:
+        #     names = [colMin + "_" + p25String,
+        #              p25String + "_" + medianString,
+        #              medianString + "_" + p75String,
+        #              p75String + "_" + maxString]
+
+
+
 
         # Enumerate & vectorize the numerical values
-        tempDict = dict(enumerate(names, 1))
-        newDf[column] = np.vectorize(tempDict.get)(np.digitize(df[column], bins))
-    return newDf
-
-
-# Function that categorizes in 2 splits (never used)
-def categorize2(df):
-    newDf = pd.DataFrame()
-    for column in df.columns:
-        min, p25, median, p75, max = getQuartiles(df, column)
-        bins = [min, median, max]
-        if min == 0:
-            colMin = "0"
-        else:
-            colMin = ('%f' % min).rstrip('.0')
-        names = [colMin + "_" + ('%f' % median).rstrip('.0'),
-                 ('%f' % median).rstrip('.0') + "_" + ('%f' % max).rstrip('.0')]
         tempDict = dict(enumerate(names, 1))
         newDf[column] = np.vectorize(tempDict.get)(np.digitize(df[column], bins))
     return newDf
@@ -105,9 +98,9 @@ def dummyFeatures(df):
 
 # Our training library doesn't support some symbols, so I'm removing it
 def replaceAll(string):
-    invalidDict = {' ': "_", "-": "_", ")": "", "(": "", "&": "_and_", "<": "minus", ">": "bigger",
+    invalidDict = {' ': "_", "-": "negative", ")": "", "(": "", "&": "_and_", "<": "minus", ">": "bigger",
                    "<=": "minus_or_equal", ">=": "bigger_or_equal",
-                   "*": "", "'": "", '"': "", "=": "_equal_"}
+                   "*": "", "'": "", '"': "", "=": "_equal_", "/": "_", '  ': ""}
     for i, j in invalidDict.items():
         string = string.replace(i, j)
     return string
@@ -137,7 +130,7 @@ def adaptDF(data, decisionCol):
             # Check if I have to categorize numerical variables
             if len(numerical) > 0:
                 # Transform numerical features
-                dfNum = categorize4(df[numerical].copy(deep=True))
+                dfNum = categorize3(df[numerical].copy(deep=True))
                 joinedDf = dfNum.join(df[categorical])
                 # Transform categorical features (all of them)
                 return dummyFeatures(joinedDf), posColumn, negColumn, error

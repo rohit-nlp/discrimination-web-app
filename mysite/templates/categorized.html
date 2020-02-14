@@ -8,7 +8,8 @@
             {% if err == "" %}
                 <p>This dataset contains just zeros and ones. Each variable is now categorical.</p>
                 <p>Numerical variables have been transformed looking at his quartiles (25, median and 75)</p>
-                <p>No special symbols (apart from '_') are allowed</p>
+                <p>No special symbols (apart from '_') are allowed. For example, '-' should only appear on negative
+                    values (not in the header). It's translated as 'negative'.</p>
                 <div class="col-md-12 align-items-center animated fadeIn">
                     <div class="table-wrapper-scroll-x categorizedTable">
                         {{ dfView|safe }}

@@ -82,17 +82,20 @@ def categorize(request, pk):
         file = File.objects.get(pk=pk)
         # Gather the files
         df, temporalOrder = read(file.file, file.temporalOrder.file)
-        # Categorize DF
-        df, posColumn, negColumn, error = adaptDF(df, file.decColumn)
-        # Safe categorized DF
-        df.to_csv("mysite/core/static/df/Categorized_" + str(file.file), index=None)
-        if error == "":
-            return render(request, "categorized.html",
-                          {'dfView': df.head().to_html(classes="table table-striped table-sm",
-                                                       table_id="categorizedTable",
-                                                       index=False,
-                                                       justify="right"), 'pos': posColumn, 'neg': negColumn,
-                           'err': error, 'file': file.pk})
+        if df is not None and temporalOrder is not None:
+            # Categorize DF
+            df, posColumn, negColumn, error = adaptDF(df, file.decColumn)
+            if error == "":
+                # Safe categorized DF
+                df.to_csv("mysite/core/static/df/Categorized_" + str(file.file), index=None)
+                return render(request, "categorized.html",
+                              {'dfView': df.head().to_html(classes="table table-striped table-sm",
+                                                           table_id="categorizedTable",
+                                                           index=False,
+                                                           justify="right"), 'pos': posColumn, 'neg': negColumn,
+                               'err': error, 'file': file.pk})
+        else:
+            error = "Can't read the files"
 
     return render(request, "categorized.html", {'err': error})
 
@@ -120,6 +123,7 @@ def start_disc(request, pk):
             route_to_df,
             file.file, file.temporalOrder.file, file.decColumn, posColumn, negColumn, 0.55, 0.25)
         # If there are no errors
+        scores.to_csv("Scores.csv",index=None)
         if scores is not None:
             eventInfo = ""
             # Prepare to tell the deleted events, if any

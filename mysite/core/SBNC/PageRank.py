@@ -52,6 +52,7 @@ def pageRank(df, probs, posName, negName, varName):
 
     # A regular check
     if (scores.shape[0] > 1) and (scores.shape[1] > 0):
+        scores.to_csv("Scores.csv",index=None)
         return scores
     return None
 
