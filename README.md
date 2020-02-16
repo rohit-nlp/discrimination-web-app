@@ -35,30 +35,15 @@ Install R on your computer. Check if your already have it:
 
 **This project needs R >= 3.2.3**
 
-
-If not, first add the project GNU Privacy Guard key 
-
-```bash
-	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-```
-
-Add the R Repository:
-
-```bash
-	sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
-```
-
-Update & install:
-
 ```bash
 	sudo apt update
-	sudo apt install r-base
+	sudo apt-get install r-base
 ```
 
 *On the first run project will tell you if you want to install the required bnlearn R library. You can type 'yes' or install it manually on R before launching the project, with:*
 
 ```bash
-		install.packages(“bnlearn”)
+	install.packages(“bnlearn”)
 ```
 
 ---
@@ -78,6 +63,12 @@ Install the requirements:
 ```
 
 *Some of the requirements cannot be installed through pip.*
+
+**Rpy2**
+
+```bash
+	sudo apt install python-rpy2
+```
 
 **Pycairo**
 

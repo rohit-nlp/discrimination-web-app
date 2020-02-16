@@ -4,9 +4,17 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="2">
+          <list size="10">
             <item index="0" class="java.lang.String" itemvalue="Django" />
             <item index="1" class="java.lang.String" itemvalue="defer" />
+            <item index="2" class="java.lang.String" itemvalue="tqdm" />
+            <item index="3" class="java.lang.String" itemvalue="rpy2" />
+            <item index="4" class="java.lang.String" itemvalue="XlsxWriter" />
+            <item index="5" class="java.lang.String" itemvalue="scikit-learn" />
+            <item index="6" class="java.lang.String" itemvalue="statsmodels" />
+            <item index="7" class="java.lang.String" itemvalue="reportlab" />
+            <item index="8" class="java.lang.String" itemvalue="urllib3" />
+            <item index="9" class="java.lang.String" itemvalue="simplejson" />
           </list>
         </value>
       </option>

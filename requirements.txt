@@ -56,7 +56,6 @@ patsy==0.5.1
 pexpect==4.0.1
 pgmpy==0.1.9
 pickleshare==0.7.5
-Pillow==3.1.2
 plainbox==0.25
 prometheus-client==0.7.1
 prompt-toolkit==2.0.10
