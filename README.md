@@ -83,6 +83,7 @@ Install the requirements:
 
 ```bash
 	pip3 install pycairo
+	pip3 install cairocffi
 ```
 or
 
