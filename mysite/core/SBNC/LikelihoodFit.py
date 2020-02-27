@@ -68,8 +68,13 @@ def fit(df, adjacencyMatrix):
     blacklist_to_R = pandas2ri.py2ri(blacklist)
     df_to_R = pandas2ri.py2ri(categoricalMatrixDF)
 
-    # Perform the training
-    training = bnlearn.hc(df_to_R, score="bic", blacklist=blacklist_to_R)
+    try:
+        # Perform the training
+        training = bnlearn.hc(df_to_R, score="bic", blacklist=blacklist_to_R)
+    except Exception as e:
+        return None, "Invalid symbol on header column name!"
+        raise
+
 
     # arcs is a matrix with 2 columns (from, to) with the computed arcs
     arcs = training[2]

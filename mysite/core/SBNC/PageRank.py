@@ -9,10 +9,11 @@
 import igraph as p
 import pandas as pd
 
+
 # Function that computes the Personalized Page Rank score for every individual on the dataset
 def pageRank(df, probs, posName, negName, varName):
     datasetValues = df.values  # This will be the personalizing vector
-    N = df.shape[0]
+    cols = df.columns
 
     # Create the graph
     tuples = [tuple(x) for x in probs.values]
@@ -26,16 +27,20 @@ def pageRank(df, probs, posName, negName, varName):
     indexPos = -1
     indexNeg = -1
 
+    vertexDic = {}
     # Get index of pos and neg nodes
     for i, j in enumerate(graph.vs):
-        if j["name"] == posName:
-            indexPos = i
-        elif j["name"] == negName:
-            indexNeg = i
+        vertexDic[j["name"]] = i
+
+    indexPos = vertexDic[posName]
+    indexNeg = vertexDic[negName]
 
     # For every individual:
     for i in range(df.shape[0]):
-        scores = graph.personalized_pagerank(directed=True, weights='edgeprob', reset=datasetValues[i] / N,
+        # List of iGraph vectors where the walker can jump. This nodes are the individual attributes
+        jumpTo = [vertexDic[elem] for index, elem in enumerate(cols) if datasetValues[i][index] == 1]
+
+        scores = graph.personalized_pagerank(directed=True, weights='edgeprob', reset_vertices=jumpTo,
                                              implementation="prpack")
         # Scores is a vector that sums 1 and every position is the score of a node. I only want pos and neg values:
         pos.append(scores[indexPos])
@@ -52,7 +57,6 @@ def pageRank(df, probs, posName, negName, varName):
 
     # A regular check
     if (scores.shape[0] > 1) and (scores.shape[1] > 0):
-        scores.to_csv("Scores.csv",index=None)
         return scores
     return None
 

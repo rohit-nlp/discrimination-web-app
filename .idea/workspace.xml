@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5844d21-4827-4094-85f5-03aa51cc3844" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/django-upload-example-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/django-upload-example-master.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scores.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Scores.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/core/static/df/Categorized_adult.csv" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/df/Categorized_adult.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/CategorizeDataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/CategorizeDataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/LikelihoodFit.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/LikelihoodFit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/PageRank.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/PageRank.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/SBNC/SBNC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/df/Categorized_Insurance_Costs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/df/Categorized_Insurance_Costs.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/df/Categorized_compas-scores-two-years.csv" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/df/Categorized_compas-scores-two-years.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/Big DAG Reconstructed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/img/BoxPlot.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/BoxPlot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/DAG Reconstructed.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/core/static/img/distplot.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/distplot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/core/static/img/smallPoints.png" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/core/static/img/smallPoints.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +195,16 @@
       <workItem from="1581681141413" duration="305000" />
       <workItem from="1581883165673" duration="113000" />
       <workItem from="1581886368232" duration="2195000" />
+      <workItem from="1581950562505" duration="957000" />
+      <workItem from="1581954055313" duration="510000" />
+      <workItem from="1581955855999" duration="186000" />
+      <workItem from="1582034570117" duration="13000" />
+      <workItem from="1582038896595" duration="406000" />
+      <workItem from="1582048185938" duration="1308000" />
+      <workItem from="1582131668825" duration="1298000" />
+      <workItem from="1582303478976" duration="4485000" />
+      <workItem from="1582314513884" duration="930000" />
+      <workItem from="1582815636602" duration="179000" />
     </task>
     <servers />
   </component>
@@ -242,13 +254,14 @@
     </state>
     <state x="2406" y="174" key="SettingsEditor/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1581075292407" />
     <state x="484" y="172" key="SettingsEditor/67.27.1649.900@67.27.1649.900" timestamp="1581886420456" />
-    <state x="628" y="333" key="com.intellij.ide.util.TipDialog" timestamp="1581886373689">
-      <screen x="67" y="27" width="1649" height="900" />
+    <state x="697" y="385" key="com.intellij.ide.util.TipDialog" timestamp="1582314512776">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="655" y="383" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@0.24.1920.1056" timestamp="1581587486088" />
     <state x="2573" y="367" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.24.1920.1056@1920.0.1920.1080" timestamp="1581681140856" />
     <state x="698" y="383" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1579079331381" />
     <state x="628" y="333" key="com.intellij.ide.util.TipDialog/67.27.1649.900@67.27.1649.900" timestamp="1581886373689" />
+    <state x="697" y="385" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582314512776" />
     <state x="1466" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579116710263">
       <screen x="0" y="24" width="3840" height="1056" />
     </state>

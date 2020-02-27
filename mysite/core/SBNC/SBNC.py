@@ -83,7 +83,3 @@ def SBNC(pathDFCategorized, pathOriginalDf, pathOrder, decisionColumn,posColumn,
         reason = "Negative Decision column & Positive Decision column must be different!"
 
     return reason, df, invalidMarginal, notDistinguish, probs, scores, disconnectedNodes, pos, neg, neut, explainable, inco, apparent, elapsed
-
-#Handler for Page Rank computation
-def doPageRank(df, probs, posColumn, negColumn):
-    return pageRank(df, probs, posColumn, negColumn)

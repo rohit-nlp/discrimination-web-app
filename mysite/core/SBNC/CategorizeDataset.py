@@ -28,25 +28,29 @@ def getQuartiles(df, column):
     if column in df.columns:
         min = df[column].quantile(0)
         p25 = df[column].quantile(0.25)
+        p33 = df[column].quantile(0.33)
+        median = df[column].quantile(0.5)
+        p67 = df[column].quantile(0.67)
         p75 = df[column].quantile(0.75)
         max = df[column].quantile(1) + 1
-        return min, p25, p75, max
+        return {'min':min, 'p25':p25,'p33':p33, 'median':median, 'p67':p67, 'p75':p75, 'max':max}, {'min':min,'p33':p33,'p67':p67,'max':max}
     return None
 
 
-# Function that splits (categorizes) a numerical data sample in 3 bins by looking at its quartiles
-def categorize3(df):
+# Function that splits (categorizes) a numerical data sample in 3 2 or 4 bins by looking at its quartiles
+def categorize(df):
     newDf = pd.DataFrame()
     # For every column, get its quartiles
     for column in df.columns:
-        min, p25, p75, max = getQuartiles(df, column)
-        bins = [min, p25, p75, max]
-        minString = str(min)
-        p25String = str(p25)
-        p75String = str(p75)
-        maxString = str(max)
+        right = False
+        quantile4,quantile3 = getQuartiles(df, column)
+        quantiles = list(quantile4.values())
+        duplicates = [key for key,value in quantile4.items() if quantiles.count(value) > 1]
+        #Can I do 4 categorizations?
+        if len(df[column].value_counts()) > 25 and len(duplicates) == 0:
+            bins = [quantile4['min'], quantile4['p25'], quantile4['median'], quantile4['p75'], quantile4['max']]
 
-        names = ["Low","Average","High"]
+            names = ["Low","Average","Average2","High"]
 
 
 
@@ -69,11 +73,22 @@ def categorize3(df):
         #              p75String + "_" + maxString]
 
 
-
+        else:
+            quantiles = list(quantile3.values())
+            duplicates = [key for key, value in quantile3.items() if quantiles.count(value) > 1]
+            if len(duplicates) == 0:
+                bins = [quantile4['min'],quantile3['p33'], quantile3['p67'], quantile4['max']-1]
+                names = ["Low", "Average", "High"]
+                right = True
+            else:
+                bins = [quantile4['min'],quantile4['median'],quantile4['max']]
+                print(bins)
+                names = ["Low","High"]
+                #right= True
 
         # Enumerate & vectorize the numerical values
         tempDict = dict(enumerate(names, 1))
-        newDf[column] = np.vectorize(tempDict.get)(np.digitize(df[column], bins))
+        newDf[column] = np.vectorize(tempDict.get)(np.digitize(df[column], bins,right=right))
     return newDf
 
 
@@ -130,7 +145,7 @@ def adaptDF(data, decisionCol):
             # Check if I have to categorize numerical variables
             if len(numerical) > 0:
                 # Transform numerical features
-                dfNum = categorize3(df[numerical].copy(deep=True))
+                dfNum = categorize(df[numerical].copy(deep=True))
                 joinedDf = dfNum.join(df[categorical])
                 # Transform categorical features (all of them)
                 return dummyFeatures(joinedDf), posColumn, negColumn, error
