@@ -70,7 +70,7 @@ pytz==2014.10
 pyxdg==0.25
 pyzmq==18.1.1
 qtconsole==4.6.0
-reportlab==3.3.0
+reportlab==3.5.55
 requests==2.9.1
 rpy2==2.8.2
 scikit-learn==0.22
